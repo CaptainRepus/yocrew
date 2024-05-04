@@ -4,7 +4,7 @@ node_modules
 /dist
 /ios
 /android
-
+/src
 
 # local env files
 .env.local
