@@ -1,0 +1,7 @@
+{
+  "name": "yocrew",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
