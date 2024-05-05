@@ -1,23 +1,26 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        
+      <ion-toolbar mode="ios" class="md:hidden">
+        <ion-title size="large" class="mt-5">Domov</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" class="md:hidden ">
       <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large" class="bg-red">Tab 1 lol</ion-title>
+        <ion-toolbar class="mt-[-6.5rem]">
+          <ion-title size="large" class="mt-[2.5rem] z-10">Domov</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <ExploreContainer name="Tab 1 page" />
+      <div class="p-4">
+        <h1 class="text-2xl text-white">IDK</h1>
+      </div>
+      
+
     </ion-content>
   </ion-page>
 </template>
 
 <script setup>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
 </script>
