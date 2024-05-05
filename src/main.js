@@ -34,6 +34,7 @@ import '@ionic/vue/css/palettes/dark.system.css';
 //TailwindCSS import
 import './theme/index.css';
 import 'flowbite';
+import '@ionic/vue/css/palettes/dark.always.css';
 
 
 const app = createApp(App)
