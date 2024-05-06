@@ -12,15 +12,50 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="p-4 md:mt-20 w-52 h-screen bg-red-500 z-[50000]">
-        <h1 class="text-2xl text-white">IDK</h1>
+      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+        <giveaway />
       </div>
-      
 
     </ion-content>
   </ion-page>
 </template>
 
-<script setup>
+<script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { useBlogStore } from '@/store/useBlogStore.js';
+import giveaway from '../components/giveaway.vue';
+import { useGiveawayStore } from '@/store/useGiveawayStore.js';
+
+
+export default {
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    giveaway,
+  },
+  setup(){
+    const blogStore = useBlogStore();
+    const giveawayStore = useGiveawayStore();
+
+    const getBlog = () =>{
+      blogStore.getBlog();
+    }
+    const getGiveaway = () =>{
+      giveawayStore.getGiveaway();
+    }
+    return {
+      blogStore,
+      getBlog,
+      getGiveaway,
+      giveawayStore,
+    }
+  },
+  mounted(){
+    this.getBlog();
+    this.getGiveaway();
+  }
+}
 </script>

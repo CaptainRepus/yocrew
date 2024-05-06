@@ -1,0 +1,19 @@
+[
+    {
+      "name": "FragFest 24/7 Dust2",
+      "link": "steam://connect/123.456.789.012:27015"
+    },
+    {
+      "name": "Competitive Matchmaking Server",
+      "link": "steam://connect/123.456.789.013:27016"
+    },
+    {
+      "name": "Community Casual Server",
+      "link": "steam://connect/123.456.789.014:27017"
+    },
+    {
+      "name": "Aim Training Server",
+      "link": "steam://connect/123.456.789.015:27018"
+    }
+  ]
+  
