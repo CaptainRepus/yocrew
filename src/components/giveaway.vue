@@ -11,11 +11,11 @@
                 {{ giveawayStore.giveaway.popis }}
             </h2>
             </div>
-            <div class="flex justify-center items-center md:w-1/4 hidden" > <!-- V-IF PRIHLASENY -->
+            <!-- <div class="flex justify-center items-center md:w-1/4" > <!-- V-IF PRIHLASENY 
                 <button class="p-3 text-white text-md text-center bg-green-500 border border-green-900 rounded-lg">
                     Prihlás sa do {{ giveawayStore.giveaway.deadline }}
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

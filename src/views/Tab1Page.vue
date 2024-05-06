@@ -14,6 +14,14 @@
 
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
         <giveaway />
+        <div class="w-full h-[60vh] flex flex-col md:flex-row">
+          <div class="w-full h-full bg-red-500">
+            idk
+          </div>
+          <div class="w-full h-full bg-green-500">
+            idk
+          </div>
+        </div>
       </div>
 
     </ion-content>
