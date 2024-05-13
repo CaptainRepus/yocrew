@@ -31,8 +31,9 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
-import giveaway from '../components/giveaway.vue';
+import giveaway from '../components/homepage/giveaway.vue';
 import { useGiveawayStore } from '@/store/useGiveawayStore.js';
+import blog from '../components/homepage/blog.vue';
 
 
 export default {
