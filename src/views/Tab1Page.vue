@@ -13,13 +13,16 @@
       </ion-header>
 
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
-        <giveaway />
-        <div class="w-full h-[60vh] flex flex-col md:flex-row">
-          <div class="w-full h-full bg-red-500">
-            idk
+        <giveaway /> 
+        <div class="w-full h-auto flex flex-col md:flex-row">
+          <div class="w-full h-full">
+            <streamWidget />
+            <div class="w-full bg-red-500">
+              idk
+            </div>
           </div>
-          <div class="w-full h-full bg-green-500">
-            idk
+          <div class="w-full h-full max-md:mt-5">
+            <blog />
           </div>
         </div>
       </div>
@@ -34,6 +37,7 @@ import { useBlogStore } from '@/store/useBlogStore.js';
 import giveaway from '../components/homepage/giveaway.vue';
 import { useGiveawayStore } from '@/store/useGiveawayStore.js';
 import blog from '../components/homepage/blog.vue';
+import streamWidget from '../components/homepage/streamWidget.vue';
 
 
 export default {
@@ -44,6 +48,8 @@ export default {
     IonTitle,
     IonContent,
     giveaway,
+    blog,
+    streamWidget,
   },
   setup(){
     const blogStore = useBlogStore();

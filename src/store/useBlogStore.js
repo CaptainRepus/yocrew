@@ -4,7 +4,7 @@ import axios from "axios";
 export const useBlogStore = defineStore({
   id: "blog",
   state: () => ({
-    articles: ''
+    articles: []
   }),
   actions: {
     async getBlog() {
