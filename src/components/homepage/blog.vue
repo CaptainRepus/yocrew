@@ -18,7 +18,7 @@
                 </a>
             </div>
         </div>
-        <ion-button class="col-span-2">Pozrieť všetky články</ion-button>
+        <ion-button class="col-span-2" @click="click">Pozrieť všetky články</ion-button>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:hidden">
@@ -40,7 +40,7 @@
                 </a>
             </div>
         </div>
-        <ion-button>Pozrieť všetky články</ion-button>
+        <ion-button @click="click">Pozrieť všetky články</ion-button>
     </div>
 </template>
 
@@ -57,6 +57,11 @@ export default {
         return { 
             blogStore
         };
+    },
+    methods: {
+        click() {
+            this.$router.push('/clanky');
+        }
     }
 }
 </script>

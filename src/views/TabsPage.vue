@@ -6,7 +6,7 @@
       <!-- NAVBAR NA PC -->
       <nav class=" h-20 bg-gray-900 fixed w-full z-20 top-0 start-0 border-b  border-gray-700 max-md:hidden">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-[0.6rem]">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="/img/yocrewlogo.png" class="h-16" alt="YoCrew Logo">
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -29,7 +29,7 @@
               <a href="/servery" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Turnaje</a>
             </li>
             <li>
-              <a href="/profil" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">CS2 Servery</a>
+              <a href="/clanky" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">CS2 Servery</a>
             </li>
           </ul>
         </div>
@@ -46,8 +46,12 @@
           <ion-icon aria-hidden="true" :icon="ribbon" />
         </ion-tab-button>
 
-        <ion-tab-button tab="Profil" href="/profil">
-          <ion-icon aria-hidden="true" :icon="person" />
+        <ion-tab-button tab="Články" href="/clanky">
+          <ion-icon aria-hidden="true" :icon="library" />
+        </ion-tab-button>
+
+        <ion-tab-button tab="Servery" href="/servery">
+          <ion-icon aria-hidden="true" :icon="gameController" />
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -56,5 +60,5 @@
 
 <script setup>
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { home, ribbon, person } from 'ionicons/icons';
+import { home, ribbon, library, gameController } from 'ionicons/icons';
 </script>

@@ -38,7 +38,6 @@ import 'flowbite';
 import '@ionic/vue/css/palettes/dark.always.css';
 
 
-
 const app = createApp(App)
   .use(IonicVue)
   .use(createPinia())

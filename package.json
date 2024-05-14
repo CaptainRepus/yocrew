@@ -28,6 +28,7 @@
     "flowbite": "^2.3.0",
     "ionicons": "^7.0.0",
     "pinia": "^2.1.7",
+    "remixicon": "^4.2.0",
     "vue": "^3.3.0",
     "vue-router": "^4.2.0"
   },
