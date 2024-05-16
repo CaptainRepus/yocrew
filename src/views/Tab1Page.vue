@@ -26,8 +26,9 @@
           </div>
         </div>
         <div class="w-full h-full max-md:mt-5 px-4 py-2 max-md:pt-0">
-            <gallery />
-          </div>
+          <gallery />
+          
+        </div>
       </div>
 
     </ion-content>
@@ -57,6 +58,7 @@ export default {
     streamWidget,
     tournamentClose,
     gallery,
+
   },
   setup(){
     const blogStore = useBlogStore();
