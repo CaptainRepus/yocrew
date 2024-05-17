@@ -1,6 +1,6 @@
 <template>
     
-    <div class="flex items-center justify-between bg-green-500 p-4 mb-4 rounded-xl md:rounded-none md:mb-0 ml-0 mr-0 md:ml-8 md:mr-4">
+    <div class="flex items-center justify-between bg-green-500 p-4 md:p-10 mb-4 rounded-xl  md:mb-0 ml-0 mr-0 md:ml-8 md:mr-4">
       <!-- Left arrow for scrolling -->
       <button @click="scroll(-1)" class="focus:outline-none">
         <!-- Replace with your left arrow icon -->
@@ -11,8 +11,8 @@
   
       <!-- Profile card -->
       <div class="flex flex-col items-center overflow-hidden  ">
-        <img :src="currentPhoto.url" :alt="currentPhoto.name" class="w-5/6 shadow-lg aspect-square object-cover  rounded-full"/>
-        <div class="w-full px-6 py-4 bg-black shadow-lg mt-4 rounded-2xl">
+        <img :src="currentPhoto.url" :alt="currentPhoto.name" class="w-5/6 md:w-4/6 shadow-lg aspect-square object-cover  rounded-full"/>
+        <div class="w-full md:w-5/6 px-6 py-4 bg-black shadow-lg mt-4 rounded-2xl">
           <div class="font-bold text-xl mb-2 text-white">{{ currentPhoto.name }}</div>
           <p class="text-gray-300 text-base">{{ currentPhoto.position }}</p>
         </div>
