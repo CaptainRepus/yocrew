@@ -25,10 +25,10 @@
             <blog />
           </div>
         </div>
-        <div class="w-full h-full max-md:mt-5 px-4 py-2 max-md:pt-0">
+        <div class="w-full h-full max-md:mt-5 p-3  py-2 max-md:pt-0">
           <gallery />
-          
         </div>
+        <foter />
       </div>
 
     </ion-content>
@@ -45,6 +45,7 @@ import blog from '../components/homepage/blog.vue';
 import streamWidget from '../components/homepage/streamWidget.vue';
 import tournamentClose from '../components/homepage/tournamentClose.vue';
 import gallery from '../components/homepage/gallery.vue';
+import foter from '../components/footer.vue';
 
 export default {
   components: {
@@ -58,7 +59,7 @@ export default {
     streamWidget,
     tournamentClose,
     gallery,
-
+    foter,
   },
   setup(){
     const blogStore = useBlogStore();

@@ -1,5 +1,5 @@
 <template>
-    <div class="animate relative w-full h-auto md:h-28 bg-green-600 shadow-md border border-gray-700 rounded-lg md:rounded-none overlfow-x-hidden mt-[1rem] mb-5 oveflow-hidden">
+    <div class="animate relative w-full h-auto md:h-auto bg-green-600 shadow-md border border-gray-700 rounded-lg md:rounded-none overlfow-x-hidden mt-[1rem] mb-5 oveflow-hidden">
         <span class="absolute top-[-2rem] left-[-1rem] text-5xl mt-2 mr-2 md:hidden">🎉</span>
         <span class="absolute bottom-[-1rem] right-[-2rem] text-5xl mt-2 mr-2 md:hidden">🎊</span>
         <div class="flex flex-col p-2 md:flex-row justify-center items-center">
