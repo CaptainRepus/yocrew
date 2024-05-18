@@ -1,5 +1,5 @@
 <template>
-    <div class="animate relative w-full h-52 md:h-28 bg-green-600 shadow-md border border-gray-700 rounded-lg md:rounded-none overlfow-x-hidden mt-[1rem] mb-5 oveflow-hidden">
+    <div class="animate relative w-full h-auto md:h-28 bg-green-600 shadow-md border border-gray-700 rounded-lg md:rounded-none overlfow-x-hidden mt-[1rem] mb-5 oveflow-hidden">
         <span class="absolute top-[-2rem] left-[-1rem] text-5xl mt-2 mr-2 md:hidden">🎉</span>
         <span class="absolute bottom-[-1rem] right-[-2rem] text-5xl mt-2 mr-2 md:hidden">🎊</span>
         <div class="flex flex-col p-2 md:flex-row justify-center items-center">
@@ -12,7 +12,7 @@
             </h2>
             </div>
              <div class="flex justify-center items-center md:w-1/4" >
-                <button class="p-3 text-white text-md text-center bg-green-500 border border-green-900 rounded-lg mt-2 md:mt-0 hover:bg-green-700">
+                <button class="p-3 text-white text-md text-center bg-green-500 border border-green-900 rounded-lg mt-2 md:mt-0 hover:bg-green-700 max-md:mb-3">
                     Prihlás sa do {{ giveawayStore.giveaway.deadline }}
                 </button>
             </div>
