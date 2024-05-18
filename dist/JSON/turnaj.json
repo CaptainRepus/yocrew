@@ -1,0 +1,40 @@
+[
+  {
+    "game": "Counter-Strike: Global Offensive",
+    "tournament": "CS:GO Masters Championship",
+    "prize_pool": "250 000",
+    "date": "2024-05-10",
+    "description": "The CS:GO Masters Championship is one of the most prestigious tournaments in the esports calendar. Top teams from around the world will compete for the coveted title and a massive prize pool of $250,000.",
+    "teams_allowed": 16,
+    "link": "https://www.faceit.com/en/csgo/tournament/{tournament_id}"
+  },
+  {
+    "game": "League of Legends",
+    "tournament": "Worlds Qualifiers",
+    "prize_pool": "$500,000",
+    "date": "2024-06-15",
+    "description": "The Worlds Qualifiers is the gateway to the pinnacle of League of Legends competition. Teams from various regions will clash for a chance to secure their spot in the prestigious Worlds tournament.",
+    "teams_allowed": 24,
+    "link": "https://www.faceit.com/en/lol/tournament/{tournament_id}"
+  },
+  {
+    "game": "Dota 2",
+    "tournament": "International Invitational",
+    "prize_pool": "$1,000,000",
+    "date": "2024-07-20",
+    "description": "The International Invitational is the crown jewel of Dota 2 esports. Featuring the best teams from around the globe, this tournament offers an unprecedented prize pool of $1,000,000.",
+    "teams_allowed": 20,
+    "link": "https://www.faceit.com/en/dota2/tournament/{tournament_id}"
+  },
+  {
+    "game": " 2",
+    "tournament": " Invitational",
+    "prize_pool": "$1,000,000",
+    "date": "2023-07-25",
+    "description": "The International Invitational is the crown jewel of Dota 2 esports. Featuring the best teams from around the globe, this tournament offers an unprecedented prize pool of $1,000,000.",
+    "teams_allowed": 20,
+    "link": "https://www.faceit.com/en/dota2/tournament/{tournament_id}"
+  }
+]
+
+  

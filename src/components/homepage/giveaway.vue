@@ -7,7 +7,7 @@
                 <h1 class="p-2 text-white text-xl text-center font-bold">
                 {{ giveawayStore.giveaway.name }}
             </h1>
-            <h2 class="p-1 text-white text-md text-center">
+            <h2 class="p-1 text-white text-md text-center max-md:hidden">
                 {{ giveawayStore.giveaway.popis }}
             </h2>
             </div>

@@ -6,12 +6,12 @@
         <a v-if="tournamentStore.tournament.length > 0" :href="sortedTournaments[0].link" class="relative h-1/3 w-full px-3 rounded-xl border border-slate-700 bg-slate-800 overflow-hidden hover:bg-slate-600 hover:border-green-500 hover:border-2">
           <ion-icon aria-hidden="true" class="absolute opacity-30 text-[20rem] max-md:text-[10rem] max-md:top-[-2.5rem] text-green-500 z-10 top-[-1rem] right-[-2rem]" :icon="gameController" />
           <div class="h-1/4 w-full flex items-end">
-            <h1 :class="titleClass(sortedTournaments[0].tournament)" class="font-bold z-20">{{ sortedTournaments[0].tournament }}</h1>
+            <h1 :class="titleClass(sortedTournaments[0].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[0].tournament }}</h1>
           </div>
           <div class="h-1/3 w-full flex flex-col">
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[0].game }}</h3>
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[0].date }}</h3>
-            <p class="text-sm z-20">{{ truncateDescription(sortedTournaments[0].description) }}</p>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[0].game }}</h3>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[0].date }}</h3>
+            <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[0].description) }}</p>
           </div>
         </a>
         <div v-else class="h-1/3 w-full bg-gray-500">
@@ -21,12 +21,12 @@
         <a v-if="tournamentStore.tournament.length > 0" :href="sortedTournaments[1].link" class="relative h-1/3 w-full px-3 rounded-xl bg-slate-800 border border-slate-700 overflow-hidden hover:bg-slate-600 hover:border-green-500 hover:border-2">
           <ion-icon aria-hidden="true" class="absolute opacity-30 text-[20rem] max-md:text-[10rem] max-md:top-[-2.5rem] text-green-500 z-10 top-[-1rem] right-[-2rem]" :icon="calendar" />
           <div class="h-1/4 w-full flex items-end">
-            <h1 :class="titleClass(sortedTournaments[1].tournament)" class="font-bold z-20">{{ sortedTournaments[1].tournament }}</h1>
+            <h1 :class="titleClass(sortedTournaments[1].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[1].tournament }}</h1>
           </div>
           <div class="h-1/3 w-full flex flex-col">
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[1].game }}</h3>
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[1].date }}</h3>
-            <p class="text-sm z-20">{{ truncateDescription(sortedTournaments[1].description) }}</p>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[1].game }}</h3>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[1].date }}</h3>
+            <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[1].description) }}</p>
           </div>
         </a>
         <div v-else class="h-1/3 w-full bg-gray-500">
@@ -36,12 +36,12 @@
         <a v-if="tournamentStore.tournament.length > 0" :href="sortedTournaments[2].link" class="relative h-1/3 w-full px-3 rounded-xl bg-slate-800 border border-slate-700 overflow-hidden hover:bg-slate-600 hover:border-green-500 hover:border-2">
           <ion-icon aria-hidden="true" class="absolute opacity-30 text-[20rem] max-md:text-[10rem] max-md:top-[-2.5rem] text-green-500 z-10 top-[-1rem] right-[-2rem]" :icon="calendar" />
           <div class="h-1/4 w-full flex items-end">
-            <h1 :class="titleClass(sortedTournaments[2].tournament)" class="font-bold z-20">{{ sortedTournaments[2].tournament }}</h1>
+            <h1 :class="titleClass(sortedTournaments[2].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[2].tournament }}</h1>
           </div>
           <div class="h-1/3 w-full flex flex-col">
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[2].game }}</h3>
-            <h3 class="text-lg font-semibold pb-1 z-20">{{ sortedTournaments[2].date }}</h3>
-            <p class="text-sm z-20">{{ truncateDescription(sortedTournaments[2].description) }}</p>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[2].game }}</h3>
+            <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[2].date }}</h3>
+            <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[2].description) }}</p>
           </div>
         </a>
         <div v-else class="h-1/3 w-full bg-gray-500">
