@@ -35,12 +35,12 @@
     return {
       currentIndex: 0,
       photos: [
-        { url: '../../../public/img/background.jpg', name: 'idk1', position: 'Developer' },
-        { url: '../../../public/img/profile.jpg', name: 'idk2', position: 'Designer' },
-        { url: '../../../public/img/profile.jpg', name: 'idk3', position: 'Lol' },
-        { url: '../../../public/img/profile.jpg', name: 'idk4', position: 'idk4' },
-        { url: '../../../public/img/profile.jpg', name: 'idk5', position: 'Designer2' },
-        { url: '../../../public/img/profile.jpg', name: 'idk6', position: 'Designer5' },
+        { url: '/img/background.jpg', name: 'idk1', position: 'Developer' },
+        { url: '/img/profile.jpg', name: 'idk2', position: 'Designer' },
+        { url: '/img/profile.jpg', name: 'idk3', position: 'Lol' },
+        { url: '/img/profile.jpg', name: 'idk4', position: 'idk4' },
+        { url: '/img/profile.jpg', name: 'idk5', position: 'Designer2' },
+        { url: '/img/profile.jpg', name: 'idk6', position: 'Designer5' },
       ]
     };
   },
