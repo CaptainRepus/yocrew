@@ -25,7 +25,7 @@
             <blog />
           </div>
         </div>
-        <div class="w-full h-full max-md:mt-5 p-3  py-2 max-md:pt-0">
+        <div class="w-full h-full max-md:mt-5  py-2 max-md:pt-0">
           <gallery />
         </div>
         <foter />

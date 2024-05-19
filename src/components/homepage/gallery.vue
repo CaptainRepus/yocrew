@@ -7,15 +7,15 @@
     }
 </script>
 <template>
-    <h1 class="text-2xl font-bold mb-3">Toto sme my</h1>
+    <h1 class="text-2xl font-bold mb-3 md:px-3 md:py-0">Toto sme my</h1>
     <div class="flex md:flex-row flex-col-reverse md:items-center">
-        <div class="md:w-1/2 w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="md:w-1/2 w-full grid grid-cols-2 md:grid-cols-3 gap-4 md:ms-3">
             <div class="grid gap-3">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg  " src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+                    <img class="h-auto max-w-full rounded-lg  " src="/img/gamefair.jpg" alt="">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
+                    <img class="h-auto max-w-full rounded-lg" src="/img/nugosu.webp" alt="">
                 </div>
                 <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">

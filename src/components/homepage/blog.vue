@@ -96,7 +96,7 @@
                 />
               </svg>
             </button>
-            <modal-blog v-if="selectedBlog" :blog="selectedBlog" @close="closeModal" />
+            <modal-blog v-if="isModalOpen" :blog="selectedBlog" :is-open="isModalOpen" @close="closeModal" />
           </div>
         </div>
         <ion-button @click="click">Pozrieť všetky články</ion-button>
@@ -123,18 +123,22 @@ export default {
     });
 
     const selectedBlog = ref(null);
+    const isModalOpen = ref(false);
 
     function openModal(blog) {
       selectedBlog.value = blog;
+      isModalOpen.value = true;
     }
 
     function closeModal() {
       selectedBlog.value = null;
+      isModalOpen.value = false;
     }
 
     return {
       sortedBlog,
       selectedBlog,
+      isModalOpen,
       openModal,
       closeModal
     };
