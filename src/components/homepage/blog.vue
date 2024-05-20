@@ -150,3 +150,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+    :host {
+        --width: 800px;
+        --height: 500px;
+    }
+}
+</style>
