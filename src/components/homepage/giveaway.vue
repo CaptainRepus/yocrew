@@ -12,19 +12,24 @@
             </h2>
             </div>
              <div class="flex justify-center items-center md:w-1/4" >
-                <button class="p-3 text-white text-md text-center bg-green-500 border border-green-900 rounded-lg mt-2 md:mt-0 hover:bg-green-700 max-md:mb-3">
+                <button id="open-modal" class="p-3 text-white text-md text-center bg-green-500 border border-green-900 rounded-lg mt-2 md:mt-0 hover:bg-green-700 max-md:mb-3">
                     Prihlás sa do {{ giveawayStore.giveaway.deadline }}
                 </button>
             </div>
         </div>
     </div>
+    <giveawayModal />
 </template>
 
 
 <script>
 import { useGiveawayStore } from '@/store/useGiveawayStore.js';
+import giveawayModal from './giveawayModal.vue';
 
 export default {
+    components: {
+        giveawayModal
+    },
     setup() {
         const giveawayStore = useGiveawayStore();
         return {

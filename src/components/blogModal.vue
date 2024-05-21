@@ -4,7 +4,7 @@
       <ion-toolbar>
         <ion-title>Článok</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="closeModal" class="font-bold">Close</ion-button>
+          <ion-button @click="closeModal" class="font-bold">Zavrieť</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>

@@ -1,5 +1,5 @@
 <template>
-  <ion-page>
+  <ion-page class="overflow-hidden">
     <ion-header>
       <ion-toolbar mode="ios" class="md:hidden">
         <ion-title size="large" class="mt-5">Domov</ion-title>
