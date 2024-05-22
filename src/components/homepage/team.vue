@@ -2,7 +2,7 @@
     
     <div class="flex items-center justify-between bg-green-500 p-4 md:p-10 mb-4 rounded-xl  md:mb-0 ml-0 mr-0 md:ml-8 md:mr-4">
       <!-- Left arrow for scrolling -->
-      <button @click="scroll(-1)" class="focus:outline-none">
+      <button @click="scroll(-1)" class="focus:outline-none active:bg-green-700 p-1 rounded-full">
         <!-- Replace with your left arrow icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -19,7 +19,7 @@
       </div>
   
       <!-- Right arrow for scrolling -->
-      <button @click="scroll(1)" class="focus:outline-none">
+      <button @click="scroll(1)" class="focus:outline-none active:bg-green-700 p-1 rounded-full">
         <!-- Replace with your right arrow icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

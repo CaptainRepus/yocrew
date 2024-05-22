@@ -5,17 +5,50 @@
         <ion-title size="large" class="mt-5">Články</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true" class="md:hidden">
-      <ion-header collapse="condense">
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense" class="md:hidden">
         <ion-toolbar class="mt-[-6.5rem]">
           <ion-title size="large" class="mt-[2.5rem] z-10">Články</ion-title>
         </ion-toolbar>
       </ion-header>
 
+      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+        <jumbotron />
+        <blog />
+      </div>
+
     </ion-content>
   </ion-page>
 </template>
 
-<script setup>
+<script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { useBlogStore } from '@/store/useBlogStore.js';
+import jumbotron from '../components/blog/jumbotron.vue';
+import blog from '../components/blog/blog.vue';
+
+export default {
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    jumbotron,
+    blog,
+  },
+  setup() {
+    const blogStore = useBlogStore();
+    const getBlogs = () => {
+      return blogStore.getBlog();
+    }
+    return {
+      blogStore,
+      getBlogs,
+    };
+  },
+  mounted(){
+    this.getBlogs();
+  }
+}
 </script>

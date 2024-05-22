@@ -1,6 +1,6 @@
 <template>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar class="hidden">
         <ion-title></ion-title>
       </ion-toolbar>
     </ion-header>
@@ -20,13 +20,15 @@
         <ion-content class="ion-padding">
             <h1 class="text-2xl font-bold text-center mb-5">{{ giveawayStore.giveaway.name }}</h1>
             <p class="text-lg mb-5 px-2">{{ giveawayStore.giveaway.popis }}</p>
-            <div class="w-full h-52 rounded-xl border-2 border-green-500 mb-8">
+            <div class="w-full h-52 rounded-xl border-2 border-green-500 mb-10">
                 <img :src="giveawayStore.giveaway.img" alt="Obrazok">
             </div>
             
             <div class="flex flex-col w-full mb-28">
                 <h1 class="font-bold text-2xl mb-2 text-center">Tu sa prihlásiš</h1>
+                <p class="text-center mb-5">Vyplň tento formulár pre zapojenie sa do giveaway a vyskúšaj svoje šťastie!</p>
                 <ion-input
+                mode="md"
                 label="Tu nahoď svoje meno"
                 label-placement="stacked"
                 ref="inputName"
@@ -34,6 +36,7 @@
                 placeholder="Tvoje meno"
                 />
                 <ion-input
+                mode="md"
                 label="Tu nahoď svoj email"
                 label-placement="stacked"
                 ref="inputEmail"

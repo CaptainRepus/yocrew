@@ -8,7 +8,7 @@
           <div class="h-1/4 w-full flex items-end">
             <h1 :class="titleClass(sortedTournaments[0].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[0].tournament }}</h1>
           </div>
-          <div class="h-1/3 w-full flex flex-col">
+          <div class="h-1/3 w-full flex flex-col gap-0">
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[0].game }}</h3>
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[0].date }}</h3>
             <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[0].description) }}</p>
@@ -23,7 +23,7 @@
           <div class="h-1/4 w-full flex items-end">
             <h1 :class="titleClass(sortedTournaments[1].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[1].tournament }}</h1>
           </div>
-          <div class="h-1/3 w-full flex flex-col">
+          <div class="h-1/3 w-full flex flex-col gap-0">
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[1].game }}</h3>
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[1].date }}</h3>
             <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[1].description) }}</p>
@@ -38,7 +38,7 @@
           <div class="h-1/4 w-full flex items-end">
             <h1 :class="titleClass(sortedTournaments[2].tournament)" class="font-bold z-20 text-white">{{ sortedTournaments[2].tournament }}</h1>
           </div>
-          <div class="h-1/3 w-full flex flex-col">
+          <div class="h-1/3 w-full flex flex-col gap-0">
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[2].game }}</h3>
             <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[2].date }}</h3>
             <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[2].description) }}</p>

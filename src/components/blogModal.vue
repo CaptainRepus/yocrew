@@ -2,7 +2,7 @@
   <ion-modal :is-open="isOpen" @will-dismiss="closeModal" class="custom-modal">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Článok</ion-title>
+        <ion-title mode="ios">Článok</ion-title>
         <ion-buttons slot="end">
           <ion-button @click="closeModal" class="font-bold">Zavrieť</ion-button>
         </ion-buttons>
@@ -12,7 +12,7 @@
       <h1 class="text-2xl font-bold mb-1 text-center">{{ blog.title }}</h1>
       <h3 class="text-lg mb-5 text-center">Autor: {{ blog.author }}</h3>
 
-      <p class="text-lg" v-if="blogPart.length > 0">{{ blogPart[0] }}</p>
+      <p class="text-lg mb-5" v-if="blogPart.length > 0">{{ blogPart[0] }}</p>
 
       <div class="w-full h-1/3 md:h-2/3 rounded-xl border border-green-500 overflow-hidden mb-5">
         <img src="/img/background.jpg" class="w-full h-full"></img>
