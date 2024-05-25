@@ -23,11 +23,16 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <span class="block text-sm text-gray-400 sm:text-center ">© {{ year }} <a href="https://yocrew.eu/" class="hover:underline hover:text-green-500">YoCrew™</a>. Všetky práva sú vyhradené.</span>
+            <sponsorBox class="mt-5" />
         </div>
     </footer>
 </template>
 <script>
+import sponsorBox from './sponsorBox.vue';
 export default{
+    components:{
+        sponsorBox
+    },
     data(){
         return{
             year: new Date().getFullYear()
