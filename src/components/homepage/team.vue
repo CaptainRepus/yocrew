@@ -35,7 +35,7 @@
     return {
       currentIndex: 0,
       photos: [
-        { url: '/img/background.jpg', name: 'idk1', position: 'Developer' },
+        { url: '/img/background.jpg', name: 'Yodoch', position: 'Zakladateľ' },
         { url: '/img/profile.jpg', name: 'idk2', position: 'Designer' },
         { url: '/img/profile.jpg', name: 'idk3', position: 'Lol' },
         { url: '/img/profile.jpg', name: 'idk4', position: 'idk4' },
