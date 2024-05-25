@@ -7,7 +7,7 @@
         <div
           v-for="(blog, index) in sortedBlog.slice(0, 4)"
           :key="index"
-          class="max-w-sm h-[27rem] bg-gray-900 border border-gray-700 rounded-lg shadow"
+          class="max-w-sm h-[27rem] bg-gray-900 border border-gray-800 rounded-lg shadow"
         >
           <a :href="blog.link">
             <img

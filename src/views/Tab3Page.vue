@@ -13,7 +13,11 @@
       </ion-header>
 
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
-        <jumbotron />
+        <jumbotron
+        title="Novinky zo sveta ešportu" 
+        description="Tvoje epicentrum herných noviniek a recenzií"
+        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover"
+        />
         <blog />
       </div>
 
@@ -24,7 +28,7 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
-import jumbotron from '../components/blog/jumbotron.vue';
+import jumbotron from '../components/jumbotron.vue';
 import blog from '../components/blog/blog.vue';
 
 export default {
