@@ -3,7 +3,7 @@
         <div class="w-full md:grid grid-cols-2 gap-5">
             <div v-for="(server, index) in serverStore.server" :key="index"
             class="bg-gray-900 border border-gray-800 rounded-xl w-full h-28 max-md:mb-4 flex max-md:px-2 hover:bg-gray-800">
-                <div class="w-2/3 h-full flex justify-center items-center">
+                <div class="w-1/2 md:w-2/3 h-full flex justify-center items-center">
                     <h1 class="text-lg md:text-2xl  font-bold text-center">{{ server.name }}</h1>
                 </div>
                 <!-- PC -->
@@ -30,7 +30,7 @@
                     </a>   
                 </div>
                 <!-- MOBIL -->
-                <div class="w-1/3 h-full flex justify-center items-center md:hidden">
+                <div class="w-1/2 h-full flex justify-center items-center md:hidden">
                         <ion-button @click="alert">
                             Pripojiť sa
                             <svg
