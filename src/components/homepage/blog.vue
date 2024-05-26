@@ -19,10 +19,10 @@
           <div class="p-5">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ blog.title }}
+                {{ blog.name }}
               </h5>
             </a>
-            <p class="mb-3 font-normal text-white">{{ blog.author }}</p>
+            <p class="mb-3 font-normal text-white">{{ blog.autor }}</p>
             <button
               @click="openModal(blog)"
               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
