@@ -19,9 +19,9 @@
         </ion-header>
         <ion-content class="ion-padding">
             <h1 class="text-2xl font-bold text-center mb-5">{{ giveawayStore.giveaway.name }}</h1>
-            <p class="text-lg mb-5 px-2">{{ giveawayStore.giveaway.popis }}</p>
+            <p class="text-lg mb-5 px-2">{{ giveawayStore.giveaway.description }}</p>
             <div class="w-full h-52 rounded-xl border-2 border-green-500 mb-10">
-                <img :src="giveawayStore.giveaway.img" alt="Obrazok">
+                <img :src="giveawayStore.giveaway.cesta_obrazku" alt="Obrazok">
             </div>
             
             <div class="flex flex-col w-full mb-28">

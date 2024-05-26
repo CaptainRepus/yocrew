@@ -9,8 +9,8 @@ export const useTournamentStore = defineStore({
   actions: {
     async getTournament() {
       try {
-        const response = await axios.get('/JSON/turnaj.json');
-        this.tournament = response.data;
+        const response = await axios.get('https://api.wade-development.com/api/get-turnaje');
+        this.tournament = response.data.turnaje;
       } catch (error) {
         console.error('Error fetching user data:', error);
         throw error; 

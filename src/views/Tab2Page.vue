@@ -18,7 +18,7 @@
         description="Bojisko pre skutočných ešportových majstrov."
         class="bg-[url('/img/IMG_0129(1).JPG')] bg-cover" 
         />
-        
+        <layout />
       </div>
 
     </ion-content>
@@ -28,4 +28,5 @@
 <script setup>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import jumbotron from '../components/jumbotron.vue';
+import layout from '../components/turnaje/layoutTournaments.vue';
 </script>

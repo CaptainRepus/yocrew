@@ -8,7 +8,7 @@
                 </div>
                 <!-- PC -->
                 <div class="w-1/3 h-full flex justify-center items-center max-md:hidden">
-                    <a :href="server.link">
+                    <a :href="server.path">
                         <ion-button>
                             Pripojiť sa
                             <svg

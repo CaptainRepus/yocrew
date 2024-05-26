@@ -1,9 +1,9 @@
 [
   {
-    "game": "Counter-Strike: Global Offensive",
+    "game": "CS2",
     "tournament": "CS:GO Masters Championship",
     "prize_pool": "250 000",
-    "date": "2024-05-10",
+    "date": "2024-05-26",
     "description": "The CS:GO Masters Championship is one of the most prestigious tournaments in the esports calendar. Top teams from around the world will compete for the coveted title and a massive prize pool of $250,000.",
     "teams_allowed": 16,
     "link": "https://www.faceit.com/en/csgo/tournament/{tournament_id}"
@@ -18,7 +18,7 @@
     "link": "https://www.faceit.com/en/lol/tournament/{tournament_id}"
   },
   {
-    "game": "Dota 2",
+    "game": "CS2",
     "tournament": "International Invitational",
     "prize_pool": "$1,000,000",
     "date": "2024-07-20",

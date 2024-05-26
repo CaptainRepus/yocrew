@@ -9,8 +9,8 @@ export const useBlogStore = defineStore({
   actions: {
     async getBlog() {
       try {
-        const response = await axios.get('/JSON/blog.json');
-        this.articles = response.data;
+        const response = await axios.get('https://api.wade-development.com/api/get-clanky');
+        this.articles = response.data.clanky;
       } catch (error) {
         console.error('Error fetching user data:', error);
         throw error; 

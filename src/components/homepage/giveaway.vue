@@ -8,7 +8,7 @@
                 {{ giveawayStore.giveaway.name }}
             </h1>
             <h2 class="p-1 text-white text-md text-center max-md:hidden">
-                {{ giveawayStore.giveaway.popis }}
+                {{ giveawayStore.giveaway.description }}
             </h2>
             </div>
              <div class="flex justify-center items-center md:w-1/4" >
@@ -32,9 +32,17 @@ export default {
     },
     setup() {
         const giveawayStore = useGiveawayStore();
-        return {
-            giveawayStore
+        const getGiveaways = () =>{
+            giveawayStore.getGiveaway();
+            console.log(giveawayStore);
         }
+        return {
+            giveawayStore,
+            getGiveaways
+        }
+    },
+    mounted(){
+        this.getGiveaways();
     }
 };
 </script>

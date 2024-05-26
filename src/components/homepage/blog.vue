@@ -12,7 +12,7 @@
           <a :href="blog.link">
             <img
               class="rounded-t-lg"
-              src="https://flowbite.com/docs/images/blog/image-1.jpg"
+              :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
           </a>
@@ -64,7 +64,7 @@
           <a :href="blog.link">
             <img
               class="rounded-t-lg"
-              src="https://flowbite.com/docs/images/blog/image-1.jpg"
+              :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
           </a>

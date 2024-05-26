@@ -9,8 +9,8 @@ export const useServerStore = defineStore({
   actions: {
     async getServers() {
       try {
-        const response = await axios.get('/JSON/servers.json');
-        this.server = response.data;
+        const response = await axios.get('https://api.wade-development.com/api/get-servers');
+        this.server = response.data.servery;
       } catch (error) {
         console.error('Error fetching user data:', error);
         throw error; 
