@@ -20,8 +20,8 @@
         <ion-content class="ion-padding">
             <h1 class="text-2xl font-bold text-center mb-5">{{ giveawayStore.giveaway.name }}</h1>
             <p class="text-lg mb-5 px-2">{{ giveawayStore.giveaway.description }}</p>
-            <div class="w-full h-52 rounded-xl border-2 border-green-500 mb-10">
-                <img :src="giveawayStore.giveaway.cesta_obrazku" alt="Obrazok">
+            <div class="w-full h-52 rounded-xl border-2 border-green-500 mb-10 overflow-hidden">
+                <img :src="giveawayStore.giveaway.cesta_obrazku" alt="Obrazok" class="h-full w-full">
             </div>
             
             <div class="flex flex-col w-full mb-28">

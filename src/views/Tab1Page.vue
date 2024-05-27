@@ -13,7 +13,7 @@
       </ion-header>
 
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
-        <giveaway v-if="giveawayStore.giveaway.name.length > 0"/> 
+        <giveaway v-if="giveawayStore.giveaway !== ''"/> 
         <div class="w-full h-auto flex flex-col md:flex-row">
           <div class="w-full h-full">
             <streamWidget />

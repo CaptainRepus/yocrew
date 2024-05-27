@@ -7,7 +7,7 @@
         <div
           v-for="(blog, index) in sortedBlog"
           :key="index"
-          class="max-w-sm bg-gray-900 border border-gray-700 rounded-lg shadow h-auto"
+          class="max-w-sm bg-gray-900 border border-gray-700 rounded-lg shadow h-[26rem]"
         >
           <a :href="blog.link">
             <img
@@ -19,7 +19,7 @@
           <div class="p-5">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ blog.name }}
+                {{ truncatedBlogName(blog.name) }}
               </h5>
             </a>
             <p class="mb-1 font-normal text-white">Autor: {{ blog.autor }}</p>
@@ -58,9 +58,9 @@
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
         >
-          <a :href="blog.link" class="h-1/3 w-full">
+          <a :href="blog.link" class="w-full">
             <img
-              class="rounded-t-lg h-1/3 w-full"
+              class="rounded-t-lg h-48 w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
@@ -68,10 +68,11 @@
           <div class="p-5">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ blog.name }}
+                {{ truncatedBlogName(blog.name) }}
               </h5>
             </a>
-            <p class="mb-3 font-normal text-white">{{ blog.autor }}</p>
+            <p class="mb-3 font-normal text-white">Autor: {{ blog.autor }}</p>
+            <p class="mb-3 ">{{ blog.date }}</p>
             <button
               @click="openModal(blog)"
               class="px-10 inline-flex items-center py-3 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
@@ -131,12 +132,21 @@ export default {
       isModalOpen.value = false;
     }
 
+    function truncatedBlogName(name) {
+      const words = name.split(' ');
+      if (words.length > 6) {
+        return words.slice(0, 6).join(' ') + '...';
+      }
+      return name;
+    }
+
     return {
       sortedBlog,
       selectedBlog,
       isModalOpen,
       openModal,
-      closeModal
+      closeModal,
+      truncatedBlogName
     };
   },
   methods: {
@@ -146,6 +156,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 @media only screen and (min-width: 768px) and (min-height: 768px) {
     :host {
