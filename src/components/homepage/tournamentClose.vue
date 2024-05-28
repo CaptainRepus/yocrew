@@ -19,17 +19,24 @@
             Loading...
           </div>
         </template>
+      <ion-button @click="this.$router.push('/turnaje')">
+        Pozrieť všetky turnaje
+      </ion-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { IonIcon, IonButton } from '@ionic/vue';
 import { ref, computed } from 'vue';
 import { useTournamentStore } from '@/store/useTournamentStore.js';
 import { gameController, calendar } from 'ionicons/icons';
 
 export default {
+  components: {
+    IonIcon
+  },
   setup() {
     const tournamentStore = useTournamentStore();
 
