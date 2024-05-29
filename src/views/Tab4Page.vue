@@ -18,7 +18,8 @@
           description="Preži najlepšie herné momenty na našich CS2 serveroch"
           class="bg-[url('/img/jumbotron_blog.jpg')] bg-cover"
           />
-          <listOfTournaments />
+          <listOfTournaments v-show="false" />
+          <h1 class="text-5xl font-bold text-center mt-16">Pripravujeme pre Vás CS2 servery</h1>
         </div>
 
       </ion-content>
