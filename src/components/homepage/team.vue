@@ -35,12 +35,17 @@
     return {
       currentIndex: 0,
       photos: [
-        { url: '/img/background.jpg', name: 'Yodoch', position: 'Zakladateľ' },
-        { url: '/img/profile.jpg', name: 'idk2', position: 'Designer' },
-        { url: '/img/profile.jpg', name: 'idk3', position: 'Lol' },
-        { url: '/img/profile.jpg', name: 'idk4', position: 'idk4' },
-        { url: '/img/profile.jpg', name: 'idk5', position: 'Designer2' },
-        { url: '/img/profile.jpg', name: 'idk6', position: 'Designer5' },
+        { url: '/img/streamers/yodoch.png', name: 'Yodoch', position: 'Zakladateľ' },
+        { url: '/img/streamers/chrimsie.png', name: 'Chrimsie', position: 'Streamerka' },
+        { url: '/img/streamers/expansive.png', name: 'EXP4NSIVE', position: 'Streamer' },
+        { url: '/img/streamers/JaroslavManTV2.png', name: 'JaroslavManTV', position: 'Streamer' },
+        { url: '/img/streamers/Lathy.png', name: 'Lathy', position: 'Streamerka' },
+        { url: '/img/streamers/marinecz.png', name: 'MarineCZ', position: 'Streamer' },
+        { url: '/img/streamers/Volt.jpg', name: '2oldVolt', position: 'Streamer' },
+        { url: '/img/streamers/mikajla.png', name: 'Mikajla', position: 'Streamerka' },
+        { url: '/img/streamers/byxby.png', name: 'byXby', position: 'Streamer' },
+        { url: '/img/streamers/danuskateyron.png', name: 'DanuskaTeyron', position: 'Streamer' },
+        { url: '/img/streamers/lery478.png', name: 'Lery478', position: 'Streamer' },
       ]
     };
   },
