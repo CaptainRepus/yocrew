@@ -7,11 +7,11 @@
           <a v-if="sortedTournaments[index - 1]" :href="sortedTournaments[index - 1].link" class="relative h-1/3 w-full px-3 rounded-xl border border-gray-800 bg-gray-900 overflow-hidden hover:bg-slate-600 hover:border-green-500 hover:border-2 flex flex-col gap-0">
             <ion-icon aria-hidden="true" class="absolute opacity-30 text-[20rem] max-md:text-[10rem] max-md:top-[-2.5rem] text-green-500 z-10 top-[-1rem] right-[-2rem]" :icon="index === 0 ? gameController : calendar" />
             <div class="h-1/4 w-full flex items-end">
-              <h1 :class="titleClass(sortedTournaments[index - 1].name)" class="font-bold z-20 text-white">{{ sortedTournaments[index - 1].name }}</h1>
+              <h1 :class="titleClass(sortedTournaments[index - 1].name)" class="m-0 font-bold z-20 text-white">{{ sortedTournaments[index - 1].name }}</h1>
             </div>
-            <div class="h-3/4 w-full flex flex-col gap-0">
-              <h3 class="text-lg font-semibold pb-5 z-20 text-white">{{ sortedTournaments[index - 1].game }}</h3>
-              <h3 class="text-lg font-semibold pb-1 z-20 text-white">{{ sortedTournaments[index - 1].date }}</h3>
+            <div class="h-3/4 w-full flex flex-col gap-2">
+              <p class="text-lg font-semibold z-20 text-white">{{ sortedTournaments[index - 1].game }}</p>
+              <p class="text-lg font-semibold z-20 text-white">{{ sortedTournaments[index - 1].date }}</p>
               <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[index - 1].description) }}</p>
             </div>
           </a>
@@ -35,7 +35,8 @@ import { gameController, calendar } from 'ionicons/icons';
 
 export default {
   components: {
-    IonIcon
+    IonIcon,
+    IonButton,
   },
   setup() {
     const tournamentStore = useTournamentStore();
