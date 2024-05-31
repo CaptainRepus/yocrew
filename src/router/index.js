@@ -15,23 +15,26 @@ const routes = [
         redirect: '/domov'
       },
       {
-        path: '/domov',
+        path: 'domov',
         component: () => import('@/views/Tab1Page.vue')
       },
       {
-        path: '/turnaje',
+        path: 'turnaje',
         component: () => import('@/views/Tab2Page.vue')
       },
       {
-        path: '/clanky',
+        path: 'profil',
         component: () => import('@/views/Tab3Page.vue')
       },
       {
-        path: '/servery',
+        path: 'servery',
         component: () => import('@/views/Tab4Page.vue')
-      },
-      
+      }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*', // Tento route zachytí všetky neznáme cesty
+    redirect: '/domov'
   }
 ]
 
