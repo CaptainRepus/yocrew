@@ -61,8 +61,9 @@
   // Function to format the date to a human-readable format
   const formatDate = (date) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString(undefined, options);
-  };
+    return new Date(date).toLocaleDateString('sk-SK', options);
+};
+
   
   // Computed property for sorted tournaments
   const sortedTournament = computed(() => {

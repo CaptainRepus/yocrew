@@ -19,16 +19,20 @@ const routes = [
         component: () => import('@/views/Tab1Page.vue')
       },
       {
-        path: 'turnaje',
+        path: 'turnaje-servery',
         component: () => import('@/views/Tab2Page.vue')
       },
       {
-        path: 'profil',
+        path: 'clanky',
         component: () => import('@/views/Tab3Page.vue')
       },
       {
-        path: 'servery',
+        path: 'galeria',
         component: () => import('@/views/Tab4Page.vue')
+      },
+      {
+        path: 'yocrew',
+        component: () => import('@/views/Tab5Page.vue')
       }
     ]
   },

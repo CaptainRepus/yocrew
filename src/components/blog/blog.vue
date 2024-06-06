@@ -119,6 +119,11 @@ export default {
       return [...blogStore.articles].sort((a, b) => new Date(b.date) - new Date(a.date));
     });
 
+    const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString('sk-SK', options);
+    };
+
     const selectedBlog = ref(null);
     const isModalOpen = ref(false);
 
@@ -146,7 +151,8 @@ export default {
       isModalOpen,
       openModal,
       closeModal,
-      truncatedBlogName
+      truncatedBlogName,
+      formatDate
     };
   },
   methods: {
