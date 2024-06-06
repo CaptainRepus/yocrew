@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue'
+import NotFoundPage from '@/views/NotFoundPage.vue'; // Importujte vašu 404 stránku
 
 const routes = [
   {
@@ -38,7 +39,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*', // Tento route zachytí všetky neznáme cesty
-    redirect: '/'
+    component: NotFoundPage // Nastaví NotFoundPage ako 404 stránku
   }
 ]
 
