@@ -38,7 +38,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*', // Tento route zachytí všetky neznáme cesty
-    redirect: '/domov'
+    redirect: '/'
   }
 ]
 

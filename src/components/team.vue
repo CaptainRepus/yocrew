@@ -98,10 +98,10 @@
   data() {
     return {
       content: [
-        { url: '/img/members/Jan _J0hnis_ Štál.JPG', name: 'Jan "J0hnis" Štál', position: 'Caster' },
-        { url: '/img/members/Štefánia _Lathy_ Kadlečíková.jpg', name: 'Štefánia "Lathy" Kadlečíková', position: 'Social Media Guru' },
+        { url: '/img/members/Jan _J0hnis_ Stal.JPG', name: 'Jan "J0hnis" Štál', position: 'Caster' },
+        { url: '/img/members/Stefania _Lathy_ Kadlecikova.jpg', name: 'Štefánia "Lathy" Kadlečíková', position: 'Social Media Guru' },
         { url: '/img/members/Adam _MoJaVec_ Moravec.jpeg', name: 'Adam "MoJaVec" Moravec', position: 'Photo & Video Creator' },
-        { url: '/img/members/Maroš _TadyMaroš_ Vorek.jpg', name: 'Maroš "TadyMaroš" Vorek', position: 'Photo & Video Creator' },
+        { url: '/img/members/Maros _TadyMaros_ Vorek.jpg', name: 'Maroš "TadyMaroš" Vorek', position: 'Photo & Video Creator' },
       ],
       streameri: [
         { url: '/img/streamers/chrimsie.png', name: 'Chrimsie', position: 'Streamerka' },
@@ -116,19 +116,19 @@
         { url: '/img/streamers/lery478.png', name: 'Lery478', position: 'Streamer' },
       ],
       vedenie: [
-        { url: '/img/members/Michal _Yodoch_ Fröhlich.jpeg', name: 'Michal "Yodoch" Fröhlich', position: 'CEO' },
+        { url: '/img/members/Michal _Yodoch_ Frohlich.jpeg', name: 'Michal "Yodoch" Fröhlich', position: 'CEO' },
         { url: '/img/profile.jpg', name: 'Kakadu', position: 'CEO representative' },
-        { url: '/img/members/Ondra _Harasal_ Minčev.jpg', name: 'Ondra "Harasal" Minčev', position: 'Project Manager' },
+        { url: '/img/members/Ondra _Harasal_ Mincev.jpg', name: 'Ondra "Harasal" Minčev', position: 'Project Manager' },
         { url: '/img/members/Martin _Jafress_ Rada.jpg', name: 'Martin "Jafress" Rada', position: 'Project Manager' },
       ],
       office: [
-        { url: '/img/members/Marek _Sasuk_ Horvát.jpg', name: 'Marek "Sasuk" Horvát', position: 'Web Admin' },
-        { url: '/img/members/Patrik _Pípo_ Dian.jpeg', name: 'Patrik "Pípo" Dian', position: 'Web Admin' },
-        { url: '/img/members/Romi _Yodoška_ Garaiová.jpg', name: 'Romi "Yodoška" Garaiová', position: 'Back office manager' },
+        { url: '/img/members/Marek _Sasuk_ Horvat.jpg', name: 'Marek "Sasuk" Horvát', position: 'Web Admin' },
+        { url: '/img/members/Patrik _Pipo_ Dian.jpeg', name: 'Patrik "Pípo" Dian', position: 'Web Admin' },
+        { url: '/img/members/Romi _Yodoska_ Garaiova.jpg', name: 'Romi "Yodoška" Garaiová', position: 'Back office manager' },
       ],
       food: [
         { url: '/img/members/Marek _Seso_ Jurko.jpg', name: 'Marek "Seso" Jurko', position: 'Hydration specialist' },
-        { url: '/img/members/Kristína _Chrimsie_ Štyriaková.jpg', name: 'Kristína "Chrimsie" Štyriaková', position: 'Food specialist' },
+        { url: '/img/members/Kristina _Chrimsie_ Styriakova.jpg', name: 'Kristína "Chrimsie" Štyriaková', position: 'Food specialist' },
       ],
     };
   },
