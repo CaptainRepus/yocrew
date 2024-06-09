@@ -1,22 +1,23 @@
 <template>
-  <div>
+  <div class="h-full md:h-auto">
     <!-- Desktop view -->
-    <div class="p-3 pe-4 max-md:hidden">
-      <h1 class="pb-0 font-bold text-2xl mb-3">Najnovšie články</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="py-3 max-lg:hidden">
+      <h1 class="pb-0 font-bold text-2xl mb-3">
+        Pozri si naše články</h1>
+      <div class="flex flex-col gap-4">
         <div
-          v-for="(blog, index) in sortedBlog.slice(0, 4)"
+          v-for="(blog, index) in sortedBlog.slice(1, 4)"
           :key="index"
-          class="max-w-sm h-[27rem] bg-gray-900 border border-gray-800 rounded-lg shadow"
+          class="bg-gray-900 border border-gray-800 rounded-lg shadow flex"
         >
-          <a :href="blog.link">
+          <a :href="blog.link" class="w-[60%]">
             <img
-              class="rounded-t-lg h-48 w-full"
+              class="rounded-t-lg h-full w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
           </a>
-          <div class="p-5">
+          <div class="p-5 w-[60%]">
             <a :href="blog.link">
               <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
                 {{ truncatedBlogName(blog.name) }}
@@ -54,7 +55,7 @@
     </div>
 
     <!-- Mobile view -->
-    <div class="p-3 px-0 md:hidden">
+    <div class="p-3 px-0 lg:hidden">
       <h1 class="font-bold text-2xl mb-3">Najnovšie články</h1>
       <div class="grid grid-cols-1 gap-4">
         <div
@@ -107,6 +108,8 @@
   </div>
 </template>
 
+
+
 <script>
 import { computed, ref } from 'vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
@@ -140,7 +143,7 @@ export default {
     function truncatedBlogName(name) {
       const words = name.split(' ');
       if (words.length > 6) {
-        return words.slice(0, 6).join(' ') + '...';
+        return words.slice(0, 7).join(' ') + '...';
       }
       return name;
     }

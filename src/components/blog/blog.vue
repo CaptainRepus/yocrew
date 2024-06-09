@@ -65,7 +65,7 @@
               alt="Blog Image"
             />
           </a>
-          <div class="p-5">
+          <div class="p-5 pt-2">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
                 {{ truncatedBlogName(blog.name) }}

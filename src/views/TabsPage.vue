@@ -124,16 +124,22 @@
         <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isTurnajeRoute">
           <div class="inline-flex rounded-md shadow-sm mt-2">
             <button
-            @click="setSection(1)"
-            type="button"
-            aria-current="page" 
-            class="px-16 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+              @click="setSection(1)"
+              type="button"
+              aria-current="page" 
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-s-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
+                sectionStore.section === 1 ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
               Turnaje
             </button>
             <button 
-            @click="setSection(2)"
-            type="button"
-            class="px-16 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+              @click="setSection(2)"
+              type="button"
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-e-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
+                sectionStore.section === 2 ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
               CS2 Servery
             </button>
           </div>
@@ -142,18 +148,24 @@
         <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isYoCrewRoute">
           <div class="inline-flex rounded-md shadow-sm mt-2">
             <router-link
-            to="/yocrew"
-            type="button"
-            aria-current="page" 
-            class="px-16 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+              to="/yocrew"
+              type="button"
+              aria-current="page" 
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-s-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
+                route.path === '/yocrew' ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
               Náš tím
             </router-link>
             <router-link 
-            to="/galeria"
-            type="button"
-            class="px-16 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+              to="/galeria"
+              type="button"
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-e-lg focus:z-10 focus:ring-2 dark:border-gray-700',
+                route.path === '/galeria' ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
               Galéria
-            </router-link >
+            </router-link>
           </div>
         </div>
 
@@ -166,7 +178,7 @@
             <ion-icon aria-hidden="true" :icon="ribbon" />
           </ion-tab-button>
 
-          <ion-tab-button tab="Články" href="/clanky">
+          <ion-tab-button tab="Články" href="/clanky" mode="ios">
             <ion-icon aria-hidden="true" :icon="library" />
           </ion-tab-button>
 
@@ -195,10 +207,6 @@ const route = useRoute();
 
 const setSection = (number) =>{
   sectionStore.setSection(number);
-}
-const setYoCrew = (number) =>{
-  sectionStore.setSectionYoCrew(number);
-  console.log('clicked')
 }
 
 const isTurnajeRoute = computed(() => route.path === '/turnaje-servery');
