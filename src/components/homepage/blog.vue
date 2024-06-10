@@ -4,54 +4,56 @@
     <div class="py-3 max-lg:hidden">
       <h1 class="pb-0 font-bold text-2xl mb-3">
         Pozri si naše články</h1>
-      <div class="flex flex-col gap-4">
-        <div
-          v-for="(blog, index) in sortedBlog.slice(1, 4)"
-          :key="index"
-          class="bg-gray-900 border border-gray-800 rounded-lg shadow flex"
-        >
-          <a :href="blog.link" class="w-[60%]">
-            <img
-              class="rounded-t-lg h-full w-full"
-              :src="blog.cesta_obrazku"
-              alt="Blog Image"
-            />
-          </a>
-          <div class="p-5 w-[60%]">
-            <a :href="blog.link">
-              <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
-                {{ truncatedBlogName(blog.name) }}
-              </h5>
+        <div class="flex flex-col gap-4">
+          <div
+            v-for="(blog, index) in sortedBlog.slice(1, 4)"
+            :key="index"
+            class="bg-gray-900 border border-gray-800 rounded-lg shadow flex"
+          >
+            <a :href="blog.link" class="w-full md:w-[40%] h-[200px] md:h-auto">
+              <img
+                class="rounded-s-lg h-full w-full object-cover"
+                :src="blog.cesta_obrazku"
+                alt="Blog Image"
+              />
             </a>
-            <p class="mb-3 font-normal text-white">Autor: {{ blog.autor }}</p>
-            <p class="mb-3">{{ blog.date }}</p>
-            <button
-              @click="openModal(blog)"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
-            >
-              Pozrieť viac
-              <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
+            <div class="p-5 w-full md:w-[60%]">
+              <a :href="blog.link">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
+                  {{ truncatedBlogName(blog.name) }}
+                </h5>
+              </a>
+              <p class="mb-3 font-normal text-white">Autor: {{ blog.autor }}</p>
+              <p class="mb-3">{{ blog.date }}</p>
+              <button
+                @click="openModal(blog)"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
+                Pozrieť viac
+                <svg
+                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
+          <ion-button class="col-span-2" @click="click">
+            Pozrieť všetky články
+          </ion-button>
         </div>
-        <ion-button class="col-span-2" @click="click">
-          Pozrieť všetky články
-        </ion-button>
-      </div>
+
+
     </div>
 
     <!-- Mobile view -->
@@ -59,7 +61,7 @@
       <h1 class="font-bold text-2xl mb-3">Najnovšie články</h1>
       <div class="grid grid-cols-1 gap-4">
         <div
-          v-for="(blog, index) in sortedBlog.slice(0, 2)"
+          v-for="(blog, index) in sortedBlog.slice(1, 3)"
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
         >

@@ -4,6 +4,7 @@
     <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-3 mt-3">
       <div
         v-for="(turnaj, index) in upcomingTournaments"
+        v-if="upcomingTournaments.length > 0"
         :key="turnaj.id"
         :class="{ hidden: hidden(turnaj.game) }"
         class="relative bg-gray-900 w-full h-96 rounded-xl flex flex-row border border-gray-700 overflow-hidden hover:border-2 hover:border-green-500 hover:bg-gray-700"
@@ -42,6 +43,9 @@
             </svg>
           </button>
         </div>
+      </div>
+      <div v-else class="w-full h-56 flex justify-center items-center md:justify-start">
+        <h1 class="text-3xl font-bold text-center md:text-left">Neboli pridané žiadné turnaje</h1>
       </div>
     </div>
     <modal :tournament="selectedTournament" :is-open="isModalOpen" @close="closeModal" />
