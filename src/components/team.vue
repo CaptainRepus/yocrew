@@ -117,7 +117,7 @@
       ],
       vedenie: [
         { url: '/img/members/Michal _Yodoch_ Frohlich.jpeg', name: 'Michal "Yodoch" Fröhlich', position: 'CEO' },
-        { url: '/img/profile.jpg', name: 'Kakadu', position: 'CEO representative' },
+        { url: '/img/profile.jpg', name: 'Michal "Kakadu" Vacl', position: 'CEO representative' },
         { url: '/img/members/Ondra _Harasal_ Mincev.jpg', name: 'Ondra "Harasal" Minčev', position: 'Project Manager' },
         { url: '/img/members/Martin _Jafress_ Rada.jpg', name: 'Martin "Jafress" Rada', position: 'Project Manager' },
       ],

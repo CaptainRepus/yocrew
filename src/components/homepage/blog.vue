@@ -6,25 +6,30 @@
         Pozri si naše články</h1>
         <div class="flex flex-col gap-4">
           <div
-            v-for="(blog, index) in sortedBlog.slice(1, 4)"
+            v-for="(blog, index) in sortedBlog.slice(1, 6)"
             :key="index"
-            class="bg-gray-900 border border-gray-800 rounded-lg shadow flex"
+            class="bg-gray-900 border border-gray-800 rounded-lg shadow flex h-44"
           >
-            <a :href="blog.link" class="w-full md:w-[40%] h-[200px] md:h-auto">
+            <a :href="blog.link" class="relative w-full md:w-[40%] h-[200px] md:h-auto">
               <img
                 class="rounded-s-lg h-full w-full object-cover"
                 :src="blog.cesta_obrazku"
                 alt="Blog Image"
               />
+              <div class="absolute top-2 right-2 py-1 px-3 rounded-xl font-bold"
+              :class="bgFunction(blog.tag)">
+                {{ blog.tag.toUpperCase() }}
+              </div>
             </a>
-            <div class="p-5 w-full md:w-[60%]">
+            <div class="p-3 w-full md:w-[60%] flex flex-col justify-center items-start">
               <a :href="blog.link">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-white">
+                <h5 class="mb-1 mt-0 font-bold tracking-tight text-white">
                   {{ truncatedBlogName(blog.name) }}
                 </h5>
               </a>
-              <p class="mb-3 font-normal text-white">Autor: {{ blog.autor }}</p>
-              <p class="mb-3">{{ blog.date }}</p>
+              
+              <p class="font-normal text-white">Autor: {{ blog.autor }}</p>
+              <p class="mb-2">{{ blog.date }}</p>
               <button
                 @click="openModal(blog)"
                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
@@ -65,12 +70,16 @@
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
         >
-          <a :href="blog.link">
+          <a :href="blog.link" class="relative">
             <img
               class="rounded-t-lg h-48 w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
+            <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold"
+              :class="bgFunction(blog.tag)">
+                {{ blog.tag.toUpperCase() }}
+              </div>
           </a>
           <div class="p-5">
             <a :href="blog.link">
@@ -142,10 +151,29 @@ export default {
       isModalOpen.value = false;
     }
 
+    const bgFunction = (color) =>{
+      switch(color){
+        case 'CS2':
+          return 'bg-yellow-600 text-white';
+        case 'Gaming':
+          return 'bg-green-500 text-white';
+        case 'LOL':
+          return 'bg-blue-500 text-white';
+        case 'ESPORT':
+          return 'bg-purple-500 text-white';
+        case 'SVET':
+          return 'bg-lime-500 text-white';
+        case 'BRAWL STARS':
+          return 'bg-red-500 text-white'
+        default:
+          return 'bg-red-500 text-white';
+      }
+    }
+
     function truncatedBlogName(name) {
       const words = name.split(' ');
       if (words.length > 6) {
-        return words.slice(0, 7).join(' ') + '...';
+        return words.slice(0, 6).join(' ') + '...';
       }
       return name;
     }
@@ -156,13 +184,14 @@ export default {
       isModalOpen,
       openModal,
       closeModal,
-      truncatedBlogName
+      truncatedBlogName,
+      bgFunction
     };
   },
   methods: {
     click() {
       this.$router.push('/clanky');
-    }
+    },
   }
 };
 </script>

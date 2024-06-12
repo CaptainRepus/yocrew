@@ -24,9 +24,7 @@
               <tournamentClose />
             </div>
         </div>
-
       </div>
-
         <foter />
       </div>
 

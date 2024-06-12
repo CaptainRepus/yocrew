@@ -1,23 +1,15 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import TabsPage from '../views/TabsPage.vue'
-import NotFoundPage from '@/views/NotFoundPage.vue'; // Importujte vašu 404 stránku
+import TabsPage from '../views/TabsPage.vue';
+import NotFoundPage from '@/views/NotFoundPage.vue'; // Import your 404 page
 
 const routes = [
   {
     path: '/',
-    redirect: '/domov'
-  },
-  {
-    path: '',
     component: TabsPage,
     children: [
       {
         path: '',
-        redirect: '/domov'
-      },
-      {
-        path: 'domov',
-        component: () => import('@/views/Tab1Page.vue')
+        component: () => import('@/views/Tab1Page.vue') // The home page component
       },
       {
         path: 'turnaje-servery',
@@ -38,14 +30,14 @@ const routes = [
     ]
   },
   {
-    path: '/:pathMatch(.*)*', // Tento route zachytí všetky neznáme cesty
-    component: NotFoundPage // Nastaví NotFoundPage ako 404 stránku
+    path: '/:pathMatch(.*)*', // This route will catch all unknown paths
+    component: NotFoundPage // Set NotFoundPage as the 404 page
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;

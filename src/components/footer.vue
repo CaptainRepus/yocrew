@@ -8,16 +8,21 @@
                 </a>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                     <li>
-                        <div href="#" class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500">Články</div>
+                        <a href="https://instagram.com/yocrew_/">
+                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoInstagram" />
+                        </a>
+                        
                     </li>
                     <li>
-                        <div href="#" class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500">Turnaje</div>
+                        <a href="https://discord.gg/hnyAMZsQKU">
+                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoDiscord" />
+                        </a>
+                        
                     </li>
                     <li>
-                        <div href="#" class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500">CS2 Servery</div>
-                    </li>
-                    <li>
-                        <div href="#" class="text-gray-400 hover:underline hover:text-green-500">Kontakt</div>
+                        <a href="https://www.facebook.com/yooocrew/?_rdr">
+                             <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoFacebook" />
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -27,16 +32,15 @@
         </div>
     </footer>
 </template>
-<script>
+<script setup>
 import sponsorBox from './sponsorBox.vue';
-export default{
-    components:{
-        sponsorBox
-    },
-    data(){
-        return{
-            year: new Date().getFullYear()
-        }
-    }
-}
+import { IonIcon } from '@ionic/vue';
+import { 
+    logoInstagram,
+    logoFacebook,
+    logoDiscord,
+} from 'ionicons/icons'
+import { ref } from 'vue';
+
+const year = ref(new Date().getFullYear());
 </script>

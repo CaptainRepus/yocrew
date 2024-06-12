@@ -14,8 +14,8 @@
                 <h1 :class="titleClass(sortedTournaments[index - 1].name)" class="m-0 font-bold z-20 text-white">{{ sortedTournaments[index - 1].name }}</h1>
               </div>
               <div class="h-3/4 w-full flex flex-col gap-2">
-                <p class="text-lg font-semibold z-20 text-white">{{ sortedTournaments[index - 1].game }}</p>
-                <p class="text-lg font-semibold z-20 text-white">{{ formatDate(sortedTournaments[index - 1].date) }}</p>
+                <p class="font-semibold z-20 text-white">{{ sortedTournaments[index - 1].game }}</p>
+                <p class="font-semibold z-20 text-white">{{ formatDate(sortedTournaments[index - 1].date) }}</p>
                 <p class="text-sm z-20 text-white">{{ truncateDescription(sortedTournaments[index - 1].description) }}</p>
               </div>
             </a>
@@ -40,7 +40,7 @@
     <h1 class="ps-3 py-3 font-bold text-2xl max-md:mb-2 max-md:ps-0">Mohlo by Vás zaujímať</h1>
     <div class="h-full w-full px-3 max-md:p-0 flex flex-col justify-between">
       <div class=" flex flex-col gap-2 justify-center overflow-hidden">
-        <div class="w-full h-1/2 bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+        <div class="w-full bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
           <NewsPanel />
         </div>
         <div class="flex flex-col gap-2">

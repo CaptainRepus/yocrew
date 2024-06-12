@@ -9,12 +9,16 @@
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-700 rounded-lg shadow h-[26rem]"
         >
-          <a :href="blog.link">
+          <a :href="blog.link" class="relative">
             <img
               class="rounded-t-lg h-1/2 w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
+            <div class="absolute top-2 right-2 py-1 px-3 rounded-xl font-bold"
+              :class="bgFunction(blog.tag)">
+                {{ blog.tag.toUpperCase() }}
+              </div>
           </a>
           <div class="p-5">
             <a :href="blog.link">
@@ -58,12 +62,16 @@
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
         >
-          <a :href="blog.link" class="w-full">
+          <a :href="blog.link" class="w-full relative">
             <img
               class="rounded-t-lg h-48 w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
+            <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold"
+              :class="bgFunction(blog.tag)">
+                {{ blog.tag.toUpperCase() }}
+              </div>
           </a>
           <div class="p-5 pt-2">
             <a :href="blog.link">
@@ -137,6 +145,25 @@ export default {
       isModalOpen.value = false;
     }
 
+    const bgFunction = (color) =>{
+      switch(color){
+        case 'CS2':
+          return 'bg-yellow-600 text-white';
+        case 'Gaming':
+          return 'bg-green-500 text-white';
+        case 'LOL':
+          return 'bg-blue-500 text-white';
+        case 'ESPORT':
+          return 'bg-purple-500 text-white';
+        case 'SVET':
+          return 'bg-lime-500 text-white';
+        case 'BRAWL STARS':
+          return 'bg-red-500 text-white'
+        default:
+          return 'bg-red-500 text-white';
+      }
+    }
+
     function truncatedBlogName(name) {
       const words = name.split(' ');
       if (words.length > 6) {
@@ -152,7 +179,8 @@ export default {
       openModal,
       closeModal,
       truncatedBlogName,
-      formatDate
+      formatDate,
+      bgFunction
     };
   },
   methods: {

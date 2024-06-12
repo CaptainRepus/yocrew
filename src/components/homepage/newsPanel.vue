@@ -1,10 +1,10 @@
 <template>
   <!-- BLOG SECTION -->
-  <div v-if="!isTodayTournament" class="text-center text-xl font-bold w-full h-full relative">
+  <div v-if="!isTodayTournament" class="text-center text-xl font-bold w-full h-72 md:h-full relative">
     <div v-if="sortedBlog.length > 0">
       <img :src="sortedBlog[0].cesta_obrazku" alt="Blog Image" class="absolute object-cover w-full h-full opacity-50 z-10"/>
       <div class="absolute bottom-0 flex h-full w-full items-end justify-center z-20">
-        <div class="bg-gray-900 w-full h-1/3 bg-opacity-80 flex justify-center items-center flex-col gap-2">
+        <div class="bg-gray-900 w-full h-1/2 md:h-1/3 bg-opacity-80 flex justify-center items-center flex-col gap-2">
           <span class="text-white">{{ sortedBlog[0].name }}</span>
           <button
             @click="openBlogModal(sortedBlog[0])"
@@ -51,7 +51,7 @@
       <p class="mt-3">{{ sortedTournament[0].description }}</p>
       <button
         @click="openTournamentModal(sortedTournament[0])"
-        class="z-20 px-10 flex items-center justify-center h-full max-md:h-10 w-full mt-2 max-md:mt-5 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
+        class="z-20 px-10 flex items-center mt-7 justify-center h-1/2 max-md:h-10 w-full max-md:mt-5 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
       >
         Pozrieť viac
         <svg
@@ -140,5 +140,11 @@ const isTodayTournament = computed(() => {
     return currentDate.getTime() === tournamentDate.getTime();
   }
   return false;
+});
+
+const isMobile = ref(window.innerWidth <= 768);
+
+window.addEventListener('resize', () => {
+  isMobile.value = window.innerWidth <= 768;
 });
 </script>

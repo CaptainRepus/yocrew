@@ -35,7 +35,7 @@
             >
               <li>
                 <router-link
-                  to="/domov"
+                  to="/"
                   class="cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Domov
@@ -87,7 +87,7 @@
                             to="/yocrew"
                               :class="[
                                 active ? 'bg-green-600 text-white' : 'text-gray-100',
-                                'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                                'group text-white flex w-full items-center rounded-md px-2 py-2 text-sm',
                               ]"
                             >
                             Náš tím
@@ -98,7 +98,7 @@
                           to="/galeria"
                             :class="[
                               active ? 'bg-green-600 text-white' : 'text-gray-100',
-                              'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                              'group text-white flex w-full items-center rounded-md px-2 py-2 text-sm',
                             ]"
                           >
                             Galéria
@@ -170,7 +170,7 @@
         </div>
 
         <ion-tab-bar slot="bottom" class="md:hidden relative z-0">
-          <ion-tab-button tab="Domov" href="/domov">
+          <ion-tab-button tab="Domov" href="/">
             <ion-icon aria-hidden="true" :icon="home" />
           </ion-tab-button>
 
