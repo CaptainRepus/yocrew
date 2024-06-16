@@ -100,7 +100,7 @@
       content: [
         { url: '/img/members/Jan _J0hnis_ Stal.JPG', name: 'Jan "J0hnis" Štál', position: 'Caster' },
         { url: '/img/members/Stefania _Lathy_ Kadlecikova.jpg', name: 'Štefánia "Lathy" Kadlečíková', position: 'Social Media Guru' },
-        { url: '/img/members/Adam _MoJaVec_ Moravec.jpeg', name: 'Adam "MoJaVec" Moravec', position: 'Photo & Video Creator' },
+        { url: '/img/members/Adam _MoJaVec_ Moravec.jpg', name: 'Adam "MoJaVec" Moravec', position: 'Photo & Video Creator' },
         { url: '/img/members/Maros _TadyMaros_ Vorek.jpg', name: 'Maroš "TadyMaroš" Vorek', position: 'Photo & Video Creator' },
       ],
       streameri: [
@@ -116,14 +116,14 @@
         { url: '/img/streamers/lery478.png', name: 'Lery478', position: 'Streamer' },
       ],
       vedenie: [
-        { url: '/img/members/Michal _Yodoch_ Frohlich.jpeg', name: 'Michal "Yodoch" Fröhlich', position: 'CEO' },
+        { url: '/img/members/Michal _Yodoch_ Frohlich.jpg', name: 'Michal "Yodoch" Fröhlich', position: 'CEO' },
         { url: '/img/profile.jpg', name: 'Michal "Kakadu" Vacl', position: 'CEO representative' },
         { url: '/img/members/Ondra _Harasal_ Mincev.jpg', name: 'Ondra "Harasal" Minčev', position: 'Project Manager' },
         { url: '/img/members/Martin _Jafress_ Rada.jpg', name: 'Martin "Jafress" Rada', position: 'Project Manager' },
       ],
       office: [
         { url: '/img/members/Marek _Sasuk_ Horvat.jpg', name: 'Marek "Sasuk" Horvát', position: 'Web Admin' },
-        { url: '/img/members/Patrik _Pipo_ Dian.jpeg', name: 'Patrik "Pípo" Dian', position: 'Web Admin' },
+        { url: '/img/members/Patrik _Pipo_ Dian.jpg', name: 'Patrik "Pípo" Dian', position: 'Web Admin' },
         { url: '/img/members/Romi _Yodoska_ Garaiova.jpg', name: 'Romi "Yodoška" Garaiová', position: 'Back office manager' },
       ],
       food: [
