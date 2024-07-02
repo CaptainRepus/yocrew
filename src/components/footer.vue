@@ -8,26 +8,26 @@
                 </a>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                     <li>
-                        <a href="https://instagram.com/yocrew_/">
+                        <a href="https://instagram.com/yocrew_/" target="_blank">
                             <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoInstagram" />
                         </a>
                         
                     </li>
                     <li>
-                        <a href="https://discord.gg/hnyAMZsQKU">
+                        <a href="https://discord.gg/hnyAMZsQKU" target="_blank">
                             <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoDiscord" />
                         </a>
                         
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/yooocrew/?_rdr">
-                             <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoFacebook" />
+                        <a href="https://www.facebook.com/yooocrew/?_rdr" target="_blank">
+                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoFacebook" />
                         </a>
                     </li>
                 </ul>
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <span class="block text-sm text-gray-400 sm:text-center ">© {{ year }} <a href="https://yocrew.eu/" class="text-gray-400 hover:underline hover:text-green-500">YoCrew™</a>. Všetky práva sú vyhradené.</span>
+            <span class="block text-sm text-gray-400 sm:text-center ">© {{ year }} <a href="https://yocrew.eu/" target="_blank" class="text-gray-400 hover:underline hover:text-green-500">YoCrew™</a>. Všetky práva sú vyhradené.</span>
             <sponsorBox class="mt-5" />
         </div>
     </footer>

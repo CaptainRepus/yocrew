@@ -33,6 +33,6 @@
   <script setup>
   import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
   import jumbotron from '../components/jumbotron.vue';
-  import team from '../components/team.vue';
+  import team from '../components/yocrew/team.vue';
 
   </script>

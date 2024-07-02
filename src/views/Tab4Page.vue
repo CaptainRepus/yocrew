@@ -16,7 +16,7 @@
           <jumbotron 
           title="Galéria"
           description="Ešport pre každého, kdekoľvek!"
-          class="bg-[url('/img/image-5.png')] bg-cover"
+          class="bg-[url('/img/jumbotron_blog.jpg')] bg-cover"
           />
         <gallery />
         </div>
@@ -28,5 +28,5 @@
   <script setup>
   import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
   import jumbotron from '../components/jumbotron.vue';
-  import gallery from '../components/homepage/gallery.vue';
+  import gallery from '../components/yocrew/gallery.vue';
   </script>

@@ -1,136 +1,80 @@
 <template>
   <div class="h-full md:h-auto">
     <!-- Desktop view -->
-    <div class="py-3 max-lg:hidden">
-      <h1 class="pb-0 font-bold text-2xl mb-3">
-        Pozri si naše články</h1>
-        <div class="flex flex-col gap-4">
-          <div
-            v-for="(blog, index) in sortedBlog.slice(1, 6)"
-            :key="index"
-            class="bg-gray-900 border border-gray-800 rounded-lg shadow flex h-44"
-          >
-            <a :href="blog.link" class="relative w-full md:w-[40%] h-[200px] md:h-auto">
-              <img
-                class="rounded-s-lg h-full w-full object-cover"
-                :src="blog.cesta_obrazku"
-                alt="Blog Image"
-              />
-              <div class="absolute top-2 right-2 py-1 px-3 rounded-xl font-bold"
-              :class="bgFunction(blog.tag)">
-                {{ blog.tag.toUpperCase() }}
-              </div>
-            </a>
-            <div class="p-3 w-full md:w-[60%] flex flex-col justify-center items-start">
-              <a :href="blog.link">
-                <h5 class="mb-1 mt-0 font-bold tracking-tight text-white">
-                  {{ truncatedBlogName(blog.name) }}
-                </h5>
-              </a>
-              
-              <p class="font-normal text-white">Autor: {{ blog.autor }}</p>
-              <p class="mb-2">{{ blog.date }}</p>
-              <button
-                @click="openModal(blog)"
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
-              >
-                Pozrieť viac
-                <svg
-                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </button>
-            </div>
+    <div class="max-lg:hidden">
+      <div class="flex flex-col gap-4">
+        <router-link
+          :to="{ name: 'Article', params: { slug: blog.slug } }"
+          v-for="(blog, index) in sortedBlog.slice(1, 6)"
+          :key="index"
+          class="rounded-lg shadow flex h-36 w-[45vw]">
+          <div class="w-full md:w-[30%] h-[200px] md:h-auto transition ease-in rounded-lg overflow-hidden">
+            <img
+              class="rounded-lg h-full w-full object-cover hover:scale-110 transition ease-in"
+              :src="blog.cesta_obrazku"
+              alt="Blog Image"
+            />
           </div>
-          <ion-button class="col-span-2" @click="click">
-            Pozrieť všetky články
-          </ion-button>
-        </div>
-
-
+          <div class="ps-3 w-full md:w-[70%] flex flex-col justify-center items-start">
+            <div class="mb-2 flex">
+              <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-xs transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
+              <div class="ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in">|<span class="text-xs ms-2">{{ whenUploaded(blog.date) }}</span></div>
+            </div>
+            <div>
+              <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.name }}</h5>
+            </div>
+            <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">{{ truncatedBlogDescription(blog.description) }}</p>
+            <p class="text-[0.6rem] text-slate-400 flex flex-row justify-center items-center">
+              <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.autor }}
+              <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.description) }} min. čítania
+            </p>
+          </div>
+        </router-link>
+      </div>
     </div>
 
     <!-- Mobile view -->
     <div class="p-3 px-0 lg:hidden">
-      <h1 class="font-bold text-2xl mb-3">Najnovšie články</h1>
       <div class="grid grid-cols-1 gap-4">
-        <div
+        <router-link
+          :to="{ name: 'Article', params: { slug: blog.slug } }"
           v-for="(blog, index) in sortedBlog.slice(1, 3)"
           :key="index"
           class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
         >
-          <a :href="blog.link" class="relative">
+          <div class="relative">
             <img
               class="rounded-t-lg h-48 w-full"
               :src="blog.cesta_obrazku"
               alt="Blog Image"
             />
-            <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold"
-              :class="bgFunction(blog.tag)">
-                {{ blog.tag.toUpperCase() }}
-              </div>
-          </a>
-          <div class="p-5">
-            <a :href="blog.link">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ truncatedBlogName(blog.name) }}
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-white">{{ blog.autor }}</p>
-            <p class="mb-3 ">{{ blog.date }}</p>
-            <button
-              @click="openModal(blog)"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
-            >
-              Pozrieť viac
-              <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
-            <modal-blog v-if="isModalOpen" :blog="selectedBlog" :is-open="isModalOpen" @close="closeModal" />
+            <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold" :class="bgFunction(blog.tag)">
+              {{ blog.tag.toUpperCase() }}
+            </div>
           </div>
-        </div>
+          <div class="p-5">
+            <div>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ truncatedBlogName(blog.name) }}</h5>
+            </div>
+            <p class="mb-3 text-sm">{{ truncatedBlogDescription(blog.description) }}</p>
+          </div>
+        </router-link>
         <ion-button @click="click">Pozrieť všetky články</ion-button>
       </div>
     </div>
   </div>
 </template>
 
-
-
 <script>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
-import { IonButton } from '@ionic/vue';
-import ModalBlog from '../blogModal.vue';
+import { IonButton, IonIcon } from '@ionic/vue';
+import { personCircle, time } from 'ionicons/icons';
 
 export default {
   components: {
     IonButton,
-    ModalBlog
+    IonIcon
   },
   setup() {
     const blogStore = useBlogStore();
@@ -138,35 +82,33 @@ export default {
       return [...blogStore.articles].sort((a, b) => new Date(b.date) - new Date(a.date));
     });
 
-    const selectedBlog = ref(null);
-    const isModalOpen = ref(false);
-
-    function openModal(blog) {
-      selectedBlog.value = blog;
-      isModalOpen.value = true;
-    }
-
-    function closeModal() {
-      selectedBlog.value = null;
-      isModalOpen.value = false;
-    }
-
-    const bgFunction = (color) =>{
+    const bgFunction = (color) => {
       switch(color){
         case 'CS2':
-          return 'bg-yellow-600 text-white';
+          return 'bg-yellow-600 text-white hover:bg-yellow-800';
         case 'Gaming':
-          return 'bg-green-500 text-white';
+          return 'bg-green-500 text-white hover:bg-green-700';
         case 'LOL':
-          return 'bg-blue-500 text-white';
+          return 'bg-blue-500 text-white hover:bg-blue-700';
         case 'ESPORT':
-          return 'bg-purple-500 text-white';
+          return 'bg-purple-500 text-white hover:bg-purple-700';
         case 'SVET':
-          return 'bg-lime-500 text-white';
+          return 'bg-lime-500 text-white hover:bg-lime-700';
         case 'BRAWL STARS':
-          return 'bg-red-500 text-white'
+          return 'bg-red-500 text-white hover:bg-red-700';
         default:
-          return 'bg-red-500 text-white';
+          return 'bg-red-500 text-white hover:bg-red-700';
+      }
+    };
+
+    const whenUploaded = (date) =>{
+      switch(date){
+        case new Date():
+          return 'DNES';
+        case new Date().setDate(new Date().getDate() - 1):
+          return 'VČERA';
+        default:
+          return date;
       }
     }
 
@@ -178,29 +120,45 @@ export default {
       return name;
     }
 
+    function calculateReadingTime(description) {
+      const wordsPerMinute = 200; // You can adjust this value based on your needs
+      const words = description.split(' ').length; // Split by whitespace and count the words
+      const readingTimeMinutes = words / wordsPerMinute;
+      const roundedReadingTime = Math.ceil(readingTimeMinutes);
+      return roundedReadingTime;
+    }
+
+    function truncatedBlogDescription(description) {
+      const words = description.split(' ');
+      if (words.length > 15) {
+        return words.slice(0, 17).join(' ') + '...';
+      }
+      return description;
+    }
+
     return {
       sortedBlog,
-      selectedBlog,
-      isModalOpen,
-      openModal,
-      closeModal,
+      bgFunction,
       truncatedBlogName,
-      bgFunction
+      truncatedBlogDescription,
+      personCircle,
+      time,
+      calculateReadingTime,
+      whenUploaded
     };
   },
   methods: {
     click() {
       this.$router.push('/clanky');
-    },
+    }
+  },
+  async created() {
+    const blogStore = useBlogStore();
+    try {
+      await blogStore.getBlog();
+    } catch (error) {
+      console.error('Error fetching blog articles:', error);
+    }
   }
 };
 </script>
-
-<style scoped>
-@media only screen and (min-width: 768px) and (min-height: 768px) {
-    :host {
-        --width: 800px;
-        --height: 500px;
-    }
-}
-</style>

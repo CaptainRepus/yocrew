@@ -4,7 +4,7 @@
       <div
         v-for="(sponsor, index) in sponsors"
         :key="'original-' + index"
-        class="flex-none w-48 h-32 bg-gray-300 flex items-center justify-center rounded-lg shadow-lg mx-2"
+        class="flex-none w-48 h-32 bg-gray-500 flex items-center justify-center rounded-lg shadow-lg mx-2"
       >
         <img :src="sponsor.logo" :alt="sponsor.name" class="max-h-full max-w-full" />
       </div>
@@ -12,7 +12,7 @@
       <div
         v-for="(sponsor, index) in sponsors.concat(sponsors).concat(sponsors)"
         :key="'duplicate-' + index"
-        class="flex-none w-48 h-32 bg-gray-300 flex items-center justify-center rounded-lg shadow-lg mx-2"
+        class="flex-none w-48 h-32 bg-gray-500 flex items-center justify-center rounded-lg shadow-lg mx-2"
       >
         <img :src="sponsor.logo" :alt="sponsor.name" class="max-h-full max-w-full" />
       </div>
@@ -32,7 +32,7 @@ export default {
         { name: 'NUGOSU', logo: '/img/sponsors/nugosu-logo-head-typo-black (2).svg' },
         { name: 'NUTREND', logo: '/img/sponsors/NUTREND.png' },
         { name: 'Pizzeria Papa Mafia', logo: '/img/sponsors/pizzeria Papa Mafia.svg' },
-        // Add more sponsors as needed
+        { name: 'Emka - Jazyková škola', logo: '/img/sponsors/emka.png' },
       ],
       slideDuration: 50, // Duration for a full slide (seconds)
     };

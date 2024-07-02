@@ -9,7 +9,7 @@ export const useGiveawayStore = defineStore({
   actions: {
     async getGiveaway() {
       try {
-        const response = await axios.get('/JSON/giveaway.json');
+        const response = await axios.get('https://api.wade-development.com/api/get-giveaways');
         this.giveaway = response.data.giveaway[0];
       } catch (error) {
         console.error('Error fetching user data:', error);

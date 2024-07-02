@@ -1,6 +1,8 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue';
-import NotFoundPage from '@/views/NotFoundPage.vue'; // Import your 404 page
+import NotFoundPage from '@/views/NotFoundPage.vue';
+import ArticlePage from '@/views/ArticlePage.vue'; // Import the new ArticlePage
 
 const routes = [
   {
@@ -26,12 +28,17 @@ const routes = [
       {
         path: 'yocrew',
         component: () => import('@/views/Tab5Page.vue')
+      },
+      {
+        path: 'článok/:slug',
+        name: 'Article',
+        component: ArticlePage
       }
     ]
   },
   {
-    path: '/:pathMatch(.*)*', // This route will catch all unknown paths
-    component: NotFoundPage // Set NotFoundPage as the 404 page
+    path: '/:pathMatch(.*)*', // Catch all unknown paths
+    component: NotFoundPage
   }
 ];
 
@@ -41,3 +48,4 @@ const router = createRouter({
 });
 
 export default router;
+
