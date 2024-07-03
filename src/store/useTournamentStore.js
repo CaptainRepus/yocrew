@@ -18,4 +18,3 @@ export const useTournamentStore = defineStore({
     }
   }
 });
-// https://api.wade-development.com/api/get-turnaje

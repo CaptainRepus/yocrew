@@ -1,8 +1,8 @@
-// src/router/index.js
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue';
 import NotFoundPage from '@/views/NotFoundPage.vue';
-import ArticlePage from '@/views/ArticlePage.vue'; // Import the new ArticlePage
+import ArticlePage from '@/views/ArticlePage.vue';
+import TournamentPage from '@/views/TournamentPage.vue';
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('@/views/Tab1Page.vue') // The home page component
+        component: () => import('@/views/Tab1Page.vue')
       },
       {
         path: 'turnaje-servery',
@@ -33,11 +33,16 @@ const routes = [
         path: 'článok/:slug',
         name: 'Article',
         component: ArticlePage
+      },
+      {
+        path: 'turnaj/:slug',
+        name: 'Tournament',
+        component: TournamentPage
       }
     ]
   },
   {
-    path: '/:pathMatch(.*)*', // Catch all unknown paths
+    path: '/:pathMatch(.*)*',
     component: NotFoundPage
   }
 ];
@@ -48,4 +53,3 @@ const router = createRouter({
 });
 
 export default router;
-

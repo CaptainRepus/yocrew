@@ -102,7 +102,6 @@
                 />
               </svg>
             </button>
-            <modal-blog v-if="isModalOpen" :blog="selectedBlog" :is-open="isModalOpen" @close="closeModal" />
           </div>
         </div>
       </div>
@@ -114,12 +113,10 @@
 import { computed, ref } from 'vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
 import { IonButton } from '@ionic/vue';
-import ModalBlog from '../blogModal.vue';
 
 export default {
   components: {
     IonButton,
-    ModalBlog
   },
   setup() {
     const blogStore = useBlogStore();
