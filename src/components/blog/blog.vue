@@ -12,7 +12,7 @@
           <a :href="blog.link" class="relative">
             <img
               class="rounded-t-lg h-1/2 w-full"
-              :src="blog.cesta_obrazku"
+              :src="blog.image_path"
               alt="Blog Image"
             />
             <div class="absolute top-2 right-2 py-1 px-3 rounded-xl font-bold"
@@ -23,7 +23,7 @@
           <div class="p-5">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ truncatedBlogName(blog.name) }}
+                {{ truncatedBlogName(blog.title) }}
               </h5>
             </a>
             <p class="mb-1 font-normal text-white">Autor: {{ blog.autor }}</p>
@@ -65,7 +65,7 @@
           <a :href="blog.link" class="w-full relative">
             <img
               class="rounded-t-lg h-48 w-full"
-              :src="blog.cesta_obrazku"
+              :src="blog.image_path"
               alt="Blog Image"
             />
             <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold"
@@ -76,7 +76,7 @@
           <div class="p-5 pt-2">
             <a :href="blog.link">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-                {{ truncatedBlogName(blog.name) }}
+                {{ truncatedBlogName(blog.title) }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-white">Autor: {{ blog.autor }}</p>
@@ -161,12 +161,12 @@ export default {
       }
     }
 
-    function truncatedBlogName(name) {
-      const words = name.split(' ');
+    function truncatedBlogName(title) {
+      const words = title.split(' ');
       if (words.length > 6) {
         return words.slice(0, 6).join(' ') + '...';
       }
-      return name;
+      return title;
     }
 
     return {
