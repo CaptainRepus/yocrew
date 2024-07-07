@@ -26,7 +26,7 @@
                 {{ truncatedBlogName(blog.title) }}
               </h5>
             </a>
-            <p class="mb-1 font-normal text-white">Autor: {{ blog.autor }}</p>
+            <p class="mb-1 font-normal text-white">Autor: {{ blog.author }}</p>
             <p class="mb-3 ">{{ blog.date }}</p>
             <button
               @click="openModal(blog)"

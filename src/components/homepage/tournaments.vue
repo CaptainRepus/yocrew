@@ -14,13 +14,8 @@
       />
       <div class="relative w-full h-1/3 md:h-3/5 overflow-hidden z-20">
         <div v-if="tournament" class="absolute bottom-0 left-3">
-<<<<<<< Updated upstream
-          <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game }}</h1>
-          <h1 class="font-bold text-xl md:text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
-=======
           <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game_name }}</h1>
           <h1 class="font-bold text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
->>>>>>> Stashed changes
         </div>
         <div v-else class="absolute bottom-0 left-3">
           <h1 class="font-semibold text-sm text-white">--/--</h1>
