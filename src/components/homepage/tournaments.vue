@@ -4,20 +4,22 @@
       v-for="(tournament, index) in displayTournaments"
       :key="index"
       to="/"
-      class="relative w-full md:w-1/4 h-56 md:h-full rounded-2xl overflow-hidden flex flex-col"> <!--PRIDAT INPUT SLUG"tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '#'"-->
+      class="relative w-full md:w-1/4 h-72 md:h-full rounded-2xl overflow-hidden flex flex-col"
+      @mouseenter="scaleImage"
+      @mouseleave="resetImage"> <!--PRIDAT INPUT SLUG"tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '#'"-->
       <img
         :src="imgSwitch(tournament ? tournament.game : ' ')"
         alt="Tournament image"
-        class="absolute h-56 md:h-full w-full object-cover transition ease-in z-10"
+        class="absolute h-56 md:h-full w-full object-cover transition ease-in z-10 max-md:blur-[2px]"
       />
       <div class="relative w-full h-1/3 md:h-3/5 overflow-hidden z-20">
         <div v-if="tournament" class="absolute bottom-0 left-3">
           <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game }}</h1>
-          <h1 class="font-bold text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
+          <h1 class="font-bold text-xl md:text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
         </div>
         <div v-else class="absolute bottom-0 left-3">
           <h1 class="font-semibold text-sm text-white">--/--</h1>
-          <h1 class="font-bold text-lg text-white transition ease-in hover:text-gray-300">Na turnaji pracujeme</h1>
+          <h1 class="font-bold text-xl md:text-lg text-white transition ease-in hover:text-gray-300">Na turnaji pracujeme</h1>
         </div>
       </div>
       <div :class="['w-full h-1/2 md:h-[30%] flex flex-col px-4 z-20', bgSwitch(tournament ? tournament.game : '')]">
@@ -28,13 +30,17 @@
           --/--
         </div>
         <div class="h-1/4 w-full flex justify-start items-center gap-2">
-          <div class="h-5/6 w-1/2 bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
+          <div class="h-5/6 w-[45%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="gitNetwork" class="text-black text-sm me-2" />
             Tip Bracketov
           </div> <!--INPUT BRACKETOV-->
           <div class="h-5/6 w-[30%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="shieldHalf" class="text-black text-sm me-2" />
             5v5
+          </div> <!--INPUT BRACKETOV-->
+          <div class="h-5/6 w-[25%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
+            <ion-icon :icon="people" class="text-black text-sm me-2" />
+            8
           </div> <!--INPUT BRACKETOV-->
         </div>
         <div class="h-[42%] w-full flex justify-start items-center overflow-hidden text-white">
@@ -51,7 +57,7 @@
 
 <script setup>
 import { IonIcon } from '@ionic/vue';
-import { gitNetwork, shieldHalf, trophy } from 'ionicons/icons';
+import { gitNetwork, shieldHalf, trophy, people } from 'ionicons/icons';
 import { useTournamentStore } from '@/store/useTournamentStore.js';
 import { computed, onMounted } from 'vue';
 
@@ -123,7 +129,7 @@ const imgSwitch = (game) =>{
     case 'CS2':
     case 'Counter Strike 2':
     case 'Counter-Strike 2':
-      return '/img/tournaments/cs2_1.jpg';
+      return '/img/tournaments/cs2_2.jpg';
     case 'LoL':
       return '';
     case 'Brawl Stars':
@@ -132,6 +138,16 @@ const imgSwitch = (game) =>{
       return '/img/tournaments/yocrew-example.png';
   }
 }
+
+const scaleImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1.2)';
+};
+
+const resetImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1)';
+};
 
 onMounted(() => {
   tournamentStore.getTournament();

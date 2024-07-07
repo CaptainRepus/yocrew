@@ -171,19 +171,19 @@
 
         <ion-tab-bar slot="bottom" class="md:hidden relative z-0">
           <ion-tab-button tab="Domov" href="/">
-            <ion-icon aria-hidden="true" :icon="home" />
+            <ion-icon aria-hidden="true" :icon="home" :class="[route.path === '/' ? 'text-green-500' : 'text-gray-400']" />
           </ion-tab-button>
 
           <ion-tab-button tab="Turnaje" href="/turnaje-servery">
-            <ion-icon aria-hidden="true" :icon="ribbon" />
+            <ion-icon aria-hidden="true" :icon="ribbon" :class="[route.path === '/turnaje-servery' ? 'text-green-500' : 'text-gray-400']"/>
           </ion-tab-button>
 
-          <ion-tab-button tab="Články" href="/clanky" mode="ios">
-            <ion-icon aria-hidden="true" :icon="library" />
+          <ion-tab-button tab="Články" href="/clanky">
+            <ion-icon aria-hidden="true" :icon="library" :class="[route.path === '/clanky' ? 'text-green-500' : 'text-gray-400']"/>
           </ion-tab-button>
 
           <ion-tab-button tab="YoCrew" href="/yocrew">
-            <ion-icon aria-hidden="true" :icon="peopleCircle" />
+            <ion-icon aria-hidden="true" :icon="peopleCircle" :class="[route.path === '/yocrew' || route.path === '/galeria' ? 'text-green-500' : 'text-gray-400']"/>
           </ion-tab-button>
         </ion-tab-bar>
       </div>
@@ -211,6 +211,7 @@ const setSection = (number) =>{
 
 const isTurnajeRoute = computed(() => route.path === '/turnaje-servery');
 const isYoCrewRoute = computed(() => route.path === '/yocrew' || route.path === '/galeria');
+
 </script>
 
 <style scoped>

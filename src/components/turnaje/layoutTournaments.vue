@@ -1,78 +1,78 @@
 <template>
-  <div class="w-full h-auto md:px-3 mb-10">
-    <h1 class="text-4xl font-bold mt-5">Counter-Strike 2</h1>
-    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-3 mt-3">
-      <div
-        v-for="(turnaj, index) in upcomingTournaments"
-        v-if="upcomingTournaments.length > 0"
-        :key="turnaj.id"
-        :class="{ hidden: hidden(turnaj.game) }"
-        class="relative bg-gray-900 w-full h-96 rounded-xl flex flex-row border border-gray-700 overflow-hidden hover:border-2 hover:border-green-500 hover:bg-gray-700"
-      >
-      <div class="flex justify-center items-center opacity-30 text-[20rem] max-md:text-[10rem] max-md:top-[-2.5rem] text-green-500 z-10 top-[-1rem] right-[-2rem]">
-          <svg fill="#00C55E" class="absolute top-0 right-[-40%] opacity-45" width="700px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><path d="M9.103.435a1.753 1.753 0 0 1 1.652-.362c.218.072.406.203.609.333.16.101.348.145.493.261.072.058.014.16.014.232.189.45.29.942.13 1.42-.13.16-.362.203-.55.276-.03.203.043.39.072.594-.043.029-.072.058-.116.087.276-.015.551-.073.827-.13.101-.102.26-.044.39-.059.015-.203.088-.391.088-.594a.34.34 0 0 0 .116-.029c.014.145 0 .29.043.435.073.058.189.029.276.043 0 .058 0 .116.014.174 1.681-.014 3.377 0 5.058 0v.247h.16V2.42h.188c0 .26-.014.507 0 .768a.11.11 0 0 0 .073.029c0 .029.014.087.014.116.058-.058.13-.102.218-.073.014.044.029.087.043.145-.058.058-.087.13-.058.218.464.014.928 0 1.406 0 .044-.058.116-.087.189-.116a.464.464 0 0 1 .087.058h.68a.874.874 0 0 1 .015.333h-.696a.46.46 0 0 1-.087.073c-.072-.044-.13-.073-.202-.116h-1.261c-.247.072-.508.058-.754.014v.275H16.16a.532.532 0 0 1-.29.13c.044.218-.202.276-.29.436a.45.45 0 0 1-.231.174c-.073.449.087.87.203 1.29-.13.029-.276.072-.406.101-.073.29-.145.594-.203.884a.848.848 0 0 1-.507.58c-.174.203-.406.406-.682.42-.101.03-.174-.043-.246-.101-.362.029-.696-.145-1.015-.29-.347-.16-.666-.363-1-.55.03.202-.072.376-.145.55.16.072.377.13.464.304.058.13.116.276.116.435-.014.522-.072 1.044-.101 1.565.014.377-.174.754-.435 1.03-.174-.015-.319-.088-.478-.16-.058.13-.189.26-.116.42.058.189.058.392.145.566a6.674 6.674 0 0 1 1.217 1.753c.304.624.536 1.276.783 1.928.043 0 .13-.015.174-.015.058.189 0 .406.116.58.101.16.072.348.072.536-.029.435-.058.87-.101 1.305-.03.304-.102.609-.145.913.014.232.116.464.101.696-.014.217-.014.449-.188.608.014.493-.116.986.058 1.464.232.32.493.623.768.899.304.145.667.174.928.435.1.16.043.347.014.521a6.732 6.732 0 0 1-1.87 0c-.246-.058-.478-.159-.724-.188-.334.014-.725.145-1.03-.087-.028-.391.117-.768.189-1.145.029-.13.16-.217.145-.348-.03-.45-.058-.913-.087-1.362-.058-.03-.16-.058-.145-.145 0-.218-.072-.435-.13-.638a10.821 10.821 0 0 1-.16-1.681c-.014-.16.087-.276.203-.377.03-.246.058-.507.073-.754-.044-.13-.145-.232-.203-.348-.261.03-.638.087-.797-.188-.377-.565-.769-1.145-1.145-1.71-.16-.015-.348 0-.493-.102-.16-.174-.261-.405-.363-.623-.043.174-.072.362-.174.507-.087.145-.231.247-.333.377-.101.232-.188.464-.275.696-.102.29-.247.58-.276.899a1.543 1.543 0 0 1-.101.449c-.073.116-.203.16-.319.217-.087.189-.145.377-.275.537-.087.101-.232.13-.29.26-.058.174-.145.334-.218.493-.029.174.087.363.03.536-.102.435-.32.841-.522 1.232-.102.29-.174.595-.32.87-.057.116-.202.145-.318.16-.13.318-.276.623-.362.956a5.437 5.437 0 0 0-.03.971c0 .145.088.261.146.391.057.174.014.348-.015.522-.565.073-1.145.13-1.696-.043-.058-.044-.043-.116-.058-.174-.043-.261-.072-.536.015-.783.188-.681.348-1.362.536-2.043-.072-.073-.174-.13-.174-.247-.014-.188 0-.391.044-.58.087-.319.318-.565.434-.87.044-.13.03-.26.044-.39 0-.305.174-.551.304-.812.13-.218.232-.45.406-.638.116-.101.116-.26.203-.391.087-.16.232-.29.232-.479.029-.231-.058-.463-.03-.695.059-.681.19-1.348.305-2.03-.058-.072-.145-.144-.174-.246.015-.072.03-.13.044-.203l-.13-.217c.057-.087.115-.188.173-.275-.058-.044-.13-.102-.188-.145.072-.218.043-.537.304-.638.03.014.102.029.13.043-.043-.376-.043-.768-.086-1.145a3.534 3.534 0 0 1-.073-1.232c.145-.217.42-.304.667-.318-.319-.073-.638-.102-.942-.203-.015-.261.029-.522.072-.783.13-.507.073-1.029.145-1.55.073-.146.261-.175.42-.146.189.03.377-.029.566-.087 0-.072.014-.16 0-.232-.116-.507-.087-1.029 0-1.521.116-.638.377-1.261.855-1.71.319-.305.783-.45 1.217-.435.145 0 .232.145.348.232.058-.058.116-.116.16-.174-.073-.247-.189-.508-.174-.769.029-.58.217-1.174.652-1.565m4.522 4.102c.029.029.029.029 0 0m.203.029c.014.101.043.203-.015.29-.072.029-.16.029-.232.072.203 0 .406.015.61 0 .159-.043.1-.246.1-.362-.1-.116-.318-.044-.463 0m-.507.609c.145.159.217.405.347.565.189-.247.334-.508.551-.725-.26-.015-.522.015-.782-.015-.044.058-.073.116-.116.174z"/></svg>
+  <div class="w-full h-auto md:px-3 mt-10">
+    <h1 class="text-4xl font-bold mt-5">Aktuálne turnaje</h1>
+    <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-3 mt-3" v-if="displayTournaments && displayTournaments.length > 0">
+      <router-link
+        v-for="(tournament, index) in displayTournaments"
+        :key="index"
+        to="/"
+        class="relative w-full h-full md:h-[26rem] rounded-2xl overflow-hidden flex flex-col hover-link"
+        @mouseenter="scaleImage"
+        @mouseleave="resetImage">
+        <img
+          :src="imgSwitch(tournament ? tournament.game : ' ')"
+          alt="Tournament image"
+          class="absolute h-56 md:h-full w-full object-cover transition ease-in z-10"
+        />
+        <div class="relative w-full h-1/3 md:h-3/5 overflow-hidden z-20">
+          <div v-if="tournament" class="absolute bottom-0 left-3">
+            <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game }}</h1>
+            <h1 class="font-bold text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
+          </div>
+          <div v-else class="absolute bottom-0 left-3">
+            <h1 class="font-semibold text-sm text-white">--/--</h1>
+            <h1 class="font-bold text-lg text-white transition ease-in hover:text-gray-300">Na turnaji pracujeme</h1>
+          </div>
         </div>
-        <div class="w-full flex flex-col justify-center items-start px-5">
-          <p class="text-red-500 font-bold text-2xl mb-3 z-20" v-if="isLive(turnaj.date)">
-            <span class="animate-pulse">●</span> LIVE
-          </p>
-          <p class="text-sm text-center z-20">{{ turnaj.game }} ● {{ formatDate(turnaj.date) }}</p>
-          <h1 class="text-2xl md:text-4xl font-bold mb-3 z-20">{{ turnaj.name }}</h1>
-          <p class="pe-20 z-20 mb-1">{{ truncateDescription(turnaj.description) }}</p>
-          <p class="pe-20 z-20 font-bold mb-5">Počet tímov: {{ turnaj.teams }}</p>
-          <button
-            @click="openModal(turnaj)"
-            class="z-20 px-10 inline-flex items-center py-3 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
-          >
-            Pozrieť viac
-            <svg
-              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </button>
+        <div :class="['w-full h-1/2 md:h-[30%] flex flex-col px-4 z-20', bgSwitch(tournament ? tournament.game : '')]">
+          <div v-if="tournament" class="h-1/3 w-full flex justify-start items-center text-sm text-white transition ease-in hover:text-gray-300">
+            Registrácia do: 9/11/2001 | 15:00
+          </div> <!--INPUT DATE REGISTRACIE-->
+          <div v-else class="h-1/3 w-full flex justify-start items-center text-sm text-white">
+            --/--
+          </div>
+          <div class="h-1/4 w-full flex justify-start items-center gap-2">
+            <div class="h-5/6 w-[45%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
+              <ion-icon :icon="gitNetwork" class="text-black text-sm me-2" />
+              Tip Bracketov
+            </div> <!--INPUT BRACKETOV-->
+            <div class="h-5/6 w-[30%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
+              <ion-icon :icon="shieldHalf" class="text-black text-sm me-2" />
+              5v5
+            </div> <!--INPUT BRACKETOV-->
+            <div class="h-5/6 w-[25%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
+              <ion-icon :icon="people" class="text-black text-sm me-2" />
+              8
+            </div> <!--INPUT BRACKETOV-->
+          </div>
+          <div class="h-[42%] w-full flex justify-start items-center overflow-hidden text-white">
+            <p class="text-sm hover:text-gray-300 transition ease-in">{{ tournament ? truncatedTournamentName(tournament.description) : 'Tento turnaj ešte pre Vás ešte pripravujeme...' }}</p>
+          </div>
         </div>
-      </div>
-      <div v-else class="w-full h-56 flex justify-center items-center md:justify-start">
-        <h1 class="text-3xl font-bold text-center md:text-left">Neboli pridané žiadné turnaje</h1>
-      </div>
+        <div :class="['w-full h-[16.6667%] md:h-[10%] z-20 flex justify-center items-center text-white px-2', bgsubSwitch(tournament ? tournament.game : '')]">
+          <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold transition ease-in hover:text-gray-300">{{ tournament ? formatDate(tournament.date) : 'Dátum' }} | 13:00</div> <!--INPUT DATE-->
+          <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold ps-2 transition ease-in hover:text-gray-300">{{ tournament ? tournament.prizepool + '€' : 'Prizepool' }} <ion-icon :icon="trophy" class="text-white text-sm ms-2" /></div>
+        </div>
+      </router-link>
     </div>
-    <modal :tournament="selectedTournament" :is-open="isModalOpen" @close="closeModal" />
+    <div class="w-full h-[30vh] flex justify-center items-center" v-else>
+      <h1 class="font-bold text-3xl">Pripravujeme pre Vás ďalšie turnaje...</h1>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
-import { useTournamentStore } from '@/store/useTournamentStore.js';
-import { gameController, ribbon } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
-import modal from '../modalTournament.vue';
+import { gitNetwork, shieldHalf, trophy, people } from 'ionicons/icons';
+import { useTournamentStore } from '@/store/useTournamentStore.js';
+import { computed, onMounted } from 'vue';
 
-// Initialize the tournament store
 const tournamentStore = useTournamentStore();
 
-// Function to format the date to a human-readable format
-const formatDate = (date) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(date).toLocaleDateString('sk-SK', options);
-};
-
-// Computed property for sorted tournaments
 const sortedTournament = computed(() => {
-  return [...tournamentStore.tournament].sort((a, b) => new Date(a.date) - new Date(b.date));
+  return [...tournamentStore.tournament].sort((a, b) => new Date(b.date) - new Date(a.date));
 });
 
-// Filter out past tournaments but include those happening today
 const upcomingTournaments = computed(() => {
   const currentDate = new Date();
   currentDate.setHours(0, 0, 0, 0); // Reset time to the start of the day
@@ -83,45 +83,82 @@ const upcomingTournaments = computed(() => {
   });
 });
 
-const selectedTournament = ref(null);
-const isModalOpen = ref(false);
+const displayTournaments = computed(() => {
+  const tournaments = upcomingTournaments.value;
+  return tournaments.length > 0 ? tournaments : null;
+});
 
-const openModal = (tournament) => {
-  selectedTournament.value = tournament;
-  isModalOpen.value = true;
+const formatDate = (date) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString('sk-SK', options);
 };
 
-const closeModal = () => {
-  isModalOpen.value = false;
-  selectedTournament.value = null;
+const truncatedTournamentName = (name) => {
+  const words = name.split(' ');
+  return words.length > 20 ? words.slice(0, 15).join(' ') + '...' : name;
 };
 
-const truncateDescription = (desc) => {
-  if (!desc) return '';
-  const words = desc.split(' ');
-  return words.length > 15 ? words.slice(0, 15).join(' ') + '...' : desc;
+const bgSwitch = (game) => {
+  switch (game) {
+    case 'CS2':
+    case 'Counter Strike 2':
+    case 'Counter-Strike 2':
+      return 'bg-[#ea580cf2]';
+    case 'LoL':
+      return 'bg-sky-600';
+    case 'Brawl Stars':
+      return 'bg-red-500';
+    default:
+      return 'bg-green-600';
+  }
+};
+const bgsubSwitch = (game) => {
+  switch (game) {
+    case 'CS2':
+    case 'Counter Strike 2':
+    case 'Counter-Strike 2':
+      return 'bg-[#9a3412f2]';
+    case 'LoL':
+      return 'bg-sky-800';
+    case 'Brawl Stars':
+      return 'bg-red-700';
+    default:
+      return 'bg-green-900';
+  }
 };
 
-// Function to get the icon based on index
-const getIcon = (index) => {
-  return index % 2 === 0 ? gameController : ribbon;
+const imgSwitch = (game) => {
+  switch(game){
+    case 'CS2':
+    case 'Counter Strike 2':
+    case 'Counter-Strike 2':
+      return '/img/tournaments/cs2_2.jpg';
+    case 'LoL':
+      return '';
+    case 'Brawl Stars':
+      return '';
+    default:
+      return '/img/tournaments/yocrew-example.png';
+  }
+}
+
+const scaleImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1.2)';
 };
 
-// Function to check if the game should be hidden
-const hidden = (game) => {
-  return game !== 'CS2' && game !== 'Counter-Strike 2';
+const resetImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1)';
 };
 
-// Function to check if the tournament is live
-const isLive = (dateOfTournament) => {
-  const currentDate = new Date();
-  const formattedCurrentDate = currentDate.toISOString().split('T')[0];
-  const formattedTournamentDate = new Date(dateOfTournament).toISOString().split('T')[0];
-  return formattedCurrentDate === formattedTournamentDate;
-};
-
-// Fetch the tournament data on component mount
 onMounted(() => {
   tournamentStore.getTournament();
 });
 </script>
+
+<style scoped>
+.hover-link img {
+  transition: transform 0.3s ease-in-out;
+}
+</style>
