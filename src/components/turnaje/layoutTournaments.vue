@@ -10,13 +10,13 @@
         @mouseenter="scaleImage"
         @mouseleave="resetImage">
         <img
-          :src="imgSwitch(tournament ? tournament.game : ' ')"
+          :src="imgSwitch(tournament ? tournament.game_name : ' ')"
           alt="Tournament image"
           class="absolute h-56 md:h-full w-full object-cover transition ease-in z-10"
         />
         <div class="relative w-full h-1/3 md:h-3/5 overflow-hidden z-20">
           <div v-if="tournament" class="absolute bottom-0 left-3">
-            <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game }}</h1>
+            <h1 class="font-semibold text-sm text-white hover:text-gray-300 transition ease-in">{{ tournament.game_name }}</h1>
             <h1 class="font-bold text-lg text-white hover:text-gray-300 transition ease-in">{{ tournament.name }}</h1>
           </div>
           <div v-else class="absolute bottom-0 left-3">
@@ -24,7 +24,7 @@
             <h1 class="font-bold text-lg text-white transition ease-in hover:text-gray-300">Na turnaji pracujeme</h1>
           </div>
         </div>
-        <div :class="['w-full h-1/2 md:h-[30%] flex flex-col px-4 z-20', bgSwitch(tournament ? tournament.game : '')]">
+        <div :class="['w-full h-1/2 md:h-[30%] flex flex-col px-4 z-20', bgSwitch(tournament ? tournament.game_name : '')]">
           <div v-if="tournament" class="h-1/3 w-full flex justify-start items-center text-sm text-white transition ease-in hover:text-gray-300">
             Registrácia do: 9/11/2001 | 15:00
           </div> <!--INPUT DATE REGISTRACIE-->
@@ -49,7 +49,7 @@
             <p class="text-sm hover:text-gray-300 transition ease-in">{{ tournament ? truncatedTournamentName(tournament.description) : 'Tento turnaj ešte pre Vás ešte pripravujeme...' }}</p>
           </div>
         </div>
-        <div :class="['w-full h-[16.6667%] md:h-[10%] z-20 flex justify-center items-center text-white px-2', bgsubSwitch(tournament ? tournament.game : '')]">
+        <div :class="['w-full h-[16.6667%] md:h-[10%] z-20 flex justify-center items-center text-white px-2', bgsubSwitch(tournament ? tournament.game_name : '')]">
           <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold transition ease-in hover:text-gray-300">{{ tournament ? formatDate(tournament.date) : 'Dátum' }} | 13:00</div> <!--INPUT DATE-->
           <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold ps-2 transition ease-in hover:text-gray-300">{{ tournament ? tournament.prizepool + '€' : 'Prizepool' }} <ion-icon :icon="trophy" class="text-white text-sm ms-2" /></div>
         </div>
@@ -98,8 +98,8 @@ const truncatedTournamentName = (name) => {
   return words.length > 20 ? words.slice(0, 15).join(' ') + '...' : name;
 };
 
-const bgSwitch = (game) => {
-  switch (game) {
+const bgSwitch = (game_name) => {
+  switch (game_name) {
     case 'CS2':
     case 'Counter Strike 2':
     case 'Counter-Strike 2':
@@ -112,8 +112,8 @@ const bgSwitch = (game) => {
       return 'bg-green-600';
   }
 };
-const bgsubSwitch = (game) => {
-  switch (game) {
+const bgsubSwitch = (game_name) => {
+  switch (game_name) {
     case 'CS2':
     case 'Counter Strike 2':
     case 'Counter-Strike 2':
@@ -127,8 +127,8 @@ const bgsubSwitch = (game) => {
   }
 };
 
-const imgSwitch = (game) => {
-  switch(game){
+const imgSwitch = (game_name) => {
+  switch(game_name){
     case 'CS2':
     case 'Counter Strike 2':
     case 'Counter-Strike 2':

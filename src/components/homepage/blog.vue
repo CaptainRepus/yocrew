@@ -11,7 +11,7 @@
           <div class="w-full md:w-[30%] h-[200px] md:h-auto transition ease-in rounded-lg overflow-hidden">
             <img
               class="rounded-lg h-full w-full object-cover hover:scale-110 transition ease-in"
-              :src="blog.cesta_obrazku"
+              :src="blog.image_path"
               alt="Blog Image"
             />
           </div>
@@ -21,12 +21,12 @@
               <div class="ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in">|<span class="text-xs ms-2">{{ whenUploaded(blog.date) }}</span></div>
             </div>
             <div>
-              <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.name }}</h5>
+              <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.title }}</h5>
             </div>
-            <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">{{ truncatedBlogDescription(blog.description) }}</p>
+            <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">{{ truncatedBlogDescription(blog.content) }}</p>
             <p class="text-[0.6rem] text-slate-400 flex flex-row justify-center items-center">
-              <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.autor }}
-              <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.description) }} min. čítania
+              <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.author }}
+              <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.content) }} min. čítania
             </p>
           </div>
         </router-link>
@@ -113,6 +113,7 @@ export default {
     }
 
     function truncatedBlogName(name) {
+      if (!name) return ''; // Return an empty string if description is undefined
       const words = name.split(' ');
       if (words.length > 6) {
         return words.slice(0, 6).join(' ') + '...';
@@ -121,6 +122,7 @@ export default {
     }
 
     function calculateReadingTime(description) {
+      if (!description) return ''; // Return an empty string if description is undefined
       const wordsPerMinute = 200; // You can adjust this value based on your needs
       const words = description.split(' ').length; // Split by whitespace and count the words
       const readingTimeMinutes = words / wordsPerMinute;
@@ -129,6 +131,7 @@ export default {
     }
 
     function truncatedBlogDescription(description) {
+      if (!description) return ''; // Return an empty string if description is undefined
       const words = description.split(' ');
       if (words.length > 15) {
         return words.slice(0, 17).join(' ') + '...';

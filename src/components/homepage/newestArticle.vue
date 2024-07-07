@@ -3,20 +3,20 @@
     :to="{ name: 'Article', params: { slug: blog.slug } }"
     class="w-full h-full bg-slate-700" v-for="(blog, index) in sortedBlog.slice(0, 1)">
         <div class="rounded-xl overflow-hidden h-[49%]">
-            <img :src="blog.cesta_obrazku" alt="Blog obrazok" class="w-full h-full object-cover hover:scale-110 transition ease-in">
+            <img :src="blog.image_path" alt="Blog obrazok" class="w-full h-full object-cover hover:scale-110 transition ease-in">
         </div>
         <div class="flex justify-start items-center h-[10%] max-md:my-3">
             <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-md md:text-lg transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
             <div class="ms-2 text-md md:text-lg flex items-center justify-center hover:text-gray-400 transi ease-in">|<span class="text-md md:text-lg ms-2">{{ whenUploaded(blog.date) }}</span></div>
         </div>
         <div class="h-[35%] w-full">
-            <h1 class="mb-3 text-3xl md:text-[2rem] font-bold hover:text-gray-400 transition ease-in">{{ blog.name }}</h1>
-            <p class="hover:text-gray-400 transition ease-in">{{ truncatedBlogName(blog.description) }}</p>
+            <h1 class="mb-3 text-3xl md:text-[2rem] font-bold hover:text-gray-400 transition ease-in">{{ blog.title }}</h1>
+            <p class="hover:text-gray-400 transition ease-in">{{ truncatedBlogName(blog.content) }}</p>
         </div>
         <div class="h-[5%] w-full">
             <p class="text-[1rem] md:text-[0.8rem] text-slate-400 flex pt-5 items-center">
-              <ion-icon :icon="personCircle" class="text-gray-400 text-lg me-1" />{{ blog.autor }}
-              <ion-icon :icon="time" class="text-gray-400 text-lg ms-4 me-1" /> {{ calculateReadingTime(blog.description) }} min. čítania
+              <ion-icon :icon="personCircle" class="text-gray-400 text-lg me-1" />{{ blog.author }}
+              <ion-icon :icon="time" class="text-gray-400 text-lg ms-4 me-1" /> {{ calculateReadingTime(blog.content) }} min. čítania
             </p>
         </div>
     </router-link>
@@ -54,29 +54,35 @@ const bgFunction = (color) => {
   }
 };
 
-const whenUploaded = (date) =>{
-  switch(date){
-    case new Date():
-      return 'DNES';
-    case new Date().setDate(new Date().getDate() - 1):
-      return 'VČERA';
-    default:
-      return date;
-  }
-}
+const whenUploaded = (date) => {
+  const today = new Date();
+  const givenDate = new Date(date);
+  const oneDay = 24 * 60 * 60 * 1000;
 
-const truncatedBlogName = (name) => {
-    const words = name.split(' ');
-  if(words.length > 20 && innerWidth > 1024){
-    return words.slice(0, 50).join(' ') + '...';
+  if (today.toDateString() === givenDate.toDateString()) {
+    return 'DNES';
+  } else if ((today - givenDate) / oneDay < 1) {
+    return 'VČERA';
+  } else {
+    return date;
   }
-  else if(innerWidth < 768){
+};
+
+
+const truncatedBlogName = (description) => {
+  if (!description) return ''; // Return an empty string if description is undefined
+  const words = description.split(' ');
+  if (words.length > 20 && innerWidth > 1024) {
+    return words.slice(0, 50).join(' ') + '...';
+  } else if (innerWidth < 768) {
     return words.slice(0, 20).join(' ') + '...';
   }
-  return words;
-}
+  return words.join(' ');
+};
+
 
 const calculateReadingTime = (description) => {
+  if (!description) return ''; // Return an empty string if description is undefined
   const wordsPerMinute = 200; // You can adjust this value based on your needs
   const words = description.split(' ').length; // Split by whitespace and count the words
   const readingTimeMinutes = words / wordsPerMinute;

@@ -12,11 +12,11 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
         <jumbotron
         title="Novinky zo sveta ešportu" 
         description="Tvoje epicentrum herných noviniek a recenzií"
-        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover"
+        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover md:hidden"
         />
         <blog />
       </div>
