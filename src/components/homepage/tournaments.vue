@@ -64,7 +64,7 @@ import { computed, onMounted } from 'vue';
 const tournamentStore = useTournamentStore();
 
 const sortedTournament = computed(() => {
-  return [...tournamentStore.tournament].sort((a, b) => new Date(b.date) - new Date(a.date));
+  return [...tournamentStore.tournament].sort((a, b) => new Date(a.date) - new Date(b.date));
 });
 
 const upcomingTournaments = computed(() => {

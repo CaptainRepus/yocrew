@@ -1,26 +1,26 @@
 <template>
     <h1 class="w-full h-auto text-3xl font-bold text-center py-5">Najnovšie články</h1>
-    <div class="h-96 w-full flex gap-3 px-10 justify-center items-center" v-if="sortedBlog && sortedBlog.length > 0">
+    <div class="h-96 w-full flex gap-3 justify-center items-center" v-if="sortedBlog && sortedBlog.length > 0">
         <router-link 
-        class="relative w-1/2 h-full overflow-hidden rounded-xl flex justify-end items-start flex-col" 
+        class="relative w-1/2 h-full overflow-hidden rounded-2xl flex justify-end items-start flex-col" 
         v-if="sortedBlog[0]"
         :to="{ name: 'Article', params: { slug: sortedBlog[0].slug } }">
-            <img :src="sortedBlog[0].image_path" alt="image" class="absolute h-full w-full object-cover z-10" />
+            <img :src="sortedBlog[0].image_path" alt="image" class="absolute h-full w-full object-cover z-10 transition ease-in hover:scale-105" />
             <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in z-20 mx-3 mb-1" :class="bgFunction(sortedBlog[0].tag)">{{ sortedBlog[0].tag.toUpperCase() }}</div>
             <h1 class="z-20 text-3xl font-bold pb-3 px-3">{{ sortedBlog[0].title }}</h1>
         </router-link>
-        <div class="w-[35%] h-full flex flex-col">
+        <div class="w-[35%] h-full flex flex-col gap-2">
             <router-link 
-            class="relative h-1/2 w-full rounded-xl overflow-hidden flex flex-col justify-end items-start"
+            class="relative h-1/2 w-full rounded-2xl overflow-hidden flex flex-col justify-end items-start"
             :to="{ name: 'Article', params: { slug: sortedBlog[1].slug } }">
-                <img :src="sortedBlog[1].image_path" alt="image" class="absolute h-full w-full object-cover pb-1 z-10">
+                <img :src="sortedBlog[1].image_path" alt="image" class="absolute h-full w-full object-cover z-10 transition ease-in hover:scale-105">
                 <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in z-20 mx-3 mb-1" :class="bgFunction(sortedBlog[1].tag)">{{ sortedBlog[1].tag.toUpperCase() }}</div>
                 <h1 class="z-30 text-xl font-bold pb-3 px-3">{{ sortedBlog[1].title }}</h1>
             </router-link>
             <router-link 
-            class="relative h-1/2 w-full rounded-xl overflow-hidden flex flex-col justify-end items-start"
+            class="relative h-1/2 w-full rounded-2xl overflow-hidden flex flex-col justify-end items-start"
             :to="{ name: 'Article', params: { slug: sortedBlog[2].slug } }">
-                <img :src="sortedBlog[2].image_path" alt="image" class="absolute h-full w-full object-cover pt-1 z-10">
+                <img :src="sortedBlog[2].image_path" alt="image" class="absolute h-full w-full object-cover z-10  transition ease-in hover:scale-105">
                 <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in z-20 mx-3 mb-1" :class="bgFunction(sortedBlog[2].tag)">{{ sortedBlog[2].tag.toUpperCase() }}</div>
                 <h1 class="z-30 text-xl font-bold pb-3 px-3">{{ sortedBlog[2].title }}</h1>
             </router-link>

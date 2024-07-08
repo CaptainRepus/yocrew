@@ -116,7 +116,7 @@ export default {
       if (!name) return ''; // Return an empty string if description is undefined
       const words = name.split(' ');
       if (words.length > 6) {
-        return words.slice(0, 6).join(' ') + '...';
+        return words.slice(0, 15).join(' ') + '...';
       }
       return name;
     }
