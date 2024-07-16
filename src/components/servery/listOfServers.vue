@@ -1,15 +1,22 @@
 <template>
     <div class="w-full md:px-3 mt-7">
-        <div class="w-full md:grid grid-cols-2 gap-5">
+        <h2 class="text-4xl md:px-56 font-bold mb-5">CS2 Servery</h2>
+        <div class="w-full md:grid grid-cols-1 gap-5 md:px-56">
             <div v-for="(server, index) in serverStore.server" :key="index"
-            class="bg-gray-900 border border-gray-800 rounded-xl w-full h-28 max-md:mb-4 flex max-md:px-2 hover:bg-gray-800">
-                <div class="w-1/2 md:w-2/3 h-full flex justify-center items-center">
-                    <h1 class="text-lg md:text-2xl  font-bold text-center">{{ server.name }}</h1>
+            class="bg-gray-100 border border-gray-200 rounded-xl w-full h-28 max-md:mb-4 flex max-md:px-2 hover:bg-gray-300 overflow-hidden"
+            @mouseenter="scaleImage"
+            @mouseleave="resetImage">
+                <div class="w-1/3 h-full overflow-hidden">
+                    <img src="/img/tournaments/LOL.jpg" class="w-full h-full object-cover transition ease-in" alt="">
+                </div>
+                <div class="w-1/2 md:w-1/3 h-full flex justify-center items-start ps-5 flex-col">
+                    <h1 class="text-lg md:text-xl font-bold text-black">{{ server.name }}</h1>
+                    <p class="text-black">Adresa: {{ server.link }}</p>
                 </div>
                 <!-- PC -->
                 <div class="w-1/3 h-full flex justify-center items-center max-md:hidden">
-                    <a :href="server.path">
-                        <ion-button>
+                    <a :href="server.path" class="rounded-xl overflow-hidden w-1/3 h-1/2 flex justify-center items-center">
+                        <div class="w-full h-full bg-green-600 flex justify-center items-center font-bold">
                             Pripojiť sa
                             <svg
                             class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
@@ -26,7 +33,7 @@
                               d="M1 5h12m0 0L9 1m4 4L9 9"
                             />
                             </svg>
-                        </ion-button>  
+                        </div>  
                     </a>   
                 </div>
                 <!-- MOBIL -->
@@ -55,24 +62,23 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { IonButton } from '@ionic/vue';
 import { useServerStore } from '@/store/useServerStore';
 
-export default {
-    components: {
-        IonButton
-    },
-    setup() {
-        const serverStore = useServerStore();
-        return {
-            serverStore,
-        }
-    },
-    methods: {
-        alert() {
-            alert('Na mobile sa nemôžeš pripojiť na CS2 server');
-        }
-    }
+const serverStore = useServerStore();
+
+const alert = () => {
+    alert('Na mobile sa nemôžeš pripojiť na CS2 server');
 }
+
+const scaleImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1.2)';
+};
+
+const resetImage = (event) => {
+  const image = event.currentTarget.querySelector('img');
+  image.style.transform = 'scale(1)';
+};
 </script>

@@ -1,5 +1,4 @@
 <template>
-    <h1 class="w-full h-auto text-3xl font-bold text-center py-5">Najnovšie články</h1>
     <div class="h-96 w-full flex gap-3 justify-center items-center" v-if="sortedBlog && sortedBlog.length > 0">
         <router-link 
         class="relative w-1/2 h-full overflow-hidden rounded-2xl flex justify-end items-start flex-col" 

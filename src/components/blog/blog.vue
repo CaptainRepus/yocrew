@@ -12,7 +12,7 @@
     </div>
   </div>
   <hr class="h-1 mb-8 bg-gray-500 border-0 mx-48 rounded-xl">
-  <div class="w-full h-auto px-48 grid grid-cols-3 gap-2">
+  <div class="w-full h-auto px-48 grid grid-cols-3 gap-2 mb-16">
     <router-link
       class="w-full h-auto"
       v-for="(blog, index) in filteredBlogs"

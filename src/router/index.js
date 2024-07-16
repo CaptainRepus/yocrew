@@ -10,7 +10,7 @@ const routes = [
     component: TabsPage,
     children: [
       {
-        path: '',
+        path: '/',
         component: () => import('@/views/Tab1Page.vue')
       },
       {

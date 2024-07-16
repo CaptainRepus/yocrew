@@ -16,9 +16,12 @@
         <jumbotron
         title="Novinky zo sveta ešportu" 
         description="Tvoje epicentrum herných noviniek a recenzií"
-        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover md:hidden"
+        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover mb-10"
         />
-        <blog />
+        <blog/>
+
+        <foter />
+        <sponsorBox class="md:hidden"/>
       </div>
 
     </ion-content>
@@ -30,6 +33,8 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue
 import { useBlogStore } from '@/store/useBlogStore.js';
 import jumbotron from '../components/jumbotron.vue';
 import blog from '../components/blog/blog.vue';
+import foter from '../components/footer.vue';
+import sponsorBox from '../components/sponsorBox.vue';
 
 export default {
   components: {
@@ -40,6 +45,8 @@ export default {
     IonContent,
     jumbotron,
     blog,
+    foter,
+    sponsorBox,
   },
   setup() {
     const blogStore = useBlogStore();

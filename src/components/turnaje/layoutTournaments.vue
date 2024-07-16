@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-auto md:px-3 mt-10">
-    <h1 class="text-4xl font-bold mt-5">Aktuálne turnaje</h1>
-    <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-3 mt-3" v-if="displayTournaments && displayTournaments.length > 0">
+    <h1 class="md:px-56 text-4xl font-bold mt-5">Aktuálne turnaje</h1>
+    <div class="md:px-56 w-full grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-3 mt-3" v-if="displayTournaments && displayTournaments.length > 0">
       <router-link
         v-for="(tournament, index) in displayTournaments"
         :key="index"
@@ -105,6 +105,8 @@ const bgSwitch = (game_name) => {
     case 'Counter-Strike 2':
       return 'bg-[#ea580cf2]';
     case 'LoL':
+    case 'LOL':
+    case 'League of Legends':
       return 'bg-sky-600';
     case 'Brawl Stars':
       return 'bg-red-500';
@@ -119,6 +121,8 @@ const bgsubSwitch = (game_name) => {
     case 'Counter-Strike 2':
       return 'bg-[#9a3412f2]';
     case 'LoL':
+    case 'LOL':
+    case 'League of Legends':
       return 'bg-sky-800';
     case 'Brawl Stars':
       return 'bg-red-700';
@@ -134,7 +138,9 @@ const imgSwitch = (game_name) => {
     case 'Counter-Strike 2':
       return '/img/tournaments/cs2_2.jpg';
     case 'LoL':
-      return '';
+    case 'LOL':
+    case 'League of Legends':
+      return '/img/tournaments/LOL.jpg';
     case 'Brawl Stars':
       return '';
     default:

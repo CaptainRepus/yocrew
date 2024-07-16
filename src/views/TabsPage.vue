@@ -112,39 +112,10 @@
             </ul>
           </div>
         </div>
-        <div v-if="isTurnajeRoute" class="w-full flex justify-center items-center bg-gray-800 px-2 py-1">
-          <div @click="setSection(1)" class="w-1/2 me-5 flex justify-center items-center text-lg font-semibold cursor-pointer bg-gray-900 hover:bg-green-600 rounded-xl p-1 border-2 border-gray-700 ">Turnaje</div>
-          <div @click="setSection(2)" class="w-1/2 flex justify-center items-center text-lg font-semibold cursor-pointer bg-gray-900 hover:bg-green-600 rounded-xl p-1 border-2 border-gray-700 ">CS2 Servery</div>
-        </div>
-        
       </nav>
 
       <!-- TAB PRE MOBILY -->
       <div class="relative">
-        <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isTurnajeRoute">
-          <div class="inline-flex rounded-md shadow-sm mt-2">
-            <button
-              @click="setSection(1)"
-              type="button"
-              aria-current="page" 
-              :class="[
-                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-s-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
-                sectionStore.section === 1 ? 'bg-gray-700 text-white' : 'bg-gray-900'
-              ]">
-              Turnaje
-            </button>
-            <button 
-              @click="setSection(2)"
-              type="button"
-              :class="[
-                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-e-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
-                sectionStore.section === 2 ? 'bg-gray-700 text-white' : 'bg-gray-900'
-              ]">
-              CS2 Servery
-            </button>
-          </div>
-        </div>
-
         <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isYoCrewRoute">
           <div class="inline-flex rounded-md shadow-sm mt-2">
             <router-link
@@ -200,16 +171,9 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useSectionStore } from '@/store/useSectionStore.js';
 
-const sectionStore = useSectionStore();
 const route = useRoute();
 
-const setSection = (number) =>{
-  sectionStore.setSection(number);
-}
-
-const isTurnajeRoute = computed(() => route.path === '/turnaje-servery');
 const isYoCrewRoute = computed(() => route.path === '/yocrew' || route.path === '/galeria');
 
 </script>
