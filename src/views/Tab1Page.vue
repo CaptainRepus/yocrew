@@ -12,7 +12,6 @@
           <ion-title size="large" class="mt-[2.5rem] z-10">Domov</ion-title>
         </ion-toolbar>
       </ion-header>
-
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
         <jumbotron class="max-md:hidden"/>
         <div class="flex flex-col justify-center md:flex-col md:px-20">
