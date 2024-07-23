@@ -10,25 +10,62 @@
     </ion-header>
     <ion-content>
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-48">
-        <div class="w-2/3 h-full">
-          <div class="w-full h-56 md:h-2/3 rounded-xl overflow-hidden mb-2">
-            <img :src="article.image_path" class="w-full h-full object-cover transition ease-in hover:scale-105">
-          </div>
-          <p class="text-white text-sm mb-5">Zdroj: idklololoolol</p>
-          <h1 class="text-5xl font-bold mb-3">{{ article.title }}</h1>
-          <div class="w-full h-auto flex justify-start items-center gap-3 mb-10">
-            <div class="w-[10%] h-8 flex justify-center items-center px-3 rounded-2xl font-bold text-lg transition ease-in" :class="bgFunction(article.tag)">
-              {{ article.tag.toUpperCase() }}
+        <div class="w-full h-full flex">
+          <div class="w-2/3 h-full">
+            <div class="w-full h-56 md:h-2/3 rounded-xl overflow-hidden mb-2">
+              <img :src="article.image_path" class="w-full h-full object-cover transition ease-in hover:scale-105">
             </div>
-            <p class="text-white flex justify-start items-center">
-              {{ article.author }}, 
-              {{ whenUploaded(article.date) }} | 
-              <ion-icon :icon="time" class="text-gray-400 ms-4 me-1" />
-              {{ calculateReadingTime(article.content) }}min. čítania
-            </p>
+            <p class="text-white text-sm mb-5">Zdroj: idklololoolol</p>
+            <h1 class="text-5xl font-bold mb-3">{{ article.title }}</h1>
+            <div class="w-full h-auto flex justify-start items-center gap-3 mb-10">
+              <div class="w-[10%] h-8 flex justify-center items-center px-3 rounded-2xl font-bold text-lg transition ease-in" :class="bgFunction(article.tag)">
+                {{ article.tag.toUpperCase() }}
+              </div>
+              <p class="text-white flex justify-start items-center">
+                {{ article.author }}, 
+                {{ whenUploaded(article.date) }} | 
+                <ion-icon :icon="time" class="text-gray-400 ms-4 me-1" />
+                {{ calculateReadingTime(article.content) }}min. čítania
+              </p>
+            </div>
+            <p v-html="article.content"></p>
           </div>
-          <p v-html="article.content"></p>
+          <div class="w-1/3 h-auto">
+            <div class="sticky top-10 p-5 pt-0">
+              <h3 class="text-2xl font-bold text-white mb-5">Najnovšie články</h3>
+              <router-link 
+              v-for="blog in articles.slice(0, 4)" 
+              :key="blog.slug" 
+              class="w-full h-auto mb-4 flex flex-col gap-1 hover:rounded-lg hover:bg-slate-800 transition ease-in p-2"
+              :to="{ name: 'Article', params: { slug: blog.slug } }"
+              >
+                <h3 class="font-bold">{{ blog.title }}</h3>
+                <div class="flex gap-3">
+                  <div
+                    class="flex justify-center items-center w-1/6 py-1 px-2 rounded-2xl font-bold text-xs transition ease-in"
+                    :class="bgFunction(blog.tag)"
+                  >
+                    {{ blog.tag.toUpperCase() }}
+                  </div>
+                  <div class="flex justify-center items-center">
+                    <p class="text-xs text-gray-400 flex justify-center items-center">{{ blog.date }}</p>
+                  </div>
+                </div>
+              </router-link>
+              <div class="flex justify-end items-center mt-4 max-md:hidden">
+                <router-link to="/clanky" class="w-2/3 rounded-2xl overflow-hidden font-bold">
+                  <ion-button class="w-full rounded-2xl overflow-hidden font-bold">
+                    Pozrieť všetky články
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </ion-button>
+                </router-link>
+              </div>
+            </div>
+          </div>
         </div>
+        
         <div class="w-full h-56 bg-white mt-10 rounded-xl flex">
           <div class="h-full w-1/3 flex justify-center items-center">
             <img :src="getAuthorImage(article.author)" alt="Blog author" class="w-40 h-40 object-cover rounded-full">
@@ -38,12 +75,45 @@
             <p class="text-lg text-gray-500">Autor článku</p>
           </div>
         </div>
-        <div class="h-56 w-full mt-5 grid grid-cols-3 gap-4">
-          <div v-for="relatedArticle in relatedArticles" :key="relatedArticle.id" class="rounded-xl">
-            <img :src="relatedArticle.image_path" alt="Article Image" class="w-full h-32 object-cover rounded-t-xl mb-2">
-            <h3 class="text-white font-bold text-xl">{{ relatedArticle.title }}</h3>
-            <p class="text-white">{{ relatedArticle.content }}</p>
-          </div>
+        <h3 class="text-2xl font-bold mt-10" v-if="relatedArticles.length">Podobné články</h3>
+        <div class="h-56 w-full mt-5 grid grid-cols-3 gap-4" v-if="relatedArticles.length">
+          <router-link
+            class="w-full h-auto"
+            v-for="(blog, index) in relatedArticles"
+            :key="index"
+            :to="{ name: 'Article', params: { slug: blog.slug } }"
+          >
+            <div class="h-1/2 w-full rounded-xl overflow-hidden">
+              <img :src="blog.image_path" alt="image" class="w-full h-full object-cover transition ease-in hover:scale-105" />
+            </div>
+            <div class="h-1/2 w-full flex flex-col">
+              <div class="flex mt-2 gap-3">
+                <div
+                  class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in"
+                  :class="bgFunction(blog.tag)"
+                >
+                  {{ blog.tag.toUpperCase() }}
+                </div>
+                <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in hover:bg-gray-200 hover:text-black">
+                  {{ whenUploaded(blog.date) }}
+                </div>
+              </div>
+              <div class="mt-1">
+                <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.2rem] hover:text-gray-400 transition ease-in">
+                  {{ blog.title }}
+                </h5>
+              </div>
+              <div>
+                <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">
+                  {{ truncatedBlogDescription(blog.content) }}
+                </p>
+              </div>
+              <p class="text-[0.6rem] text-slate-400 flex flex-row justify-start items-center mt-5">
+                <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.author }}
+                <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.content) }} min. čítania
+              </p>
+            </div>
+          </router-link>
         </div>
       </div>
     </ion-content>
@@ -55,21 +125,23 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, RouterLink } from 'vue-router';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, IonContent, IonIcon } from '@ionic/vue';
 import { useBlogStore } from '@/store/useBlogStore';
 import { personCircle, time } from 'ionicons/icons';
+import { IonButton } from '@ionic/vue';
 
 const article = ref(null);
 const error = ref(null);
 const route = useRoute();
 const blogStore = useBlogStore();
+const articles = computed(() => blogStore.articles);
 
 const fetchArticle = async () => {
   try {
     await blogStore.getBlog();
     const articleSlug = route.params.slug;
-    article.value = blogStore.articles.find(article => article.slug === articleSlug);
+    article.value = articles.value.find(article => article.slug === articleSlug);
 
     if (!article.value) {
       error.value = 'Article not found';
@@ -84,8 +156,17 @@ onMounted(fetchArticle);
 
 const relatedArticles = computed(() => {
   if (!article.value) return [];
-  return blogStore.articles.filter(blog => blog.tag === article.value.tag && blog.slug !== article.value.slug);
+  return articles.value.filter(blog => blog.tag === article.value.tag && blog.slug !== article.value.slug);
 });
+
+const truncatedBlogDescription = (description) => {
+  if (!description) return ''; // Return an empty string if description is undefined
+  const words = description.split(' ');
+  if (words.length > 20) {
+    return words.slice(0, 20).join(' ') + '...';
+  }
+  return description;
+};
 
 const bgFunction = (color) => {
   switch (color) {
