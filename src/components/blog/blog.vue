@@ -1,18 +1,18 @@
 <template>
-  <newestArticle />
-  <h1 class="px-48 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
-  <div class="px-48 w-full h-auto flex gap-3 mb-5">
+  <newestArticle class="max-md:hidden"/>
+  <h1 class="md:px-48 px-2 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
+  <div class="md:px-48 w-full h-auto py-2 px-2 flex gap-3 mb-5 overflow-x-scroll">
     <div
       v-for="tag in tags"
       :key="tag"
       @click="toggleTag(tag)"
-      :class="['flex justify-center items-center py-1 px-3 rounded-2xl font-semibold text-[0.8rem] transition ease-in cursor-pointer', tagClasses(tag), isTagSelected(tag) ? 'opacity-100' : 'opacity-50']"
+      :class="['flex justify-center items-center py-1 max-md:w-96 px-5 h-12 rounded-2xl font-semibold text-[0.8rem] transition ease-in cursor-pointer', tagClasses(tag), isTagSelected(tag) ? 'opacity-100' : 'opacity-50']"
     >
       {{ tag }}
     </div>
   </div>
-  <hr class="h-1 mb-8 bg-gray-500 border-0 mx-48 rounded-xl">
-  <div class="w-full h-auto px-48 grid grid-cols-3 gap-2 mb-16">
+  <hr class="h-1 mb-8 bg-gray-500 border-0 md:mx-48 rounded-xl max-md:hidden">
+  <div class="w-full h-auto px-4 md:px-48 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 md:mb-16 ">
     <router-link
       class="w-full h-auto"
       v-for="(blog, index) in filteredBlogs"
@@ -78,11 +78,19 @@ export default {
     });
 
     const filteredBlogs = computed(() => {
-      if (selectedTags.value.length === 0) {
-        return sortedBlog.value.slice(3);
-      }
-      return sortedBlog.value.slice(3).filter(blog => selectedTags.value.includes(blog.tag));
-    });
+  // Check if the device is likely a mobile device based on the window width
+  const isMobile = window.innerWidth <= 768;
+
+  // If there are no selected tags, return the entire list on mobile, or slice starting from the 4th element on desktop
+  if (selectedTags.value.length === 0) {
+    return isMobile ? sortedBlog.value : sortedBlog.value.slice(3);
+  }
+
+  // If there are selected tags, filter and then apply slice for desktop only
+  const filtered = sortedBlog.value.filter(blog => selectedTags.value.includes(blog.tag));
+  return isMobile ? filtered : filtered.slice(3);
+});
+
 
     const toggleTag = (tag) => {
       if (selectedTags.value.includes(tag)) {

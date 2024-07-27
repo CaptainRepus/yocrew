@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header class="hidden">
       <ion-toolbar mode="ios" class="md:hidden">
         <ion-title size="large" class="mt-5">
           <div>Turnaje</div>
@@ -16,14 +16,15 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+      <div class="pb-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
         <jumbotron
         title="Turnaje"
         description="Bojisko pre skutočných ešportových majstrov."
-        class="bg-[url('/img/IMG_0129(1).JPG')] bg-cover" 
+        class="bg-[url('/img/IMG_0129(1).JPG')] bg-cover mb-5 md:mb-10" 
         />
         <layout />
         <ListOfServers />
+        <foter />
       </div>
 
     </ion-content>
@@ -37,6 +38,7 @@ import layout from '../components/turnaje/layoutTournaments.vue';
 import { useSectionStore } from '@/store/useSectionStore.js';
 import ListOfServers from '../components/servery/listOfServers.vue';
 import { useServerStore } from '@/store/useServerStore.js';
+import foter from '@/components/footer.vue'
 
 const sectionStore = useSectionStore();
 const serverStore = useServerStore();

@@ -1,21 +1,21 @@
 <template>
-    <div class="w-full md:px-3 mt-7">
+    <div class="w-full md:px-3 mt-7 px-4">
         <h2 class="text-4xl md:px-56 font-bold mb-5">CS2 Servery</h2>
         <div class="w-full md:grid grid-cols-1 gap-5 md:px-56">
             <div v-for="(server, index) in serverStore.server" :key="index"
-            class="bg-gray-100 border border-gray-200 rounded-xl w-full h-28 max-md:mb-4 flex max-md:px-2 hover:bg-gray-300 overflow-hidden"
+            class="bg-gray-100 border border-gray-200 rounded-xl w-full h-28 max-md:mb-4 flex hover:bg-gray-300 overflow-hidden max-md:flex max-md:flex-col max-md:h-60"
             @mouseenter="scaleImage"
             @mouseleave="resetImage">
-                <div class="w-1/3 h-full overflow-hidden">
-                    <img src="/img/tournaments/LOL.jpg" class="w-full h-full object-cover transition ease-in" alt="">
+                <div class="w-1/3 max-md:w-full max-md:h-1/3 h-full overflow-hidden">
+                    <img src="/img/tournaments/cs2_2.jpg" class="w-full h-full object-cover transition ease-in" alt="">
                 </div>
-                <div class="w-1/2 md:w-1/3 h-full flex justify-center items-start ps-5 flex-col">
+                <div class="w-1/2 md:w-1/3 h-full max-md:h-1/3 flex justify-center items-start ps-5 flex-col">
                     <h1 class="text-lg md:text-xl font-bold text-black">{{ server.name }}</h1>
                     <p class="text-black">Adresa: {{ server.link }}</p>
                 </div>
                 <!-- PC -->
                 <div class="w-1/3 h-full flex justify-center items-center max-md:hidden">
-                    <a :href="server.path" class="rounded-xl overflow-hidden w-1/3 h-1/2 flex justify-center items-center">
+                    <a :href="server.link" class="rounded-xl overflow-hidden w-1/3 h-1/2 flex justify-center items-center">
                         <div class="w-full h-full bg-green-600 flex justify-center items-center font-bold">
                             Pripojiť sa
                             <svg
@@ -37,7 +37,7 @@
                     </a>   
                 </div>
                 <!-- MOBIL -->
-                <div class="w-1/2 h-full flex justify-center items-center md:hidden">
+                <div class="w-1/2 h-1/3 flex justify-center items-center md:hidden">
                         <ion-button @click="alert">
                             Pripojiť sa
                             <svg

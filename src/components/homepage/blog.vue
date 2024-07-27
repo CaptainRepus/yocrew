@@ -1,13 +1,12 @@
 <template>
   <div class="h-full md:h-auto">
-    <!-- Desktop view -->
-    <div class="max-lg:hidden">
+    <div>
       <div class="flex flex-col gap-4">
         <router-link
           :to="{ name: 'Article', params: { slug: blog.slug } }"
           v-for="(blog, index) in sortedBlog.slice(1, 6)"
           :key="index"
-          class="rounded-lg shadow flex h-36 w-[45vw]">
+          class="rounded-lg shadow flex flex-col md:flex-row h-auto w-full md:w-[45vw]">
           <div class="w-full md:w-[30%] h-[200px] md:h-auto transition ease-in rounded-lg overflow-hidden">
             <img
               class="rounded-lg h-full w-full object-cover hover:scale-110 transition ease-in"
@@ -15,10 +14,10 @@
               alt="Blog Image"
             />
           </div>
-          <div class="ps-3 w-full md:w-[70%] flex flex-col justify-center items-start">
-            <div class="mb-2 flex">
+          <div class="p-3 w-full md:w-[70%] flex flex-col justify-center items-start">
+            <div class="mb-2 flex flex-col md:flex-row">
               <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-xs transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
-              <div class="ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in">|<span class="text-xs ms-2">{{ whenUploaded(blog.date) }}</span></div>
+              <div class="mt-2 md:mt-0 md:ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in">|<span class="text-xs ms-2">{{ whenUploaded(blog.date) }}</span></div>
             </div>
             <div>
               <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.title }}</h5>
@@ -30,36 +29,6 @@
             </p>
           </div>
         </router-link>
-      </div>
-    </div>
-
-    <!-- Mobile view -->
-    <div class="p-3 px-0 lg:hidden">
-      <div class="grid grid-cols-1 gap-4">
-        <router-link
-          :to="{ name: 'Article', params: { slug: blog.slug } }"
-          v-for="(blog, index) in sortedBlog.slice(1, 3)"
-          :key="index"
-          class="max-w-sm bg-gray-900 border border-gray-600 rounded-lg shadow"
-        >
-          <div class="relative">
-            <img
-              class="rounded-t-lg h-48 w-full"
-              :src="blog.cesta_obrazku"
-              alt="Blog Image"
-            />
-            <div class="absolute top-4 right-4 py-3 px-5 rounded-xl font-bold" :class="bgFunction(blog.tag)">
-              {{ blog.tag.toUpperCase() }}
-            </div>
-          </div>
-          <div class="p-5">
-            <div>
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ truncatedBlogName(blog.name) }}</h5>
-            </div>
-            <p class="mb-3 text-sm">{{ truncatedBlogDescription(blog.description) }}</p>
-          </div>
-        </router-link>
-        <ion-button @click="click">Pozrieť všetky články</ion-button>
       </div>
     </div>
   </div>
@@ -83,7 +52,7 @@ export default {
     });
 
     const bgFunction = (color) => {
-      switch(color){
+      switch (color) {
         case 'CS2':
           return 'bg-yellow-600 text-white hover:bg-yellow-800';
         case 'Gaming':
@@ -101,14 +70,15 @@ export default {
       }
     };
 
-    const whenUploaded = (date) =>{
-      switch(date){
-        case new Date():
-          return 'DNES';
-        case new Date().setDate(new Date().getDate() - 1):
-          return 'VČERA';
-        default:
-          return date;
+    const whenUploaded = (date) => {
+      const today = new Date();
+      const givenDate = new Date(date);
+      if (givenDate.toDateString() === today.toDateString()) {
+        return 'DNES';
+      } else if (givenDate.toDateString() === new Date(today.setDate(today.getDate() - 1)).toDateString()) {
+        return 'VČERA';
+      } else {
+        return date;
       }
     }
 

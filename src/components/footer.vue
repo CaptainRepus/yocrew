@@ -1,27 +1,27 @@
 <template>
-    <footer class="bg-gray-800 rounded-lg shadow m-4 max-md:hidden">
+    <footer class="bg-gray-800 rounded-lg shadow m-4 max-md:m-0 max-md:mt-5 max-md:rounded-t-lg max-md:rounded-b-none">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
+            <div class="flex sm:items-center sm:justify-between">
                 <a href="https://yocrew.eu/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <img src="/img/yocrewlogo.png" class="h-16" alt="YoCrew Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">YoCrew</span>
                 </a>
-                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                <ul class="flex flex-wrap max-md:justify-end items-center max-md:w-2/3 text-sm font-medium text-gray-500 mb-0 dark:text-gray-400">
                     <li>
                         <a href="https://instagram.com/yocrew_/" target="_blank">
-                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoInstagram" />
+                            <ion-icon class="text-gray-200 hover:underline me-4 md:me-6 hover:text-green-500 md:text-xl text-2xl" :icon="logoInstagram" />
                         </a>
                         
                     </li>
                     <li>
                         <a href="https://discord.gg/hnyAMZsQKU" target="_blank">
-                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoDiscord" />
+                            <ion-icon class="text-gray-200 hover:underline me-4 md:me-6 hover:text-green-500 md:text-xl text-2xl" :icon="logoDiscord" />
                         </a>
                         
                     </li>
                     <li>
                         <a href="https://www.facebook.com/yooocrew/?_rdr" target="_blank">
-                            <ion-icon class="text-gray-400 hover:underline me-4 md:me-6 hover:text-green-500 text-xl" :icon="logoFacebook" />
+                            <ion-icon class="text-gray-200 hover:underline me-4 md:me-6 hover:text-green-500 md:text-xl text-2xl" :icon="logoFacebook" />
                         </a>
                     </li>
                 </ul>

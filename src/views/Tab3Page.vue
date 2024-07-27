@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header class="hidden">
       <ion-toolbar mode="ios" class="md:hidden">
         <ion-title size="large" class="mt-5">Články</ion-title>
       </ion-toolbar>
@@ -12,16 +12,15 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
+      <div class="pb-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
         <jumbotron
         title="Novinky zo sveta ešportu" 
         description="Tvoje epicentrum herných noviniek a recenzií"
-        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover mb-10"
+        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover mb-2"
         />
         <blog/>
 
         <foter />
-        <sponsorBox class="md:hidden"/>
       </div>
 
     </ion-content>

@@ -11,26 +11,26 @@
     <ion-content>
       <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-48">
         <div class="w-full h-full flex">
-          <div class="w-2/3 h-full">
+          <div class="w-2/3 h-full max-md:w-full">
             <div class="w-full h-56 md:h-2/3 rounded-xl overflow-hidden mb-2">
               <img :src="article.image_path" class="w-full h-full object-cover transition ease-in hover:scale-105">
             </div>
             <p class="text-white text-sm mb-5">Zdroj: idklololoolol</p>
-            <h1 class="text-5xl font-bold mb-3">{{ article.title }}</h1>
+            <h1 class="text-5xl max-md:text-3xl font-bold mb-3">{{ article.title }}</h1>
             <div class="w-full h-auto flex justify-start items-center gap-3 mb-10">
-              <div class="w-[10%] h-8 flex justify-center items-center px-3 rounded-2xl font-bold text-lg transition ease-in" :class="bgFunction(article.tag)">
+              <div class="md:w-[10%] h-8 flex justify-center items-center px-3 w-1/4 rounded-2xl font-bold text-lg max-md:text-md transition ease-in" :class="bgFunction(article.tag)">
                 {{ article.tag.toUpperCase() }}
               </div>
-              <p class="text-white flex justify-start items-center">
+              <p class="text-gray-500 flex justify-start items-center max-md:text-sm">
                 {{ article.author }}, 
                 {{ whenUploaded(article.date) }} | 
-                <ion-icon :icon="time" class="text-gray-400 ms-4 me-1" />
+                <ion-icon :icon="time" class="text-gray-500 ms-4 me-1" />
                 {{ calculateReadingTime(article.content) }}min. čítania
               </p>
             </div>
             <p v-html="article.content"></p>
           </div>
-          <div class="w-1/3 h-auto">
+          <div class="w-1/3 h-auto max-md:hidden">
             <div class="sticky top-10 p-5 pt-0">
               <h3 class="text-2xl font-bold text-white mb-5">Najnovšie články</h3>
               <router-link 
@@ -67,16 +67,16 @@
         </div>
         
         <div class="w-full h-56 bg-white mt-10 rounded-xl flex">
-          <div class="h-full w-1/3 flex justify-center items-center">
-            <img :src="getAuthorImage(article.author)" alt="Blog author" class="w-40 h-40 object-cover rounded-full">
+          <div class="h-full w-1/3 max-md:w-1/2 flex justify-center items-center">
+            <img :src="getAuthorImage(article.author)" alt="Blog author" class="w-40 h-40 max-md:w-28 max-md:h-28 object-cover rounded-full">
           </div>
-          <div class="h-full w-2/3 flex justify-center items-center flex-col">
+          <div class="h-full w-2/3 max-md:w-1/2 flex justify-center items-center flex-col">
             <h3 class="text-black font-bold text-2xl mb-1">{{ article.author }}</h3>
             <p class="text-lg text-gray-500">Autor článku</p>
           </div>
         </div>
         <h3 class="text-2xl font-bold mt-10" v-if="relatedArticles.length">Podobné články</h3>
-        <div class="h-56 w-full mt-5 grid grid-cols-3 gap-4" v-if="relatedArticles.length">
+        <div class="h-56 w-full mt-5 grid grid-cols-3 gap-4 max-md:grid-cols-1" v-if="relatedArticles.length">
           <router-link
             class="w-full h-auto"
             v-for="(blog, index) in relatedArticles"
@@ -116,6 +116,7 @@
           </router-link>
         </div>
       </div>
+      <foter />
     </ion-content>
   </ion-page>
   <div v-else>
@@ -130,6 +131,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, Io
 import { useBlogStore } from '@/store/useBlogStore';
 import { personCircle, time } from 'ionicons/icons';
 import { IonButton } from '@ionic/vue';
+import foter from '@/components/footer.vue';
 
 const article = ref(null);
 const error = ref(null);

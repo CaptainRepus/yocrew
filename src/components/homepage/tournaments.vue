@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full md:h-96 flex flex-col md:flex-row gap-2">
+  <div class="w-full h-full md:h-96 flex flex-col md:flex-row gap-2 px-3 md:px-0">
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"
@@ -60,6 +60,7 @@ import { IonIcon } from '@ionic/vue';
 import { gitNetwork, shieldHalf, trophy, people } from 'ionicons/icons';
 import { useTournamentStore } from '@/store/useTournamentStore.js';
 import { computed, onMounted } from 'vue';
+import router from '../../router';
 
 const tournamentStore = useTournamentStore();
 
