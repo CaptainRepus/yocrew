@@ -3,7 +3,7 @@
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"
-      to="/"
+      :to="tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '/'"
       class="relative w-full md:w-1/4 h-72 md:h-full rounded-2xl overflow-hidden flex flex-col"
       @mouseenter="scaleImage"
       @mouseleave="resetImage"> <!--PRIDAT INPUT SLUG"tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '#'"-->
@@ -40,7 +40,7 @@
           </div> <!--INPUT BRACKETOV-->
           <div class="h-5/6 w-[25%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="people" class="text-black text-sm me-2" />
-            8
+            {{ tournament ? tournament.team_count : '-/--' }}
           </div> <!--INPUT BRACKETOV-->
         </div>
         <div class="h-[42%] w-full flex justify-start items-center overflow-hidden text-white">
@@ -141,13 +141,21 @@ const imgSwitch = (game_name) =>{
 }
 
 const scaleImage = (event) => {
-  const image = event.currentTarget.querySelector('img');
-  image.style.transform = 'scale(1.2)';
+  if (event && event.currentTarget) {
+    const image = event.currentTarget.querySelector('img');
+    if (image) {
+      image.style.transform = 'scale(1.2)';
+    }
+  }
 };
 
 const resetImage = (event) => {
-  const image = event.currentTarget.querySelector('img');
-  image.style.transform = 'scale(1)';
+  if (event && event.currentTarget) {
+    const image = event.currentTarget.querySelector('img');
+    if (image) {
+      image.style.transform = 'scale(1)';
+    }
+  }
 };
 
 onMounted(() => {

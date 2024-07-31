@@ -1,7 +1,7 @@
 <template>
     <div class="w-full md:px-3 mt-7 px-4">
         <h2 class="text-4xl md:px-56 font-bold mb-5">CS2 Servery</h2>
-        <div class="w-full md:grid grid-cols-1 gap-5 md:px-56">
+        <div class="w-full md:grid grid-cols-1 gap-5 md:px-56" v-if="serverStore.server == '[]'">
             <div v-for="(server, index) in serverStore.server" :key="index"
             class="bg-gray-100 border border-gray-200 rounded-xl w-full h-28 max-md:mb-4 flex hover:bg-gray-300 overflow-hidden max-md:flex max-md:flex-col max-md:h-60"
             @mouseenter="scaleImage"
@@ -58,6 +58,9 @@
                         </ion-button>  
                 </div>
             </div>  
+        </div>
+        <div class="w-full h-56 flex justify-center items-center" v-else>
+            <h1 class="text-2xl font-bold">Neboli pridané žiadne CS2 Servery</h1>
         </div>
     </div>
 </template>

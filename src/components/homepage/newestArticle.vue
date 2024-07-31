@@ -11,7 +11,7 @@
         </div>
         <div class="h-[35%] w-full">
             <h1 class="mb-3 text-3xl md:text-[2rem] font-bold hover:text-gray-400 transition ease-in">{{ blog.title }}</h1>
-            <p class="hover:text-gray-400 transition ease-in">{{ truncatedBlogName(blog.content) }}</p>
+            <p class="hover:text-gray-400 transition ease-in" v-html="truncatedBlogName(blog.content)"></p>
         </div>
         <div class="h-[5%] w-full">
             <p class="text-[1rem] md:text-[0.8rem] text-slate-400 flex pt-5 items-center">

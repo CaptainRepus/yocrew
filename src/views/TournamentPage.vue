@@ -1,65 +1,107 @@
 <template>
-    <ion-page v-if="article">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Článok</ion-title>
-          <ion-buttons slot="start">
-            <ion-back-button />
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
-            <h1 class="text-2xl font-bold mb-1 text-center">{{ article.name }}</h1>
-            <h3 class="text-lg mb-5 text-center">Autor: {{ article.autor }}</h3>
-            <div class="w-full h-1/3 md:h-2/3 rounded-xl border border-green-500 overflow-hidden mb-5">
-            <img :src="article.cesta_obrazku" class="w-1/3 h-full">
-            </div>
-            <p class="text-lg" v-html="article.description"></p>
+  <ion-page v-if="tournament">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Turnaj</ion-title>
+        <ion-buttons slot="start">
+          <ion-back-button />
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
+        <div class="w-full h-80 overflow-hidden">
+          <img src="/img/tournaments/cs2_2.jpg" class="w-full h-full object-cover" alt="">
         </div>
-      </ion-content>
-    </ion-page>
-    <div v-else>
-      <p>Loading...</p>
-    </div>
-  </template>
-  
-  <script>
-  import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, IonContent } from '@ionic/vue';
-  import { useBlogStore } from '@/store/useBlogStore';
-  import { close } from 'ionicons/icons';
-  
-  export default {
-    components: {
-      IonPage,
-      IonHeader,
-      IonToolbar,
-      IonTitle,
-      IonButtons,
-      IonBackButton,
-      IonContent,
-      close
-    },
-    data() {
-      return {
-        article: null,
-        error: null
-      };
-    },
-    async created() {
-      const blogStore = useBlogStore();
-      try {
-        await blogStore.getBlog();
-        const articleSlug = this.$route.params.slug;
-        this.article = blogStore.articles.find(article => article.slug === articleSlug);
-  
-        if (!this.article) {
-          this.error = 'Article not found';
-        }
-      } catch (error) {
-        this.error = 'Failed to load article';
-        console.error('Error fetching articles:', error);
+        <div class="w-full h-full px-48">
+          <div class="w-full flex justify-center items-center mt-5 border-b-2 border-gray-500 pb-5">
+            <h1 class="text-5xl font-bold">{{ tournament.name }}</h1>
+          </div>
+          <div class="w-full h-auto flex">
+            <div class="w-1/2 mt-4">
+              <a :href="tournament.link">
+                <div class="px-2 py-1 bg-green-600 font-bold text-lg rounded-2xl w-1/3 flex justify-center items-center">
+                  Registrácia
+                </div>
+              </a>
+            </div>
+            <div class="w-1/2 mt-4 flex justify-end text-lg font-bold">
+              Registrácia končí {{ formatDate(tournament.date) }}
+            </div>
+          </div>
+          <div class="w-full h-auto flex">
+            <div class="w-1/2 h-96">
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div class="w-full h-full bg-white rounded-xl overflow-hidden flex text-black">
+                  <div class="w-1/2 h-full">
+                    
+                  </div>
+                  <div class="w-1/2 h-full">
+
+                  </div>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+        
+      </div>
+    </ion-content>
+  </ion-page>
+  <div v-else>
+    <p>Loading...</p>
+  </div>
+</template>
+
+<script>
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, IonContent } from '@ionic/vue';
+import { useTournamentStore } from '@/store/useTournamentStore';
+import { close } from 'ionicons/icons';
+
+export default {
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonBackButton,
+    IonContent,
+    close
+  },
+  data() {
+    return {
+      tournament: null,
+      error: null
+    };
+  },
+  async created() {
+    const tournamentStore = useTournamentStore();
+    try {
+      await tournamentStore.getTournament();
+      const tournamentSlug = this.$route.params.slug;
+      this.tournament = tournamentStore.tournament.find(tournament => tournament.slug === tournamentSlug);
+
+      if (!this.tournament) {
+        this.error = 'Tournament not found';
       }
+    } catch (error) {
+      this.error = 'Failed to load tournament';
+      console.error('Error fetching tournaments:', error);
     }
-  };
-  </script>  
+  },
+  setup(){
+    const formatDate = (date) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString('sk-SK', options);
+};
+return{
+  formatDate
+}
+  },
+};
+</script>

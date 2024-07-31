@@ -16,7 +16,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="pb-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+      <div class="pt-20 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
         <jumbotron
         title="Turnaje"
         description="Bojisko pre skutočných ešportových majstrov."

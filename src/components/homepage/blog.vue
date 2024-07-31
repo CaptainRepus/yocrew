@@ -22,7 +22,7 @@
             <div>
               <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.title }}</h5>
             </div>
-            <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">{{ truncatedBlogDescription(blog.content) }}</p>
+            <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in" v-html="truncatedBlogDescription(blog.content)"></p>
             <p class="text-[0.6rem] text-slate-400 flex flex-row justify-center items-center">
               <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.author }}
               <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.content) }} min. čítania

@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-full md:h-auto flex flex-col md:flex-row gap-2 px-3 md:px-48">
+  <div class="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-5 px-3 md:px-56">
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"
       to="/"
-      class="relative w-full md:w-1/4 h-72 md:h-full rounded-2xl overflow-hidden flex flex-col"
+      class="relative w-full md:w-full h-56 md:h-96 rounded-2xl overflow-hidden flex flex-col"
       @mouseenter="scaleImage"
       @mouseleave="resetImage"> <!--PRIDAT INPUT SLUG"tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '#'"-->
       <img
@@ -40,7 +40,7 @@
           </div> <!--INPUT BRACKETOV-->
           <div class="h-5/6 w-[25%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="people" class="text-black text-sm me-2" />
-            8
+            {{ tournament ? tournament.team_count : '-/--' }}
           </div> <!--INPUT BRACKETOV-->
         </div>
         <div class="h-[42%] w-full flex justify-start items-center overflow-hidden text-white">
@@ -80,6 +80,9 @@ const upcomingTournaments = computed(() => {
 
 const displayTournaments = computed(() => {
   const tournaments = upcomingTournaments.value;
+  while (tournaments.length < 4) {
+    tournaments.push(null); // Add null placeholders
+  }
   return tournaments;
 });
 

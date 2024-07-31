@@ -1,6 +1,6 @@
 <template>
     <ion-page>
-        <ion-header>
+        <ion-header class="hidden">
       <ion-toolbar mode="ios" class="md:hidden">
         <ion-title size="large" class="mt-5">YoCrew</ion-title>
       </ion-toolbar>
@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
 
-        <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-0">
+        <div class="pt-20 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
           <jumbotron 
           title="Galéria"
           description="Ešport pre každého, kdekoľvek!"

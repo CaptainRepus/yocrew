@@ -1,7 +1,7 @@
 <template>
   <newestArticle class="max-md:hidden"/>
   <h1 class="md:px-48 px-2 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
-  <div class="md:px-48 w-full h-auto py-2 px-2 flex gap-3 mb-5 overflow-x-scroll">
+  <div class="md:px-48 w-full h-auto py-2 px-2 flex gap-3 mb-5 max-md:overflow-x-scroll">
     <div
       v-for="tag in tags"
       :key="tag"
@@ -40,9 +40,7 @@
           </h5>
         </div>
         <div>
-          <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in">
-            {{ truncatedBlogDescription(blog.content) }}
-          </p>
+          <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in" v-html="truncatedBlogDescription(blog.content)"></p>
         </div>
         <p class="text-[0.6rem] text-slate-400 flex flex-row justify-start items-center mt-5">
           <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.author }}
@@ -88,7 +86,7 @@ export default {
 
   // If there are selected tags, filter and then apply slice for desktop only
   const filtered = sortedBlog.value.filter(blog => selectedTags.value.includes(blog.tag));
-  return isMobile ? filtered : filtered.slice(3);
+  return filtered;
 });
 
 
