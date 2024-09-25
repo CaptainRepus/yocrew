@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="pt-20 md:mt-20 w-full z-[50000] md:pt-0 md:px-0 bg-slate-900">
+      <div class="md:mt-20 w-full z-[50000] md:px-0 bg-slate-900">
         <jumbotron
         title="Novinky zo sveta ešportu" 
         description="Tvoje epicentrum herných noviniek a recenzií"

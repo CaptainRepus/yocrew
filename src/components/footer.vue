@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-gray-800 rounded-lg shadow m-4 max-md:m-0 max-md:mt-5 max-md:rounded-t-lg max-md:rounded-b-none">
+    <footer class="bg-gray-800 rounded-lg shadow p-4 mb-0 max-md:m-0 max-md:rounded-t-lg max-md:rounded-b-none">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="flex sm:items-center sm:justify-between">
                 <a href="https://yocrew.eu/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">

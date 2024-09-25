@@ -1,18 +1,19 @@
 <template>
   <newestArticle class="max-md:hidden"/>
-  <h1 class="md:px-48 px-2 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
-  <div class="md:px-48 w-full h-auto py-2 px-2 flex gap-3 mb-5 max-md:overflow-x-scroll">
+  <h1 class="md:px-48 px-4 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
+  <!-- Tags Filter with Mobile Scroll Support -->
+  <div class="md:px-48 px-4 py-2 flex gap-2 overflow-x-auto scrollbar-hide">
     <div
       v-for="tag in tags"
       :key="tag"
       @click="toggleTag(tag)"
-      :class="['flex justify-center items-center py-1 max-md:w-96 px-5 h-12 rounded-2xl font-semibold text-[0.8rem] transition ease-in cursor-pointer', tagClasses(tag), isTagSelected(tag) ? 'opacity-100' : 'opacity-50']"
+      :class="['flex justify-center items-center py-1 px-4 rounded-xl text-sm font-semibold cursor-pointer transition-all whitespace-nowrap', tagClasses(tag), isTagSelected(tag) ? 'opacity-100' : 'opacity-50']"
     >
       {{ tag }}
     </div>
   </div>
   <hr class="h-1 mb-8 bg-gray-500 border-0 md:mx-48 rounded-xl max-md:hidden">
-  <div class="w-full h-auto px-4 md:px-48 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 md:mb-16 ">
+  <div class="w-full h-auto px-4 md:px-48 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 md:mb-16 max-md:pt-3">
     <router-link
       class="w-full h-auto"
       v-for="(blog, index) in filteredBlogs"
@@ -30,7 +31,7 @@
           >
             {{ blog.tag.toUpperCase() }}
           </div>
-          <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in hover:bg-gray-200 hover:text-black">
+          <div class="text-white flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in hover:bg-gray-200 hover:text-black">
             {{ whenUploaded(blog.date) }}
           </div>
         </div>
@@ -204,5 +205,8 @@ export default {
         --width: 800px;
         --height: 500px;
     }
+}
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 </style>

@@ -8,14 +8,16 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <div class="px-4 py-2 md:mt-20 w-full z-[50000] md:pt-0 md:px-48">
-        <div class="w-full h-full flex">
+    <ion-content class="bg-slate-900">
+      <!-- AdModal -->
+      <AdModal />
+      <div class="px-4 max-md:pt-16 w-full z-[50000] md:pt-0 md:px-48 bg-slate-900 max-md:pb-5">
+        <div class="w-full h-full flex md:pt-20">
           <div class="w-2/3 h-full max-md:w-full">
             <div class="w-full h-56 md:h-2/3 rounded-xl overflow-hidden mb-2">
               <img :src="article.image_path" class="w-full h-full object-cover transition ease-in hover:scale-105">
             </div>
-            <p class="text-white text-sm mb-5">Zdroj: idklololoolol</p>
+            <p class="text-white text-sm mb-5">Zdroj: {{ article.zdroj }}</p>
             <h1 class="text-5xl max-md:text-3xl font-bold mb-3">{{ article.title }}</h1>
             <div class="w-full h-auto flex justify-start items-center gap-3 mb-10">
               <div class="md:w-[10%] h-8 flex justify-center items-center px-3 w-1/4 rounded-2xl font-bold text-lg max-md:text-md transition ease-in" :class="bgFunction(article.tag)">
@@ -39,8 +41,8 @@
               class="w-full h-auto mb-4 flex flex-col gap-1 hover:rounded-lg hover:bg-slate-800 transition ease-in p-2"
               :to="{ name: 'Article', params: { slug: blog.slug } }"
               >
-                <h3 class="font-bold">{{ blog.title }}</h3>
-                <div class="flex gap-3">
+                <h3 class="font-bold m-0 text-white">{{ blog.title }}</h3>
+                <div class="flex gap-3 text-white">
                   <div
                     class="flex justify-center items-center w-1/6 py-1 px-2 rounded-2xl font-bold text-xs transition ease-in"
                     :class="bgFunction(blog.tag)"
@@ -66,7 +68,7 @@
           </div>
         </div>
         
-        <div class="w-full h-56 bg-white mt-10 rounded-xl flex">
+        <div class="w-full h-56 bg-white mt-10 rounded-xl flex mb-3">
           <div class="h-full w-1/3 max-md:w-1/2 flex justify-center items-center">
             <img :src="getAuthorImage(article.author)" alt="Blog author" class="w-40 h-40 max-md:w-28 max-md:h-28 object-cover rounded-full">
           </div>
@@ -76,7 +78,7 @@
           </div>
         </div>
         <h3 class="text-2xl font-bold mt-10" v-if="relatedArticles.length">Podobné články</h3>
-        <div class="h-56 w-full mt-5 grid grid-cols-3 gap-4 max-md:grid-cols-1" v-if="relatedArticles.length">
+        <div class="w-full mt-5 grid grid-cols-3 gap-4 max-md:grid-cols-1" v-if="relatedArticles.length">
           <router-link
             class="w-full h-auto"
             v-for="(blog, index) in relatedArticles"
@@ -132,6 +134,7 @@ import { useBlogStore } from '@/store/useBlogStore';
 import { personCircle, time } from 'ionicons/icons';
 import { IonButton } from '@ionic/vue';
 import foter from '@/components/footer.vue';
+import AdModal from '../components/AdModal.vue';
 
 const article = ref(null);
 const error = ref(null);

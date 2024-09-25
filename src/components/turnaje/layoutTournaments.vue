@@ -3,7 +3,7 @@
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"
-      to="/"
+      to="tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '/'"
       class="relative w-full md:w-full h-56 md:h-96 rounded-2xl overflow-hidden flex flex-col"
       @mouseenter="scaleImage"
       @mouseleave="resetImage"> <!--PRIDAT INPUT SLUG"tournament ? { name: 'Tournament', params: { slug: tournament.slug } } : '#'"-->
@@ -24,7 +24,7 @@
       </div>
       <div :class="['w-full h-1/2 md:h-[30%] flex flex-col px-4 z-20', bgSwitch(tournament ? tournament.game_name : '')]">
         <div v-if="tournament" class="h-1/3 w-full flex justify-start items-center text-sm text-white transition ease-in hover:text-gray-300">
-          Registrácia do: 9/11/2001 | 15:00
+          Registrácia do: {{ formatDate(tournament.date_reg) }}
         </div> <!--INPUT DATE REGISTRACIE-->
         <div v-else class="h-1/3 w-full flex justify-start items-center text-sm text-white">
           --/--
@@ -32,23 +32,23 @@
         <div class="h-1/4 w-full flex justify-start items-center gap-2">
           <div class="h-5/6 w-[45%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="gitNetwork" class="text-black text-sm me-2" />
-            Tip Bracketov
-          </div> <!--INPUT BRACKETOV-->
+            {{ tournament ? tournament.bracket : '-/--' }}
+          </div> 
           <div class="h-5/6 w-[30%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="shieldHalf" class="text-black text-sm me-2" />
-            5v5
-          </div> <!--INPUT BRACKETOV-->
+            {{ tournament ? tournament.format : '-/--' }}
+          </div> 
           <div class="h-5/6 w-[25%] bg-white text-xs text-black rounded-lg flex justify-center items-center hover:bg-gray-300 transition ease-in">
             <ion-icon :icon="people" class="text-black text-sm me-2" />
             {{ tournament ? tournament.team_count : '-/--' }}
-          </div> <!--INPUT BRACKETOV-->
+          </div> 
         </div>
         <div class="h-[42%] w-full flex justify-start items-center overflow-hidden text-white">
           <p class="text-sm hover:text-gray-300 transition ease-in">{{ tournament ? truncatedTournamentName(tournament.description) : 'Tento turnaj ešte pre Vás ešte pripravujeme...' }}</p>
         </div>
       </div>
       <div :class="['w-full h-[16.6667%] md:h-[10%] z-20 flex justify-center items-center text-white px-2', bgsubSwitch(tournament ? tournament.game_name : '')]">
-        <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold transition ease-in hover:text-gray-300">{{ tournament ? formatDate(tournament.date) : 'Dátum' }} | 13:00</div> <!--INPUT DATE-->
+        <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold transition ease-in hover:text-gray-300 text-white">{{ tournament ? formatDate(tournament.date) : 'Dátum' }} | {{ tournament ? getHourFromTime(tournament.date) : '--/--' }}</div> <!--INPUT DATE-->
         <div class="w-1/2 h-full flex justify-center items-center text-[0.9rem] font-bold ps-2 transition ease-in hover:text-gray-300">{{ tournament ? tournament.prizepool + '€' : 'Prizepool' }} <ion-icon :icon="trophy" class="text-white text-sm ms-2" /></div>
       </div>
     </router-link>
@@ -67,6 +67,13 @@ const tournamentStore = useTournamentStore();
 const sortedTournament = computed(() => {
   return [...tournamentStore.tournament].sort((a, b) => new Date(a.date) - new Date(b.date));
 });
+
+const getHourFromTime = (time) => {
+  const date = new Date(time);
+  const hour = date.getHours();
+  const minutes = date.getMinutes();
+  return `${hour}:${minutes}`;
+};
 
 const upcomingTournaments = computed(() => {
   const currentDate = new Date();

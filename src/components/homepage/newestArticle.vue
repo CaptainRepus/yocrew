@@ -7,11 +7,11 @@
         </div>
         <div class="flex justify-start items-center h-[10%] max-md:my-3">
             <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-md md:text-lg transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
-            <div class="ms-2 text-md md:text-lg flex items-center justify-center hover:text-gray-400 transi ease-in">|<span class="text-md md:text-lg ms-2">{{ whenUploaded(blog.date) }}</span></div>
+            <div class="ms-2 text-md md:text-lg flex items-center justify-center hover:text-gray-400 transi ease-in text-white">|<span class="text-md md:text-lg ms-2 text-white">{{ whenUploaded(blog.date) }}</span></div>
         </div>
         <div class="h-[35%] w-full">
-            <h1 class="mb-3 text-3xl md:text-[2rem] font-bold hover:text-gray-400 transition ease-in">{{ blog.title }}</h1>
-            <p class="hover:text-gray-400 transition ease-in" v-html="truncatedBlogName(blog.content)"></p>
+            <h1 class="mb-3 text-3xl md:text-[2rem] font-bold hover:text-gray-400 transition ease-in text-white">{{ blog.title }}</h1>
+            <p class="hover:text-gray-400 transition ease-in text-white" v-html="truncatedBlogName(blog.content)"></p>
         </div>
         <div class="h-[5%] w-full">
             <p class="text-[1rem] md:text-[0.8rem] text-slate-400 flex pt-5 items-center">

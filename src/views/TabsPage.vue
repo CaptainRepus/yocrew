@@ -2,21 +2,22 @@
   <ion-page>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
-      <!-- NAVBAR -->
-      <nav class="h-20 bg-gray-900 border-b-4 fixed w-full z-20 top-0 start-0 border-[rgb(101,120,174)]">
-        <div class="relative max-w-screen-xl flex flex-wrap items-center justify-end mx-auto h-full">
-          <router-link to="/" class="absolute bottom-[-60%] md:bottom-[-70%] left-[38%] md:left-5 flex items-center rtl:space-x-reverse logo">
-            <img src="/img/yocrewlogo.png" class="h-24 md:h-[6.5rem]" alt="YoCrew Logo">
+
+      <!-- NAVBAR NA PC -->
+      <nav class="h-20 bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-700 max-md:hidden">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-[0.6rem] pb-0">
+          <router-link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="/img/yocrewlogo.png" class="h-16" alt="YoCrew Logo">
           </router-link>
           <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
-              @click="toggleModal"
+              data-collapse-toggle="navbar-sticky"
               type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-sticky"
               aria-expanded="false"
             >
-              <span class="sr-only">Open menu</span>
+              <span class="sr-only">Otvoriť menu</span>
               <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path
                   stroke="currentColor"
@@ -113,130 +114,71 @@
         </div>
       </nav>
 
-      <!-- MOBILE MODAL -->
-      <transition name="fade">
-        <div v-if="isModalOpen" class="fixed inset-0 z-30 flex items-center justify-center bg-gray-900 bg-opacity-75">
-          <div class="bg-slate-800 shadow-lg w-full md:w-1/2 lg:w-1/3 relative">
-            <button @click="toggleModal" class="absolute top-3 right-3 text-white active:text-green-500">
-              <span class="sr-only">Zatvoriť menu</span>
-              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <ul class="flex flex-col p-5 pt-16 h-screen w-screen space-y-4">
-              <li class="border-b-2 border-white pb-2">
-                <router-link @click.native="handleLinkClick" to="/" class="text-white text-3xl font-semibold hover:text-green-700">
-                  <ion-icon :icon="home" class="ms-2 me-5" />Domov
-                </router-link>
-              </li>
-              <li class="border-b-2 border-white pb-2">
-                <router-link @click.native="handleLinkClick" to="/clanky" class="text-white text-3xl font-semibold hover:text-green-700">
-                  <ion-icon :icon="newspaper" class="ms-2 me-5" />Články
-                </router-link>
-              </li>
-              <li class="border-b-2 border-white pb-2">
-                <router-link @click.native="handleLinkClick" to="/turnaje-servery" class="text-white text-3xl font-semibold hover:text-green-700">
-                  <ion-icon :icon="gameController" class="ms-2 me-5 text-3xl" />Turnaje / CS2 Servery
-                </router-link>
-              </li>
-              <li class="border-b-2 border-white pb-2 relative">
-                <div @click="toggleYoCrewDropdown" class="text-white text-3xl font-semibold hover:text-green-700 flex items-center cursor-pointer">
-                  <ion-icon :icon="people" class="ms-2 me-5 text-3xl" />YoCrew
-                  <ChevronDownIcon class="ml-2 h-8 w-8 text-white" />
-                </div>
-                <transition name="fade">
-                  <ul v-if="isYoCrewDropdownOpen" class="pl-16 my-5 space-y-2">
-                    <li class="border-b-2 border-white pb-2 relative">
-                      <router-link @click.native="handleLinkClick" to="/yocrew" class="text-white text-2xl font-semibold hover:text-green-700">
-                        Náš tím
-                      </router-link>
-                    </li>
-                    <li class="pb-2 relative">
-                      <router-link @click.native="handleLinkClick" to="/galeria" class="text-white text-2xl font-semibold hover:text-green-700">
-                        Galéria
-                      </router-link>
-                    </li>
-                  </ul>
-                </transition>
-              </li>
-            </ul>
+      <!-- TAB PRE MOBILY -->
+      <div class="relative">
+        <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isYoCrewRoute">
+          <div class="inline-flex rounded-md shadow-sm mt-2">
+            <router-link
+              to="/yocrew"
+              type="button"
+              aria-current="page" 
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-s-lg focus:z-10 focus:ring-2 focus:ring-blue-700 dark:border-gray-700 dark:focus:ring-blue-500',
+                route.path === '/yocrew' ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
+              Náš tím
+            </router-link>
+            <router-link 
+              to="/galeria"
+              type="button"
+              :class="[
+                'px-16 py-2 text-sm font-medium border border-gray-200 rounded-e-lg focus:z-10 focus:ring-2 dark:border-gray-700',
+                route.path === '/galeria' ? 'bg-gray-700 text-white' : 'bg-gray-900'
+              ]">
+              Galéria
+            </router-link>
           </div>
         </div>
-      </transition>
+
+        <ion-tab-bar slot="bottom" class="md:hidden relative z-0">
+          <ion-tab-button tab="Domov" href="/">
+            <ion-icon aria-hidden="true" :icon="home" :class="[route.path === '/' ? 'text-green-500' : 'text-gray-400']" />
+          </ion-tab-button>
+
+          <ion-tab-button tab="Turnaje" href="/turnaje-servery">
+            <ion-icon aria-hidden="true" :icon="ribbon" :class="[route.path === '/turnaje-servery' ? 'text-green-500' : 'text-gray-400']"/>
+          </ion-tab-button>
+
+          <ion-tab-button tab="Články" href="/clanky">
+            <ion-icon aria-hidden="true" :icon="library" :class="[route.path === '/clanky' ? 'text-green-500' : 'text-gray-400']"/>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </div>
     </ion-tabs>
   </ion-page>
 </template>
 
+
+
 <script setup>
-import { IonTabs, IonRouterOutlet } from '@ionic/vue';
-import { home, newspaper, gameController, people } from 'ionicons/icons';
+import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
+import { home, ribbon, library, gameController, peopleCircle } from 'ionicons/icons';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid';
-import { computed, ref, onMounted, onUnmounted } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
+
 const isYoCrewRoute = computed(() => route.path === '/yocrew' || route.path === '/galeria');
 
-const isModalOpen = ref(false);
-const toggleModal = () => {
-  isModalOpen.value = !isModalOpen.value;
-};
-
-const isYoCrewDropdownOpen = ref(false);
-const toggleYoCrewDropdown = () => {
-  isYoCrewDropdownOpen.value = !isYoCrewDropdownOpen.value;
-};
-
-const handleLinkClick = () => {
-  isModalOpen.value = false;
-  isYoCrewDropdownOpen.value = false;
-};
-
-const handleScroll = () => {
-  const logo = document.querySelector('.logo');
-  if (window.scrollY > 50) {
-    logo.classList.add('logo-left');
-  } else {
-    logo.classList.remove('logo-left');
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
 </script>
 
 <style scoped>
-.group:hover .group-hover\:block {
+.group:hover .group-hover\\:block {
   display: block;
 }
-.group:hover .group-hover\:hidden {
+.group:hover .group-hover\\:hidden {
   display: none;
 }
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
-
-.dropdown-enter-active, .dropdown-leave-active {
-  transition: max-height 0.3s ease-in;
-}
-.dropdown-enter-from, .dropdown-leave-to {
-  max-height: 0;
-}
-
-.logo-left {
-  left: 0 !important;
-  bottom: 0 !important;
-  transition: left 0.3s, bottom 0.3s;
-}
 </style>
-

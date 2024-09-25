@@ -17,7 +17,7 @@
           <div class="p-3 w-full md:w-[70%] flex flex-col justify-center items-start">
             <div class="mb-2 flex flex-col md:flex-row">
               <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-xs transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
-              <div class="mt-2 md:mt-0 md:ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in">|<span class="text-xs ms-2">{{ whenUploaded(blog.date) }}</span></div>
+              <div class="mt-2 md:mt-0 md:ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in text-white">|<span class="text-xs ms-2 text-white">{{ whenUploaded(blog.date) }}</span></div>
             </div>
             <div>
               <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.title }}</h5>

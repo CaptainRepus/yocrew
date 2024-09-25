@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "415239384999",
+    "project_id": "yocrew-2e2c9",
+    "storage_bucket": "yocrew-2e2c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415239384999:android:223f9944ae4a8b77085082",
+        "android_client_info": {
+          "package_name": "ionic.yocrew"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQYsBIS4fuZP97JYFP3wqIYM0g1vJWkO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
