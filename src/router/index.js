@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { Preferences } from '@capacitor/preferences';
 import TabsPage from '../views/TabsPage.vue';
 import ArticlePage from '@/views/ArticlePage.vue';
 import TournamentPage from '@/views/TournamentPage.vue';
 
-// Helper function to get a cookie by name
-const getCookie = (name) => {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+// Helper function to get access_token from Capacitor Preferences
+const getAccessToken = async () => {
+  const { value } = await Preferences.get({ key: 'access_token' });
+  return value;
 }
 
 const routes = [
@@ -18,6 +18,10 @@ const routes = [
   {
     path: '/register',
     component: () => import('@/views/auth/Register.vue')
+  },
+  {
+    path: '/welcome',
+    component: () => import('@/views/auth/Welcome.vue')
   },
   {
     path: '/',
@@ -48,9 +52,9 @@ const routes = [
         component: TournamentPage
       },
       {
-        path: '/login',
-        name: 'Login',
-        component: () => import('@/views/auth/Login.vue')
+        path: '/profil',
+        name: 'Profil',
+        component: () => import('@/views/Profil.vue')
       }
     ]
   },
@@ -61,23 +65,23 @@ const router = createRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
-  const accessToken = getCookie('access_token'); // Retrieve accessToken from cookies
+// Add navigation guards using Capacitor Preferences for access token handling
+router.beforeEach(async (to, from, next) => {
+  const accessToken = await getAccessToken(); // Retrieve accessToken from Capacitor Preferences
 
   if (accessToken) {
-    if (to.path === '/login') {
-      next('/'); // Redirect to "tabs/tab1" if authenticated and accessing login page
+    if (to.path === '/welcome' || to.path === '/login') {
+      next('/'); // Redirect to main page (tab1) if authenticated and accessing welcome/login page
     } else {
       next(); // Proceed to the requested route
     }
   } else {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      next('/login'); // If the route requires auth and no token, redirect to login
+      next('/welcome'); // If the route requires auth and no token, redirect to welcome/login
     } else {
       next(); // If route doesn't require auth, proceed as usual
     }
   }
 });
-
 
 export default router;

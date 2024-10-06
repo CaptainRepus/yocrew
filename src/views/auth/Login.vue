@@ -3,7 +3,7 @@
       <ion-content>
         <ion-header collapse="condense" class="hidden">
           <ion-toolbar>
-            <ion-title size="large">Tab 1</ion-title>
+            <ion-title size="large">Log In</ion-title>
           </ion-toolbar>
         </ion-header>
         <div class="w-full h-screen flex justify-center items-center flex-col bg-slate-900">
@@ -24,7 +24,7 @@
                    v-model="password">
   
             <ion-button @click="login" 
-                    class="w-full px-5 py-3 text-xl rounded-xl bg-green-500 text-white font-bold mb-7 border-[3px] border-green-800 focus:border-green-300">
+                    class="w-full text-xl rounded-xl bg-green-500 text-white font-bold mb-7 border-[3px] border-green-800 focus:border-green-300">
               Prihlásiť sa
             </ion-button>
             

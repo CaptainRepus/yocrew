@@ -40,7 +40,7 @@
             </select>
     
             <ion-button @click="register" 
-                    class="w-full px-5 py-3 text-xl rounded-xl bg-green-500 text-white font-bold mb-7 border-[3px] border-green-800 focus:border-green-300">
+              class="w-full text-xl rounded-xl bg-green-500 text-white font-bold mb-7 border-[3px] border-green-800 focus:border-green-300">
               Registruj sa
             </ion-button>
             

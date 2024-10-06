@@ -7,17 +7,17 @@
           v-for="(blog, index) in sortedBlog.slice(1, 6)"
           :key="index"
           class="rounded-lg shadow flex flex-col md:flex-row h-auto w-full md:w-[45vw]">
-          <div class="w-full md:w-[30%] h-[200px] md:h-auto transition ease-in rounded-lg overflow-hidden">
+          <div class="w-full px-2 md:w-[30%] h-[200px] md:h-auto transition ease-in rounded-lg overflow-hidden">
             <img
               class="rounded-lg h-full w-full object-cover hover:scale-110 transition ease-in"
               :src="blog.image_path"
               alt="Blog Image"
             />
           </div>
-          <div class="p-3 w-full md:w-[70%] flex flex-col justify-center items-start">
-            <div class="mb-2 flex flex-col md:flex-row">
-              <div class="flex justify-center items-center px-3 rounded-2xl font-bold text-xs transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
-              <div class="mt-2 md:mt-0 md:ms-2 text-md flex items-center justify-center hover:text-gray-400 transition ease-in text-white">|<span class="text-xs ms-2 text-white">{{ whenUploaded(blog.date) }}</span></div>
+          <div class="py-3 px-2 w-full md:w-[70%] flex flex-col justify-center items-start">
+            <div class="mb-2 flex justify-start items-center md:flex-row w-1/2">
+              <div class="flex justify-center items-center px-4 rounded-2xl font-bold text-xs transition ease-in" :class="bgFunction(blog.tag)">{{ blog.tag.toUpperCase() }}</div>
+              <div class="md:mt-0 md:ms-2 ms-5 text-md flex items-center justify-center hover:text-gray-400 transition ease-in text-white">|<span class="text-xs ms-2 text-white">{{ whenUploaded(blog.date) }}</span></div>
             </div>
             <div>
               <h5 class="mb-1 mt-0 font-semibold tracking-tight text-white text-[1.3rem] hover:text-gray-400 transition ease-in">{{ blog.title }}</h5>

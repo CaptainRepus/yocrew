@@ -152,6 +152,10 @@
           <ion-tab-button tab="Články" href="/clanky">
             <ion-icon aria-hidden="true" :icon="library" :class="[route.path === '/clanky' ? 'text-green-500' : 'text-gray-400']"/>
           </ion-tab-button>
+
+          <ion-tab-button tab="Profil" href="/profil">
+            <ion-icon aria-hidden="true" :icon="personCircle" :class="[route.path === '/profil' ? 'text-green-500' : 'text-gray-400']"/>
+          </ion-tab-button>
         </ion-tab-bar>
       </div>
     </ion-tabs>
@@ -162,7 +166,7 @@
 
 <script setup>
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { home, ribbon, library, gameController, peopleCircle } from 'ionicons/icons';
+import { home, ribbon, library, personCircle, peopleCircle } from 'ionicons/icons';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid';
 import { computed } from 'vue';

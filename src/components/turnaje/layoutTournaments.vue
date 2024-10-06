@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-5 px-3 md:px-56">
+  <div class="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-5 px-3 md:px-56 mt-3">
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"

@@ -11,7 +11,7 @@
     <ion-content class="bg-slate-900">
       <!-- AdModal -->
       <AdModal />
-      <div class="px-4 max-md:pt-16 w-full z-[50000] md:pt-0 md:px-48 bg-slate-900 max-md:pb-5">
+      <div class="px-4 max-md:pt-6 w-full z-[50000] md:pt-0 md:px-48 bg-slate-900 max-md:pb-5">
         <div class="w-full h-full flex md:pt-20">
           <div class="w-2/3 h-full max-md:w-full">
             <div class="w-full h-56 md:h-2/3 rounded-xl overflow-hidden mb-2">
@@ -96,7 +96,7 @@
                 >
                   {{ blog.tag.toUpperCase() }}
                 </div>
-                <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in hover:bg-gray-200 hover:text-black">
+                <div class="flex justify-center items-center py-1 px-3 rounded-2xl font-bold text-xs transition ease-in text-white hover:bg-gray-200 hover:text-black">
                   {{ whenUploaded(blog.date) }}
                 </div>
               </div>

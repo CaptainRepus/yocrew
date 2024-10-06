@@ -1,25 +1,19 @@
 <template>
   <ion-page>
-    <ion-header class="hidden">
-      <ion-toolbar mode="ios" class="md:hidden">
-        <ion-title size="large" class="mt-5">Články</ion-title>
+    <ion-header :translucent="true">
+    <ion-toolbar>
+      <ion-title>Články</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense" class="mt-[-0.5rem]">
+      <ion-toolbar>
+        <ion-title size="large">Články</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense" class="md:hidden">
-        <ion-toolbar class="mt-[-6.5rem]">
-          <ion-title size="large" class="mt-[2.5rem] z-10">Články</ion-title>
-        </ion-toolbar>
-      </ion-header>
 
       <div class="md:mt-20 w-full z-[50000] md:px-0 bg-slate-900">
-        <jumbotron
-        title="Novinky zo sveta ešportu" 
-        description="Tvoje epicentrum herných noviniek a recenzií"
-        class="bg-[url('/img/IMG_0055(1).JPG')] bg-cover mb-2"
-        />
         <blog/>
-
         <foter />
       </div>
 

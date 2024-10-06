@@ -1,8 +1,8 @@
 <template>
   <newestArticle class="max-md:hidden"/>
-  <h1 class="md:px-48 px-4 text-2xl font-bold mt-7 mb-3">Čítaj čo ťa zaujíma</h1>
+  <h1 class="md:px-48 px-4 text-2xl font-bold mb-1 mt-3">Kategórie:</h1>
   <!-- Tags Filter with Mobile Scroll Support -->
-  <div class="md:px-48 px-4 py-2 flex gap-2 overflow-x-auto scrollbar-hide">
+  <div class="md:px-48 px-4 flex gap-2 overflow-x-auto scrollbar-hide">
     <div
       v-for="tag in tags"
       :key="tag"
@@ -43,7 +43,7 @@
         <div>
           <p class="mb-1 font-normal text-white text-sm hover:text-gray-400 transition ease-in" v-html="truncatedBlogDescription(blog.content)"></p>
         </div>
-        <p class="text-[0.6rem] text-slate-400 flex flex-row justify-start items-center mt-5">
+        <p class="text-[0.6rem] text-slate-400 flex flex-row justify-start items-center mt-1">
           <ion-icon :icon="personCircle" class="text-gray-400 text-sm me-1" />{{ blog.author }}
           <ion-icon :icon="time" class="text-gray-400 text-sm ms-4 me-1" /> {{ calculateReadingTime(blog.content) }} min. čítania
         </p>
@@ -70,7 +70,7 @@ export default {
   setup() {
     const blogStore = useBlogStore();
     const selectedTags = ref([]);
-    const tags = ['TECH', 'CS2', 'SVET', 'LOL', 'BRAWL STARS', 'ESPORT'];
+    const tags = ['VŠETKO','TECH', 'CS2', 'SVET', 'LOL', 'BRAWL STARS', 'ESPORT'];
 
     const sortedBlog = computed(() => {
       return [...blogStore.articles].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -115,8 +115,10 @@ export default {
           return 'bg-lime-500 text-white hover:scale-105';
         case 'BRAWL STARS':
           return 'bg-red-600 text-white hover:scale-105';
+        case 'TECH':
+          return 'bg-red-600 text-white hover:scale-105';
         default:
-          return 'bg-red-500 text-white hover:scale-105';
+          return 'bg-slate-600 text-white hover:scale-105';
       }
     };
 

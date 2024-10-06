@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import { Preferences } from '@capacitor/preferences';
 
 export const useLoginStore = defineStore({
   id: "login",
@@ -18,11 +19,14 @@ export const useLoginStore = defineStore({
         this.access_token = response.data.access_token;
         this.errors = {}; // Clear errors on successful login
 
-        // Set the access token as a cookie
-        document.cookie = `access_token=${this.access_token};`;
+        // Save the access_token in Capacitor Preferences
+        await Preferences.set({
+          key: 'access_token',
+          value: this.access_token,
+        });
 
         if (this.access_token) {
-          router.push({ name: 'tab1' });
+          router.push({ name: 'tab1' }); // Redirect to main page (tab1)
         }
         
       } catch (error) {
@@ -33,6 +37,25 @@ export const useLoginStore = defineStore({
           this.message = 'An error occurred during login.';
         }
         console.error('Error during login:', error);
+      }
+    },
+
+    async logout(router) {
+      // Clear the access_token
+      this.access_token = '';
+      this.errors = {};
+
+      // Remove access_token from Capacitor Preferences
+      await Preferences.remove({ key: 'access_token' });
+
+      router.push({ name: 'welcome' });
+    },
+
+    // Restore login state on app startup
+    async restoreLoginState() {
+      const { value } = await Preferences.get({ key: 'access_token' });
+      if (value) {
+        this.access_token = value;
       }
     }
   }

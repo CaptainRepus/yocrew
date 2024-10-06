@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full md:h-96 flex flex-col md:flex-row gap-2 px-3 md:px-0">
+  <div class="w-full h-full md:h-96 flex flex-col md:flex-row gap-2 px-4 md:px-0">
     <router-link
       v-for="(tournament, index) in displayTournaments"
       :key="index"
@@ -79,8 +79,8 @@ const upcomingTournaments = computed(() => {
 });
 
 const displayTournaments = computed(() => {
-  const tournaments = sortedTournament.value.slice(0, 4);
-  while (tournaments.length < 4) {
+  const tournaments = sortedTournament.value.slice(0, 2);
+  while (tournaments.length < 2) {
     tournaments.push(null); // Add null placeholders
   }
   return tournaments;

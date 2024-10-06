@@ -25,7 +25,7 @@
 }
 @media only screen and (max-width: 762px) {
   ::-webkit-scrollbar {
-    height: 0.5rem;
+    height: 0rem;
   }
 }
 
@@ -182,13 +182,13 @@
      */
   
     .ios body {
-      --ion-background-color: #000000;
-      --ion-background-color-rgb: 0,0,0;
+      --ion-background-color: rgb(15 23 42);
+      --ion-background-color-rgb: 15,23,42;
   
       --ion-text-color: #ffffff;
       --ion-text-color-rgb: 255,255,255;
   
-      --ion-color-step-50: #000000;
+      --ion-color-step-50: rgb(30 41 59);
       --ion-color-step-100: #000000;
       --ion-color-step-150: #2626268e;
       --ion-color-step-200: #333333;
@@ -214,8 +214,8 @@
     }
   
     .ios ion-modal {
-      --ion-background-color: #000000;
-      --ion-toolbar-background: #000000;
+      --ion-background-color: rgb(15 23 42);
+      --ion-toolbar-background: rgb(15 23 42);
       --ion-toolbar-border-color: var(--ion-color-step-250);
     }
   
@@ -226,8 +226,8 @@
      */
   
     .md body {
-      --ion-background-color: #000000;
-      --ion-background-color-rgb: 0,0,0;
+      --ion-background-color: rgb(15 23 42);
+      --ion-background-color-rgb: 15,23,42;
   
       --ion-text-color: #ffffff;
       --ion-text-color-rgb: 255,255,255;
@@ -256,9 +256,9 @@
   
       --ion-item-background: rgb(24,24,27);
   
-      --ion-toolbar-background: #000000;
+      --ion-toolbar-background: rgb(30 41 59); /*idk bro*/
   
-      --ion-tab-bar-background: #000000;
+      --ion-tab-bar-background: rgb(30 41 59);
   
       --ion-card-background: rgb(18, 18, 18);
     }
