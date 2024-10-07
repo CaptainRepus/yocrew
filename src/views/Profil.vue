@@ -67,85 +67,117 @@
       </div>
 
       <!-- Edit Profile Modal -->
-      <ion-modal :is-open="isEditProfileModalOpen" @will-dismiss="closeEditProfileModal">
-        <div class="p-5">
-          <h3 class="text-lg font-bold mb-4">Edit Profile</h3>
-          <ion-item>
-            <ion-label>Name</ion-label>
-            <ion-input v-model="dataStore.name"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Email</ion-label>
-            <ion-input v-model="dataStore.email"></ion-input>
-          </ion-item>
-          <ion-button expand="block" color="primary" class="mt-4" @click="saveProfile">
-            Save
-          </ion-button>
-          <ion-button expand="block" color="light" class="mt-2" @click="closeEditProfileModal">
-            Cancel
-          </ion-button>
-        </div>
-      </ion-modal>
+<ion-modal :is-open="isEditProfileModalOpen" @will-dismiss="closeEditProfileModal">
+  <div class="p-5">
+    <h3 class="text-lg font-bold mb-4">Edit Profile</h3>
+    
+    <!-- Profile Picture Upload -->
+    <ion-item>
+      <ion-label>Profile Picture</ion-label>
+      <input type="file" @change="onProfilePictureChange" accept="image/*" />
+    </ion-item>
+    
+    <!-- Name Input -->
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input v-model="dataStore.name"></ion-input>
+    </ion-item>
+    
+    <!-- Email Input -->
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input v-model="dataStore.email"></ion-input>
+    </ion-item>
+
+    <!-- Old Password Input -->
+    <ion-item>
+      <ion-label>Old Password</ion-label>
+      <ion-input type="password" v-model="oldPassword"></ion-input>
+    </ion-item>
+    
+    <!-- New Password Input -->
+    <ion-item>
+      <ion-label>New Password</ion-label>
+      <ion-input type="password" v-model="newPassword"></ion-input>
+    </ion-item>
+
+    <!-- Confirm New Password -->
+    <ion-item>
+      <ion-label>Confirm New Password</ion-label>
+      <ion-input type="password" v-model="confirmPassword"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" class="mt-4" @click="saveProfile">
+      Uložiť
+    </ion-button>
+    <ion-button expand="block" color="light" class="mt-2" @click="closeEditProfileModal">
+      Zrušiť
+    </ion-button>
+  </div>
+</ion-modal>
+
 
     </ion-content>
   </ion-page>
 </template>
 
 <script setup>
-import { IonContent, IonButton, IonIcon, IonToggle, IonHeader, IonTitle, IonToolbar, IonPage, IonModal, IonItem, IonLabel, IonInput } from '@ionic/vue'; // Import Ionic components
-import { ref, onMounted } from 'vue'; // Vue ref for reactivity
+import { ref } from 'vue';
 
-// Import Pinia store and Vue Router
-import { useLoginStore } from "@/store/auth/login.js"; // Adjust the path based on your file structure
-import { useRouter } from 'vue-router';
-import { useDataStore } from '../store/auth/userData';
-// Get the login store and router instance
-const loginStore = useLoginStore();
-const router = useRouter();
-const dataStore = useDataStore().userData;
-
-// Handle Logout function
-const handleLogout = () => {
-  loginStore.logout(router); // Call the logout action and pass the router
-};
-
-// If you need to fetch data dynamically, make sure you do so in onMounted
-onMounted(() => {
-  if (!dataStore.name) {
-    // Handle case where data is not immediately available
-    // Optionally add logic for fetching user data here if necessary
-  }
+// Define reactive variables for profile data
+const dataStore = ref({
+  name: 'Guest',  // Default values
+  email: 'N/A'
 });
 
-// Import Ionicons for use in the template
-import { createOutline, notificationsOutline, fingerPrintOutline, lockClosedOutline, logOutOutline, help } from 'ionicons/icons';
+const oldPassword = ref('');
+const newPassword = ref('');
+const confirmPassword = ref('');
 
-// Define the icons
-const editProfileIcon = createOutline;
-const notificationsIcon = notificationsOutline;
-const faceIDIcon = fingerPrintOutline;
-const pinCodeIcon = lockClosedOutline;
-const lockIcon = lockClosedOutline;
-const logoutIcon = logOutOutline;
-const helpIcon = help;
-
-// Modal state
 const isEditProfileModalOpen = ref(false);
 
-// Open the modal
+// Handle opening and closing the Edit Profile modal
 const openEditProfileModal = () => {
   isEditProfileModalOpen.value = true;
 };
 
-// Close the modal
 const closeEditProfileModal = () => {
   isEditProfileModalOpen.value = false;
 };
 
+// Handle profile picture change
+const onProfilePictureChange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    // Perform necessary actions to handle the file, such as uploading it to your server
+    console.log('Profile picture selected:', file);
+    // Optionally convert to a data URL for display or upload it
+  }
+};
+
 // Save the profile
 const saveProfile = () => {
-  // Perform save logic (e.g., API call)
-  console.log('Profile saved:', profile.value);
+  if (newPassword.value && newPassword.value !== confirmPassword.value) {
+    alert('New password and confirmation do not match.');
+    return;
+  }
+
+  // Example of how you'd verify the old password
+  if (oldPassword.value) {
+    // Add logic to check if oldPassword is correct via an API call
+    const isOldPasswordCorrect = true; // Assume API returns true for simplicity
+    if (!isOldPasswordCorrect) {
+      alert('Old password is incorrect.');
+      return;
+    }
+  }
+
+  // Continue to save profile information (including new password if applicable)
+  console.log('Profile saved with updated information.');
+  
+  // Example: Save logic to call the API and update the user profile
+  // Make sure to upload the profile picture, update the name, email, and password
   closeEditProfileModal();
 };
 </script>
+
