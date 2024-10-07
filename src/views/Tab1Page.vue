@@ -15,7 +15,6 @@
       <div class="md:mt-20 w-full z-[50000] md:px-0 bg-slate-900">
         <!-- Wlecome message -->
         <WelcomeMessage />
-
         <!-- GIVEAWAY BOX -->
          <giveaway />
         <div class="flex flex-col justify-center md:flex-col md:px-20">
@@ -69,6 +68,7 @@ import { onMounted } from 'vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
 import { useGiveawayStore } from '@/store/useGiveawayStore.js';
 import { useTournamentStore } from '@/store/useTournamentStore.js';
+import { useDataStore } from '@/store/auth/userData.js';
 import giveaway from '../components/homepage/giveaway.vue';
 import foter from '../components/footer.vue';
 import blog from '../components/homepage/blog.vue';
@@ -79,6 +79,8 @@ import tournaments from '../components/homepage/tournaments.vue';
 const blogStore = useBlogStore();
 const giveawayStore = useGiveawayStore();
 const tournamentStore = useTournamentStore();
+const dataStore = useDataStore();
+
 const getBlog = () =>{
   blogStore.getBlog();
 }
@@ -89,9 +91,14 @@ const getTournaments = () =>{
   tournamentStore.getTournament();
 }
 
+const getData = () =>{
+  dataStore.getData();
+}
+
 onMounted(() => {
   getBlog();
   getGiveaway();
   getTournaments();
+  getData();
 });
 </script>

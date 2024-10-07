@@ -33,8 +33,6 @@ const app = createApp(App)
   .use(createPinia())
   .use(router);
 
-
-  
   // Request permission for push notifications
   PushNotifications.requestPermissions().then(result => {
     if (result.receive === 'granted') {

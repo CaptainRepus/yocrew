@@ -18,8 +18,8 @@
           <div class="bg-green-200 rounded-full h-24 w-24 flex items-center justify-center mb-4">
             <img src="" alt="Avatar" class="rounded-full h-20 w-20">
           </div>
-          <h2 class="text-lg font-bold">Coffeestories</h2>
-          <p class="text-sm text-gray-500">mark.brock@icloud.com</p>
+          <h2 class="text-lg font-bold">{{ dataStore ? dataStore.name : 'Guest' }}</h2>
+          <p class="text-sm text-gray-500">{{ dataStore ? dataStore.email : 'N/A' }}</p>
           <ion-button expand="block" class="mt-4" color="primary" @click="openEditProfileModal">
             <ion-icon :icon="editProfileIcon" slot="start"></ion-icon>
             Edit Profile
@@ -72,11 +72,11 @@
           <h3 class="text-lg font-bold mb-4">Edit Profile</h3>
           <ion-item>
             <ion-label>Name</ion-label>
-            <ion-input v-model="profile.name"></ion-input>
+            <ion-input v-model="dataStore.name"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>Email</ion-label>
-            <ion-input v-model="profile.email"></ion-input>
+            <ion-input v-model="dataStore.email"></ion-input>
           </ion-item>
           <ion-button expand="block" color="primary" class="mt-4" @click="saveProfile">
             Save
@@ -93,20 +93,29 @@
 
 <script setup>
 import { IonContent, IonButton, IonIcon, IonToggle, IonHeader, IonTitle, IonToolbar, IonPage, IonModal, IonItem, IonLabel, IonInput } from '@ionic/vue'; // Import Ionic components
-import { ref } from 'vue'; // Vue ref for reactivity
+import { ref, onMounted } from 'vue'; // Vue ref for reactivity
 
 // Import Pinia store and Vue Router
 import { useLoginStore } from "@/store/auth/login.js"; // Adjust the path based on your file structure
 import { useRouter } from 'vue-router';
-
+import { useDataStore } from '../store/auth/userData';
 // Get the login store and router instance
 const loginStore = useLoginStore();
 const router = useRouter();
+const dataStore = useDataStore().userData;
 
 // Handle Logout function
 const handleLogout = () => {
   loginStore.logout(router); // Call the logout action and pass the router
 };
+
+// If you need to fetch data dynamically, make sure you do so in onMounted
+onMounted(() => {
+  if (!dataStore.name) {
+    // Handle case where data is not immediately available
+    // Optionally add logic for fetching user data here if necessary
+  }
+});
 
 // Import Ionicons for use in the template
 import { createOutline, notificationsOutline, fingerPrintOutline, lockClosedOutline, logOutOutline, help } from 'ionicons/icons';
@@ -122,12 +131,6 @@ const helpIcon = help;
 
 // Modal state
 const isEditProfileModalOpen = ref(false);
-
-// Profile data for editing
-const profile = ref({
-  name: 'Coffeestories',
-  email: 'mark.brock@icloud.com'
-});
 
 // Open the modal
 const openEditProfileModal = () => {
