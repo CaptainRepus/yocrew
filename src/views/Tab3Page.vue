@@ -14,7 +14,6 @@
 
       <div class="md:mt-20 w-full z-[50000] md:px-0 bg-slate-900">
         <blog/>
-        <foter />
       </div>
 
     </ion-content>
@@ -26,7 +25,6 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue
 import { useBlogStore } from '@/store/useBlogStore.js';
 import jumbotron from '../components/jumbotron.vue';
 import blog from '../components/blog/blog.vue';
-import foter from '../components/footer.vue';
 import sponsorBox from '../components/sponsorBox.vue';
 
 export default {
@@ -38,7 +36,6 @@ export default {
     IonContent,
     jumbotron,
     blog,
-    foter,
     sponsorBox,
   },
   setup() {

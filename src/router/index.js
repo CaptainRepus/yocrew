@@ -24,6 +24,10 @@ const routes = [
     component: () => import('@/views/auth/Welcome.vue')
   },
   {
+    path: '/reset-password',
+    component: () => import('@/views/auth/ResetPassword.vue')
+  },
+  {
     path: '/',
     component: TabsPage,
     meta: { requiresAuth: true },

@@ -70,7 +70,7 @@ export default {
   setup() {
     const blogStore = useBlogStore();
     const selectedTags = ref([]);
-    const tags = ['VŠETKO','TECH', 'CS2', 'SVET', 'LOL', 'BRAWL STARS', 'ESPORT'];
+    const tags = ['TECH', 'CS2', 'SVET', 'LOL', 'BRAWL STARS', 'ESPORT'];
 
     const sortedBlog = computed(() => {
       return [...blogStore.articles].sort((a, b) => new Date(b.date) - new Date(a.date));

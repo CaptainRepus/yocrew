@@ -16,7 +16,6 @@
 
         <layout />
         <ListOfServers />
-        <foter />
       </div>
 
     </ion-content>
@@ -30,7 +29,6 @@ import layout from '../components/turnaje/layoutTournaments.vue';
 import { useSectionStore } from '@/store/useSectionStore.js';
 import ListOfServers from '../components/servery/listOfServers.vue';
 import { useServerStore } from '@/store/useServerStore.js';
-import foter from '@/components/footer.vue'
 
 const sectionStore = useSectionStore();
 const serverStore = useServerStore();
