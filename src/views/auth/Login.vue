@@ -28,7 +28,7 @@
               Prihlásiť sa
             </ion-button>
             
-            <router-link to="/forgot-password" class="text-center text-gray-500 text-lg font-bold flex justify-center mb-2">
+            <router-link to="/reset-password" class="text-center text-gray-500 text-lg font-bold flex justify-center mb-2">
               Zabudol/la si heslo?
             </router-link>
             <router-link to="/register" class="text-center text-green-500 text-lg font-bold flex justify-center">

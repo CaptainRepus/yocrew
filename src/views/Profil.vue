@@ -90,7 +90,7 @@
             label-placement="stacked"
             ref="inputName"
             type="email"
-            placeholder="Tvoje meno"
+            placeholder="Tvoj nový email"
           />
 
           <h3 class="text-xl font-bold mt-10">Zmena hesla</h3>
@@ -104,33 +104,33 @@
           <ion-input
             class="text-xl"
             mode="md"
-            label="Tu nahoď svoje staré heslo"
+            label="Tvoje staré heslo"
             label-placement="stacked"
             ref="inputName"
             type="pasword"
-            placeholder="Tvoje meno"
+            placeholder="Tu nahoď svoje staré heslo"
           />
 
           <!-- New Password Input -->
           <ion-input
             class="text-xl"
             mode="md"
-            label="Tu nahoď svoje nové heslo"
+            label="Tvoje nové heslo"
             label-placement="stacked"
             ref="inputName"
             type="password"
-            placeholder="Tvoje meno"
+            placeholder="Tu nahoď svoje nové heslo"
           />
 
           <!-- Confirm New Password -->
           <ion-input
             class="text-xl mb-10"
             mode="md"
-            label="Tu nahoď svoje nové heslo znova"
+            label="Potvrď svoje nové heslo"
             label-placement="stacked"
             ref="inputName"
             type="password"
-            placeholder="Tvoje meno"
+            placeholder="Tu nahoď svoje nové heslo znova"
           />
 
           <ion-button expand="block" color="primary" class="mt-4" @click="saveProfile">
