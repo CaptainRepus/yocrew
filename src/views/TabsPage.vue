@@ -3,7 +3,7 @@
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
 
-      <!-- NAVBAR NA PC -->
+      <!-- NAVBAR NA PC 
       <nav class="h-20 bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-700 max-md:hidden">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-[0.6rem] pb-0">
           <router-link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -112,11 +112,11 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav>-->
 
       <!-- TAB PRE MOBILY -->
       <div class="relative">
-        <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isYoCrewRoute">
+        <!-- <div class="w-full h-10 absolute top-[-39px] left-0 z-10 md:hidden flex justify-center items-center bg-black" v-if="isYoCrewRoute">
           <div class="inline-flex rounded-md shadow-sm mt-2">
             <router-link
               to="/yocrew"
@@ -138,7 +138,7 @@
               Galéria
             </router-link>
           </div>
-        </div>
+        </div> -->
 
         <ion-tab-bar slot="bottom" class="md:hidden relative z-0">
           <ion-tab-button tab="Domov" href="/">

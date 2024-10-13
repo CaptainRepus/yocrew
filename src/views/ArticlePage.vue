@@ -118,7 +118,7 @@
           </router-link>
         </div>
       </div>
-      <foter />
+      <!-- <foter /> -->
     </ion-content>
   </ion-page>
   <div v-else>

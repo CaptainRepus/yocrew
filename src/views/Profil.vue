@@ -39,13 +39,13 @@
             <ion-toggle slot="end" checked></ion-toggle>
           </div>
 
-          <!-- Face ID Toggle -->
-          <div class="flex justify-between items-center py-2 border-b mt-2">
-            <div class="flex items-center">
-              <ion-icon :icon="help" class="mr-2"></ion-icon>
-              <span>Pomoc</span>
-            </div>
+        <div class="flex justify-between items-center py-2 border-b mt-2">
+          <div class="flex items-center">
+            <ion-icon :icon="help" class="mr-2"></ion-icon>
+            <a href="mailto:info@wade-development.com" class="text-white">Pomoc</a>
           </div>
+        </div>
+
         </div>
 
         <!-- Logout Button -->
@@ -88,7 +88,7 @@
             mode="md"
             label="Zmena emailu"
             label-placement="stacked"
-            ref="inputName"
+            ref="inputEmail"
             type="email"
             placeholder="Tvoj nový email"
           />
@@ -106,7 +106,7 @@
             mode="md"
             label="Tvoje staré heslo"
             label-placement="stacked"
-            ref="inputName"
+            ref="inputOldPassword"
             type="pasword"
             placeholder="Tu nahoď svoje staré heslo"
           />
@@ -117,7 +117,7 @@
             mode="md"
             label="Tvoje nové heslo"
             label-placement="stacked"
-            ref="inputName"
+            ref="inputNewPassword"
             type="password"
             placeholder="Tu nahoď svoje nové heslo"
           />
@@ -128,7 +128,7 @@
             mode="md"
             label="Potvrď svoje nové heslo"
             label-placement="stacked"
-            ref="inputName"
+            ref="inputNewPasswordConfirm"
             type="password"
             placeholder="Tu nahoď svoje nové heslo znova"
           />
@@ -149,10 +149,12 @@
 <script setup>
 import { ref } from 'vue';
 import { useDataStore } from '@/store/auth/userData.js';
-import { IonPage, IonContent, IonButton, IonIcon, IonModal, IonItem, IonLabel, IonInput, IonToggle, IonHeader, IonToolbar, IonTitle } from '@ionic/vue';
 import { useLoginStore } from '../store/auth/login';
-import { RouterLink } from 'vue-router';
 import { create, notifications, help, logOut } from 'ionicons/icons';
+import axios from 'axios';
+import { Preferences } from '@capacitor/preferences';
+import { IonModal, IonButton, IonInput, IonToggle, IonIcon, IonLabel, IonPage, IonContent, IonHeader, IonToolbar, IonTitle } from '@ionic/vue';
+
 
 const dataStore = useDataStore()?.userData || { name: 'Guest', email: 'N/A' };
 
@@ -162,6 +164,13 @@ const confirmPassword = ref('');
 
 const isEditProfileModalOpen = ref(false);
 const profilePicturePreview = ref(''); // To store the preview URL of the profile picture
+
+// Refs for input fields
+const inputName = ref('');
+const inputEmail = ref('');
+const inputOldPassword = ref('');
+const inputNewPassword = ref('');
+const inputNewPasswordConfirm = ref('');
 
 // Handle opening and closing the Edit Profile modal
 const openEditProfileModal = () => {
@@ -188,7 +197,10 @@ const onProfilePictureChange = (e) => {
 };
 
 // Save the profile
-const saveProfile = () => {
+const saveProfile = async () => {
+  const { value: token } = await Preferences.get({ key: 'access_token' }); 
+
+
   if (newPassword.value && newPassword.value !== confirmPassword.value) {
     alert('New password and confirmation do not match.');
     return;
@@ -204,10 +216,26 @@ const saveProfile = () => {
     }
   }
 
-  // Continue to save profile information (including new password if applicable)
-  console.log('Profile saved with updated information.');
-  
-  // Example: Save logic to call the API and update the user profile
-  closeEditProfileModal();
+  const data = {
+    name: inputName.value,
+    email: inputEmail.value,
+    oldPassword: inputOldPassword.value,
+    newPassword: inputNewPassword.value,
+    profilePicture: profilePicturePreview.value,
+  };
+
+  try {
+    const response = await axios.post('https://api.wade-development.com/api/YoCrew/App/edit-profile', data, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json'
+      },
+    });
+
+    console.log('Profile saved successfully', response);
+    closeEditProfileModal();
+  } catch (error) {
+    console.error('Error saving profile:', error);
+  }
 };
 </script>

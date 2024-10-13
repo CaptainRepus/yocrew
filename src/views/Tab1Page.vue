@@ -14,9 +14,15 @@
       </ion-header>
       <div class="md:mt-20 w-full z-[50000] md:px-0 bg-slate-900">
         <!-- Wlecome message -->
-        <WelcomeMessage />
-        <!-- GIVEAWAY BOX -->
-         <giveaway />
+         <div class="mt-5 w-full h-auto flex justify-center items-center">
+          <img
+          src="/img/yocrewlogo.png" 
+          alt="YoCrew logo"
+          class="w-1/4">
+         </div>
+        
+        <!-- GIVEAWAY BOX 
+         <giveaway />-->
         <div class="flex flex-col justify-center md:flex-col md:px-20">
           <!-- BLOG -->
           <div class="font-bold text-3xl pt-5 md:pb-3 md:text-2xl max-md:mb-3 max-md:text-center">Najnovšie články</div>
@@ -29,7 +35,7 @@
             </div>
           </div>
           <!-- BUTTON NA PRESMEROVANIE -->
-          <div class="flex md:justify-end items-center mt-3 max-md:px-5">
+          <div class="flex md:justify-end items-center mt-3 max-md:px-3">
             <router-link to="/clanky" class="w-full md:w-1/3  rounded-2xl overflow-hidden font-bold">
               <ion-button class="w-full rounded-2xl overflow-hidden font-bold">
                 Pozrieť všetky články
@@ -43,7 +49,7 @@
            <!-- TURNAJE -->
           <div class="font-bold text-3xl pt-5 md:pb-3 md:text-2xl max-md:mb-3 max-md:text-center">Aktuálne turnaje</div>
             <tournaments />
-          <div class="flex md:justify-end items-center mt-3 max-md:px-5 pb-5">
+          <div class="flex md:justify-end items-center mt-3 max-md:px-3 pb-5">
             <router-link to="/turnaje-servery" class="w-full md:w-1/3  rounded-2xl overflow-hidden font-bold">
               <ion-button class="w-full rounded-2xl overflow-hidden font-bold">
                 Pozrieť všetky turnaje
@@ -63,7 +69,7 @@
 </template>
 
 <script setup>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonButton, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { onMounted } from 'vue';
 import { useBlogStore } from '@/store/useBlogStore.js';
 import { useGiveawayStore } from '@/store/useGiveawayStore.js';
